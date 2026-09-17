@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Resources &amp; Academic Knowledge Hub | Dr. Justin Sudhakar</title>
+<meta name="description" content="A growing knowledge hub of research resources, teaching materials, academic writing guides, digital learning content and useful academic links, curated by Dr. Justin Sudhakar." />
+<meta property="og:title" content="Resources & Academic Knowledge Hub | Dr. Justin Sudhakar" />
+<meta property="og:description" content="A growing collection of research resources, teaching materials, digital learning content and useful academic resources designed to support learning, inquiry and knowledge creation." />
+<meta property="og:type" content="profile" />
+<meta property="og:image" content="[ADD OG IMAGE URL]" />
+<link rel="icon" href="data:," />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="stylesheet" href="css/resources.css" />
+</head>
+<body>
+<div class="bg-field" aria-hidden="true"></div>
+
+<div class="shell">
+
+  <!-- ================= Sidebar navigation (desktop) ================= -->
+  <aside class="sidebar" aria-label="Primary">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true">JS</span>
+      <span class="brand-text">
+        <span class="brand-name">Dr. Justin Sudhakar</span>
+        <span class="brand-role">Educator &amp; EdTech Developer</span>
+      </span>
+    </a>
+
+    <nav>
+      <ul class="nav-list">
+        <li><a class="nav-link" href="index.html"><span class="nav-icon">🏠</span>Dashboard</a></li>
+        <li><a class="nav-link" href="about.html"><span class="nav-icon">👤</span>About Me</a></li>
+        <li><a class="nav-link" href="academic-profile.html"><span class="nav-icon">🎓</span>Academic Profile</a></li>
+        <li><a class="nav-link" href="teaching.html"><span class="nav-icon">📚</span>Teaching &amp; Courses</a></li>
+        <li><a class="nav-link" href="research.html"><span class="nav-icon">🔬</span>Research</a></li>
+        <li><a class="nav-link" href="projects.html"><span class="nav-icon">📱</span>Apps &amp; Projects</a></li>
+        <li><a class="nav-link" href="publications.html"><span class="nav-icon">📄</span>Publications</a></li>
+        <li><a class="nav-link" href="certifications.html"><span class="nav-icon">🏅</span>Certifications</a></li>
+        <li><a class="nav-link" href="resources.html" aria-current="page"><span class="nav-icon">📚</span>Resources</a></li>
+        <li><a class="nav-link" href="experience.html"><span class="nav-icon">💼</span>Experience</a></li>
+        <li><a class="nav-link" href="youtube.html"><span class="nav-icon">▶️</span>YouTube &amp; Learning</a></li>
+        <li><a class="nav-link" href="photography.html"><span class="nav-icon">📷</span>Photography</a></li>
+        <li><a class="nav-link" href="contact.html"><span class="nav-icon">✉️</span>Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-footer">
+      Phase 2H preview · other pages coming in later phases
+    </div>
+  </aside>
+
+  <!-- ================= Mobile top bar ================= -->
+  <header class="topbar">
+    <a class="brand" href="index.html" style="padding:0;">
+      <span class="brand-mark" aria-hidden="true">JS</span>
+      <span class="brand-text">
+        <span class="brand-name">Dr. Justin Sudhakar</span>
+      </span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+      <span aria-hidden="true">☰</span>
+    </button>
+  </header>
+
+  <!-- ================= Mobile nav drawer ================= -->
+  <div class="mobile-nav" id="mobileNav">
+    <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+    <div class="mobile-nav-panel" role="dialog" aria-modal="true" aria-label="Site navigation">
+      <div class="mobile-nav-header">
+        <span class="brand-text">
+          <span class="brand-name">Menu</span>
+        </span>
+        <button class="menu-toggle" id="menuClose" aria-label="Close menu">
+          <span aria-hidden="true">✕</span>
+        </button>
+      </div>
+      <nav>
+        <ul class="nav-list">
+          <li><a class="nav-link" href="index.html"><span class="nav-icon">🏠</span>Dashboard</a></li>
+          <li><a class="nav-link" href="about.html"><span class="nav-icon">👤</span>About Me</a></li>
+          <li><a class="nav-link" href="academic-profile.html"><span class="nav-icon">🎓</span>Academic Profile</a></li>
+          <li><a class="nav-link" href="teaching.html"><span class="nav-icon">📚</span>Teaching &amp; Courses</a></li>
+          <li><a class="nav-link" href="research.html"><span class="nav-icon">🔬</span>Research</a></li>
+          <li><a class="nav-link" href="projects.html"><span class="nav-icon">📱</span>Apps &amp; Projects</a></li>
+          <li><a class="nav-link" href="publications.html"><span class="nav-icon">📄</span>Publications</a></li>
+          <li><a class="nav-link" href="certifications.html"><span class="nav-icon">🏅</span>Certifications</a></li>
+          <li><a class="nav-link" href="resources.html" aria-current="page"><span class="nav-icon">📚</span>Resources</a></li>
+          <li><a class="nav-link" href="experience.html"><span class="nav-icon">💼</span>Experience</a></li>
+          <li><a class="nav-link" href="youtube.html"><span class="nav-icon">▶️</span>YouTube &amp; Learning</a></li>
+          <li><a class="nav-link" href="photography.html"><span class="nav-icon">📷</span>Photography</a></li>
+          <li><a class="nav-link" href="contact.html"><span class="nav-icon">✉️</span>Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ================= Main content ================= -->
+  <main class="main" id="main">
+
+    <!-- ===== Hero ===== -->
+    <section class="page-section res-hero" aria-labelledby="res-hero-title">
+      <div>
+        <p class="eyebrow">Resources • Knowledge • Learning</p>
+        <h1 class="res-hero-title" id="res-hero-title">Knowledge Should Be Accessible.</h1>
+        <p class="res-hero-lede">A growing collection of research resources, teaching materials, digital learning content and useful academic resources designed to support learning, inquiry and knowledge creation.</p>
+      </div>
+      <div class="res-motif" aria-hidden="true">
+        <div class="res-motif-tile is-a"></div>
+        <div class="res-motif-tile is-b"></div>
+        <div class="res-motif-tile is-c"></div>
+      </div>
+    </section>
+
+    <!-- ===== Knowledge journey ===== -->
+    <section class="page-section" aria-labelledby="journey-title">
+      <h2 class="section-title" id="journey-title" style="font-size:var(--fs-lg);">Discover → Learn → Research → Create → Share</h2>
+      <div class="journey-strip" style="margin-top:var(--sp-5);">
+        <div class="card journey-strip-step">
+          <span class="step-label">Discover</span>
+          <span class="step-desc">Find useful academic and educational resources.</span>
+        </div>
+        <span class="journey-strip-arrow" aria-hidden="true">→</span>
+        <div class="card journey-strip-step">
+          <span class="step-label">Learn</span>
+          <span class="step-desc">Develop knowledge and understanding.</span>
+        </div>
+        <span class="journey-strip-arrow" aria-hidden="true">→</span>
+        <div class="card journey-strip-step">
+          <span class="step-label">Research</span>
+          <span class="step-desc">Explore questions, evidence and academic inquiry.</span>
+        </div>
+        <span class="journey-strip-arrow" aria-hidden="true">→</span>
+        <div class="card journey-strip-step">
+          <span class="step-label">Create</span>
+          <span class="step-desc">Turn knowledge into learning resources and digital experiences.</span>
+        </div>
+        <span class="journey-strip-arrow" aria-hidden="true">→</span>
+        <div class="card journey-strip-step">
+          <span class="step-label">Share</span>
+          <span class="step-desc">Make useful knowledge accessible to others.</span>
+        </div>
+      </div>
+      <p class="journey-strip-note">This is a conceptual framework, not a claim that every resource follows this exact sequence.</p>
+    </section>
+
+    <!-- ===== Section 1: Explore the Knowledge Hub ===== -->
+    <section class="page-section" aria-labelledby="hub-title">
+      <h2 class="section-title" id="hub-title">Explore the Knowledge Hub</h2>
+      <div class="hub-category-grid" style="margin-top:var(--sp-5);">
+        <div class="card hub-category-card">
+          <div class="hub-category-icon" aria-hidden="true">🔬</div>
+          <div class="hub-category-title">Research Methodology</div>
+          <p class="hub-category-desc">Resources related to research design, methodology and educational research.</p>
+        </div>
+        <div class="card hub-category-card">
+          <div class="hub-category-icon" aria-hidden="true">✍️</div>
+          <div class="hub-category-title">Academic Writing</div>
+          <p class="hub-category-desc">Resources supporting academic writing, research writing and scholarly communication.</p>
+        </div>
+        <div class="card hub-category-card">
+          <div class="hub-category-icon" aria-hidden="true">🎓</div>
+          <div class="hub-category-title">Teaching &amp; Learning</div>
+          <p class="hub-category-desc">Materials related to teaching, learning design and educational practice.</p>
+        </div>
+        <div class="card hub-category-card">
+          <div class="hub-category-icon" aria-hidden="true">💻</div>
+          <div class="hub-category-title">Educational Technology</div>
+          <p class="hub-category-desc">Resources related to educational technology and digital learning.</p>
+        </div>
+        <div class="card hub-category-card">
+          <div class="hub-category-icon" aria-hidden="true">🧰</div>
+          <div class="hub-category-title">Research Tools</div>
+          <p class="hub-category-desc">Useful tools, frameworks and resources for researchers.</p>
+        </div>
+        <div class="card hub-category-card">
+          <div class="hub-category-icon" aria-hidden="true">📱</div>
+          <div class="hub-category-title">Digital Learning</div>
+          <p class="hub-category-desc">Digital learning materials, applications and educational experiences.</p>
+        </div>
+      </div>
+      <p class="hub-category-note">These are resource categories, not a claim that each category already contains published resources.</p>
+    </section>
+
+    <!-- ===== Section 2: Featured Resources ===== -->
+    <section class="page-section" aria-labelledby="featured-title">
+      <h2 class="section-title" id="featured-title">Featured Resources</h2>
+      <p class="section-lede">Selected resources will appear here as they are developed, verified and added to the knowledge hub.</p>
+
+      <div class="featured-resource-grid" style="margin-top:var(--sp-5);">
+        <div class="card featured-resource-card">
+          <span class="resource-number">Resource 01</span>
+          <div class="resource-title">[ADD RESOURCE TITLE]</div>
+          <p class="resource-desc">[ADD DESCRIPTION]</p>
+          <div class="resource-type-row">Type: [PDF / GUIDE / VIDEO / TEMPLATE / LINK]</div>
+          <span class="resource-action-inactive">Explore Resource</span>
+        </div>
+        <div class="card featured-resource-card">
+          <span class="resource-number">Resource 02</span>
+          <div class="resource-title">[ADD RESOURCE TITLE]</div>
+          <p class="resource-desc">[ADD DESCRIPTION]</p>
+          <div class="resource-type-row">Type: [ADD RESOURCE TYPE]</div>
+          <span class="resource-action-inactive">Explore Resource</span>
+        </div>
+        <div class="card featured-resource-card">
+          <span class="resource-number">Resource 03</span>
+          <div class="resource-title">[ADD RESOURCE TITLE]</div>
+          <p class="resource-desc">[ADD DESCRIPTION]</p>
+          <div class="resource-type-row">Type: [ADD RESOURCE TYPE]</div>
+          <span class="resource-action-inactive">Explore Resource</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section 3: Research Methodology ===== -->
+    <section class="page-section" aria-labelledby="methodology-title">
+      <h2 class="section-title" id="methodology-title">Research Methodology</h2>
+      <p class="section-lede">Research methodology provides the foundation for asking meaningful questions, selecting appropriate methods, collecting evidence and interpreting findings.</p>
+
+      <div class="topic-chip-grid" style="margin-top:var(--sp-5);">
+        <span class="topic-chip">Research Design</span>
+        <span class="topic-chip">Research Questions</span>
+        <span class="topic-chip">Literature Review</span>
+        <span class="topic-chip">Data Collection</span>
+        <span class="topic-chip">Educational Research</span>
+        <span class="topic-chip">Research Resources</span>
+        <span class="topic-chip">Academic Writing</span>
+        <span class="topic-chip">Data Interpretation</span>
+      </div>
+      <div class="topic-future-note">[ADD METHODOLOGY RESOURCES]</div>
+    </section>
+
+    <!-- ===== Section 4: Academic Writing ===== -->
+    <section class="page-section" aria-labelledby="writing-title">
+      <h2 class="section-title" id="writing-title">Academic Writing</h2>
+      <p class="section-lede">A future collection of resources for academic writing, research communication and scholarly content development.</p>
+
+      <div class="placeholder-card-grid" style="margin-top:var(--sp-5);">
+        <div class="card placeholder-card">
+          <div class="pc-title">Research Writing</div>
+          <p class="pc-value">[ADD RESOURCE]</p>
+        </div>
+        <div class="card placeholder-card">
+          <div class="pc-title">Literature Review</div>
+          <p class="pc-value">[ADD RESOURCE]</p>
+        </div>
+        <div class="card placeholder-card">
+          <div class="pc-title">Academic Structure</div>
+          <p class="pc-value">[ADD RESOURCE]</p>
+        </div>
+        <div class="card placeholder-card">
+          <div class="pc-title">Scholarly Communication</div>
+          <p class="pc-value">[ADD RESOURCE]</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section 5: Teaching & Learning ===== -->
+    <section class="page-section" aria-labelledby="teaching-res-title">
+      <h2 class="section-title" id="teaching-res-title">Teaching &amp; Learning</h2>
+      <p class="section-lede">Resources may eventually support undergraduate, postgraduate and research-level learning, educational technology, educational research and academic development.</p>
+
+      <div class="placeholder-card-grid" style="margin-top:var(--sp-5);">
+        <div class="card placeholder-card">
+          <div class="pc-title">Teaching Resource</div>
+          <p class="pc-value">[ADD TEACHING RESOURCE]</p>
+        </div>
+        <div class="card placeholder-card">
+          <div class="pc-title">Learning Material</div>
+          <p class="pc-value">[ADD LEARNING MATERIAL]</p>
+        </div>
+        <div class="card placeholder-card">
+          <div class="pc-title">Activity / Worksheet</div>
+          <p class="pc-value">[ADD ACTIVITY / WORKSHEET]</p>
+        </div>
+        <div class="card placeholder-card">
+          <div class="pc-title">Academic Guide</div>
+          <p class="pc-value">[ADD ACADEMIC GUIDE]</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section 6: Digital Learning ===== -->
+    <section class="page-section" aria-labelledby="digital-res-title">
+      <h2 class="section-title" id="digital-res-title">Digital Learning</h2>
+      <p class="section-lede">Digital learning extends academic knowledge through applications, interactive resources and technology-enabled learning experiences.</p>
+
+      <div class="digital-link-grid" style="margin-top:var(--sp-5);">
+        <div class="card digital-link-card">
+          <div class="digital-link-icon" aria-hidden="true">📘</div>
+          <div class="digital-link-name">Research Methods in Education</div>
+          <p class="digital-link-desc">Educational / research learning application.</p>
+          <span class="status-badge is-published">Published</span>
+          <a class="digital-link-cta" href="projects.html">View in Apps &amp; Projects →</a>
+        </div>
+        <div class="card digital-link-card">
+          <div class="digital-link-icon" aria-hidden="true">📊</div>
+          <div class="digital-link-name">Praxis</div>
+          <p class="digital-link-tagline">Knowledge in motion.</p>
+          <p class="digital-link-desc">Research progress tracker for Arts and Social Sciences.</p>
+          <span class="status-badge is-published">Published</span>
+          <a class="digital-link-cta" href="projects.html">View in Apps &amp; Projects →</a>
+        </div>
+        <div class="card digital-link-card">
+          <div class="digital-link-icon" aria-hidden="true">🧠</div>
+          <div class="digital-link-name">Bezel</div>
+          <p class="digital-link-desc">Concept / mind-map application connected to educational research knowledge.</p>
+          <span class="status-badge is-progress">In Development</span>
+          <a class="digital-link-cta" href="projects.html">View in Apps &amp; Projects →</a>
+        </div>
+      </div>
+      <p class="digital-link-note">These are digital projects, not downloadable resources, unless an actual resource file is later supplied.</p>
+    </section>
+
+    <!-- ===== Section 7: Resources for Researchers ===== -->
+    <section class="page-section" aria-labelledby="researcher-res-title">
+      <h2 class="section-title" id="researcher-res-title">Resources for Researchers</h2>
+      <div class="placeholder-card-grid" style="margin-top:var(--sp-5); grid-template-columns:repeat(3,1fr);">
+        <div class="card placeholder-card">
+          <div class="pc-title">Research Design</div>
+          <p class="pc-value">[ADD RESOURCE]</p>
+        </div>
+        <div class="card placeholder-card">
+          <div class="pc-title">Data Collection</div>
+          <p class="pc-value">[ADD RESOURCE]</p>
+        </div>
+        <div class="card placeholder-card">
+          <div class="pc-title">Literature Review</div>
+          <p class="pc-value">[ADD RESOURCE]</p>
+        </div>
+        <div class="card placeholder-card">
+          <div class="pc-title">Research Writing</div>
+          <p class="pc-value">[ADD RESOURCE]</p>
+        </div>
+        <div class="card placeholder-card">
+          <div class="pc-title">Research Management</div>
+          <p class="pc-value">[ADD RESOURCE]</p>
+        </div>
+        <div class="card placeholder-card">
+          <div class="pc-title">Digital Research Tools</div>
+          <p class="pc-value">[ADD RESOURCE]</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section 8: From Knowledge to Content ===== -->
+    <section class="page-section" aria-labelledby="k2c-title">
+      <p class="eyebrow">Academic Content &amp; Knowledge Creation</p>
+      <h2 class="section-title" id="k2c-title" style="margin-top:var(--sp-2);">From Knowledge to Content</h2>
+
+      <div class="k2c-flow" style="margin-top:var(--sp-5);">
+        <div class="card k2c-step">
+          <span class="flow-label">Research</span>
+          <span class="flow-desc">Investigating questions and exploring evidence.</span>
+        </div>
+        <span class="k2c-arrow" aria-hidden="true">→</span>
+        <div class="card k2c-step">
+          <span class="flow-label">Knowledge</span>
+          <span class="flow-desc">Developing understanding through inquiry and academic work.</span>
+        </div>
+        <span class="k2c-arrow" aria-hidden="true">→</span>
+        <div class="card k2c-step">
+          <span class="flow-label">Content</span>
+          <span class="flow-desc">Organizing knowledge into accessible explanations and learning materials.</span>
+        </div>
+        <span class="k2c-arrow" aria-hidden="true">→</span>
+        <div class="card k2c-step">
+          <span class="flow-label">Digital Resource</span>
+          <span class="flow-desc">Extending content through digital formats.</span>
+        </div>
+        <span class="k2c-arrow" aria-hidden="true">→</span>
+        <div class="card k2c-step">
+          <span class="flow-label">Learning</span>
+          <span class="flow-desc">Helping learners engage with knowledge beyond traditional settings.</span>
+        </div>
+      </div>
+      <p class="k2c-note">This is a general knowledge-creation framework; individual projects may develop through different processes.</p>
+    </section>
+
+    <!-- ===== Section 9: Teaching & Research on YouTube ===== -->
+    <section class="page-section" aria-labelledby="yt-res-title">
+      <h2 class="section-title" id="yt-res-title">Teaching &amp; Research on YouTube</h2>
+      <p class="section-lede">Video content can extend teaching and research conversations beyond the classroom.</p>
+
+      <div class="video-grid" style="margin-top:var(--sp-5);">
+        <div class="card video-card">
+          <div class="video-thumb" aria-hidden="true">▶️</div>
+          <span class="video-category">Latest Video</span>
+          <div class="video-title">[ADD VIDEO TITLE]</div>
+          <div class="video-link">[ADD VIDEO LINK]</div>
+        </div>
+        <div class="card video-card">
+          <div class="video-thumb" aria-hidden="true">🔬</div>
+          <span class="video-category">Research Video</span>
+          <div class="video-title">[ADD VIDEO TITLE]</div>
+          <div class="video-link">[ADD VIDEO LINK]</div>
+        </div>
+        <div class="card video-card">
+          <div class="video-thumb" aria-hidden="true">🎓</div>
+          <span class="video-category">Teaching Video</span>
+          <div class="video-title">[ADD VIDEO TITLE]</div>
+          <div class="video-link">[ADD VIDEO LINK]</div>
+        </div>
+      </div>
+      <a class="btn btn-secondary" style="margin-top:var(--sp-6);" href="https://www.youtube.com/channel/UCAciCJotVFrAyKCNyshcMDw?view_as=subscriber" target="_blank" rel="noopener noreferrer">Visit YouTube Channel</a>
+    </section>
+
+    <!-- ===== Section 10: Downloads ===== -->
+    <section class="page-section" aria-labelledby="downloads-title">
+      <h2 class="section-title" id="downloads-title">Downloads</h2>
+      <p class="section-lede">Downloadable academic resources will be added here as they are prepared and verified.</p>
+
+      <div class="download-grid" style="margin-top:var(--sp-5);">
+        <div class="card download-card">
+          <div class="download-icon" aria-hidden="true">📄</div>
+          <div class="download-name">[ADD RESOURCE NAME]</div>
+          <p class="download-desc">[ADD RESOURCE DESCRIPTION]</p>
+          <div class="download-file">File: [ADD FILE]</div>
+          <span class="download-btn-inactive">Download</span>
+        </div>
+        <div class="card download-card">
+          <div class="download-icon" aria-hidden="true">📋</div>
+          <div class="download-name">[ADD RESOURCE NAME]</div>
+          <p class="download-desc">[ADD RESOURCE DESCRIPTION]</p>
+          <div class="download-file">File: [ADD FILE]</div>
+          <span class="download-btn-inactive">Download</span>
+        </div>
+        <div class="card download-card">
+          <div class="download-icon" aria-hidden="true">📝</div>
+          <div class="download-name">[ADD RESOURCE NAME]</div>
+          <p class="download-desc">[ADD RESOURCE DESCRIPTION]</p>
+          <div class="download-file">File: [ADD FILE]</div>
+          <span class="download-btn-inactive">Download</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section 11: Useful Academic Links ===== -->
+    <section class="page-section" aria-labelledby="links-title">
+      <h2 class="section-title" id="links-title">Useful Academic Links</h2>
+      <p class="section-lede">A curated collection of useful external academic and educational resources will be added here.</p>
+
+      <div class="useful-link-grid" style="margin-top:var(--sp-5);">
+        <div class="card useful-link-card">
+          <div class="useful-link-title">Research</div>
+          <p class="useful-link-value">[ADD VERIFIED LINK]</p>
+        </div>
+        <div class="card useful-link-card">
+          <div class="useful-link-title">Education</div>
+          <p class="useful-link-value">[ADD VERIFIED LINK]</p>
+        </div>
+        <div class="card useful-link-card">
+          <div class="useful-link-title">Digital Learning</div>
+          <p class="useful-link-value">[ADD VERIFIED LINK]</p>
+        </div>
+        <div class="card useful-link-card">
+          <div class="useful-link-title">Academic Development</div>
+          <p class="useful-link-value">[ADD VERIFIED LINK]</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section 12: Resource status system ===== -->
+    <section class="page-section" aria-labelledby="status-title">
+      <h2 class="section-title" id="status-title">Resource Status</h2>
+      <p class="section-lede">A simple status system so visitors know what's already available.</p>
+      <div class="status-legend" style="margin-top:var(--sp-5);">
+        <span class="status-legend-item"><span class="res-status is-available">Available</span> A real resource is published and accessible.</span>
+        <span class="status-legend-item"><span class="res-status is-soon">Coming Soon</span> Planned but not yet published.</span>
+        <span class="status-legend-item"><span class="res-status is-verify">Verify</span> Information or link needs confirmation.</span>
+      </div>
+    </section>
+
+    <!-- ===== Section 13: Resource contribution CTA ===== -->
+    <section class="page-section" aria-labelledby="contribute-title">
+      <div class="cta-panel">
+        <h2 class="cta-title" id="contribute-title">Have a Resource or Academic Idea to Share?</h2>
+        <p class="cta-copy">Academic knowledge grows through conversation, collaboration and the exchange of useful resources.</p>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="contact.html">Get in Touch</a>
+        </div>
+        <p class="cta-email"><a href="mailto:kaangeyan@gmail.com">kaangeyan@gmail.com</a></p>
+      </div>
+    </section>
+
+    <!-- ===== Section 14: Related areas ===== -->
+    <section class="page-section" aria-labelledby="related-areas-title">
+      <h2 class="section-title" id="related-areas-title">Related Areas</h2>
+      <div class="related-area-grid" style="margin-top:var(--sp-5);">
+        <div class="card related-area-card">
+          <h3 class="related-area-title">Research</h3>
+          <p class="related-area-desc">Explore research projects, interests and methodology.</p>
+          <a class="btn btn-ghost" href="research.html">Visit Research →</a>
+        </div>
+        <div class="card related-area-card">
+          <h3 class="related-area-title">Teaching</h3>
+          <p class="related-area-desc">Explore teaching areas and learning approaches.</p>
+          <a class="btn btn-ghost" href="teaching.html">Visit Teaching →</a>
+        </div>
+        <div class="card related-area-card">
+          <h3 class="related-area-title">Publications</h3>
+          <p class="related-area-desc">Explore academic output and knowledge contributions.</p>
+          <a class="btn btn-ghost" href="publications.html">Visit Publications →</a>
+        </div>
+        <div class="card related-area-card">
+          <h3 class="related-area-title">Apps &amp; Projects</h3>
+          <p class="related-area-desc">Explore digital learning applications and projects.</p>
+          <a class="btn btn-ghost" href="projects.html">Visit Apps &amp; Projects →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section 15: Continue exploring ===== -->
+    <section class="page-section" aria-labelledby="continue-title">
+      <h2 class="section-title" id="continue-title">Continue Exploring</h2>
+      <div class="related-area-grid" style="margin-top:var(--sp-5);">
+        <div class="card related-area-card">
+          <h3 class="related-area-title">About Me</h3>
+          <p class="related-area-desc">The story behind the portfolio.</p>
+          <a class="btn btn-ghost" href="about.html">Visit About Me →</a>
+        </div>
+        <div class="card related-area-card">
+          <h3 class="related-area-title">Academic Profile</h3>
+          <p class="related-area-desc">Qualifications and professional academic experience.</p>
+          <a class="btn btn-ghost" href="academic-profile.html">Visit Academic Profile →</a>
+        </div>
+        <div class="card related-area-card">
+          <h3 class="related-area-title">Certifications</h3>
+          <p class="related-area-desc">Professional certifications and continuing development.</p>
+          <a class="btn btn-ghost" href="certifications.html">Visit Certifications →</a>
+        </div>
+        <div class="card related-area-card">
+          <h3 class="related-area-title">Contact</h3>
+          <p class="related-area-desc">Get in touch for collaboration or questions.</p>
+          <a class="btn btn-ghost" href="contact.html">Visit Contact →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Footer ===== -->
+    <footer class="page-section site-footer">
+      <div class="footer-brand">
+        <div class="brand-name">Dr. Justin Sudhakar</div>
+        <p class="brand-role">Educator • Researcher • EdTech Developer • Examination Specialist</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigate</div>
+        <nav class="footer-links">
+          <a href="index.html">Dashboard</a>
+          <a href="research.html">Research</a>
+          <a href="teaching.html">Teaching &amp; Courses</a>
+          <a href="projects.html">Apps &amp; Projects</a>
+        </nav>
+      </div>
+      <div>
+        <div class="footer-col-title">Elsewhere</div>
+        <nav class="footer-links">
+          <a href="https://www.youtube.com/channel/UCAciCJotVFrAyKCNyshcMDw?view_as=subscriber" target="_blank" rel="noopener noreferrer">YouTube</a>
+          <a href="https://www.linkedin.com/in/justinkaangeyan" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://github.com/kaangeyan" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="#">Google Play <span class="link-placeholder">[ADD GOOGLE PLAY URL]</span></a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Dr. Justin Sudhakar. All rights reserved.</span>
+      </div>
+    </footer>
+
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

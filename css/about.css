@@ -1,0 +1,323 @@
+/* ==========================================================================
+   About Me page — styles specific to about.html
+   Reuses design tokens, .card, .btn, .section-title etc. from styles.css.
+   Only new, page-specific components live here.
+   ========================================================================== */
+
+/* ---------- Page header ---------- */
+.page-header {
+  padding-block: var(--sp-6) var(--sp-7);
+  max-width: 68ch;
+}
+
+.page-header .eyebrow {
+  display: block;
+  margin-bottom: var(--sp-3);
+}
+
+.page-title {
+  font-size: var(--fs-3xl);
+}
+
+.page-lede {
+  margin-top: var(--sp-4);
+  font-size: var(--fs-md);
+  color: var(--text-muted);
+  max-width: 58ch;
+}
+
+/* ---------- Intro / bio two-column ---------- */
+.intro-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: var(--sp-8);
+  align-items: start;
+}
+
+.intro-photo {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-strong);
+  background: linear-gradient(160deg, var(--bg-elevated-2), var(--bg-card));
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.intro-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(100, 114, 242, 0.16), transparent 55%);
+}
+
+.intro-copy h3 {
+  font-size: var(--fs-xl);
+}
+
+.intro-copy p {
+  margin-top: var(--sp-4);
+  font-size: var(--fs-md);
+  color: var(--text-muted);
+  max-width: 62ch;
+}
+
+.intro-copy p + p {
+  margin-top: var(--sp-4);
+}
+
+/* ---------- Academic timeline ---------- */
+.timeline-academic {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  padding-left: var(--sp-6);
+}
+
+.timeline-academic::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 10px;
+  bottom: 10px;
+  width: 1px;
+  background: linear-gradient(180deg, var(--indigo), var(--teal) 60%, transparent);
+}
+
+.timeline-degree {
+  position: relative;
+  padding: var(--sp-5);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--sp-3);
+  align-items: center;
+}
+
+.timeline-degree::before {
+  content: "";
+  position: absolute;
+  left: calc(-1 * var(--sp-6) + 3px);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent-gradient);
+  border: 2px solid var(--bg);
+}
+
+.degree-name {
+  font-size: var(--fs-md);
+  color: var(--text);
+}
+
+.degree-institution {
+  margin-top: var(--sp-1);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+.degree-year {
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  white-space: nowrap;
+}
+
+/* ---------- Experience list ---------- */
+.experience-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-3);
+}
+
+.experience-item {
+  padding: var(--sp-4) var(--sp-5);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+.experience-item .exp-icon {
+  color: var(--teal);
+  flex-shrink: 0;
+}
+
+/* ---------- Classroom-to-application flow ---------- */
+.flow-diagram {
+  display: flex;
+  align-items: stretch;
+  gap: var(--sp-3);
+  overflow-x: auto;
+  padding-bottom: var(--sp-2);
+}
+
+.flow-step {
+  flex: 1 1 0;
+  min-width: 150px;
+  padding: var(--sp-5) var(--sp-4);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.flow-step:nth-child(odd) { border-top: 2px solid var(--indigo); }
+.flow-step:nth-child(even) { border-top: 2px solid var(--teal); }
+
+.flow-step .flow-label {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.flow-arrow {
+  display: flex;
+  align-items: center;
+  color: var(--text-faint);
+  font-size: 1.1rem;
+  flex: 0 0 auto;
+}
+
+.flow-note {
+  margin-top: var(--sp-5);
+  font-size: var(--fs-md);
+  color: var(--text-muted);
+  max-width: 68ch;
+}
+
+@media (max-width: 900px) {
+  .flow-diagram {
+    flex-direction: column;
+  }
+  .flow-arrow {
+    transform: rotate(90deg);
+    align-self: center;
+  }
+}
+
+/* ---------- Philosophy / principles ---------- */
+.principle-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-4);
+}
+
+.principle-card {
+  padding: var(--sp-5);
+}
+
+.principle-index {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  color: var(--text-faint);
+}
+
+.principle-title {
+  margin-top: var(--sp-3);
+  font-size: var(--fs-md);
+  color: var(--text);
+}
+
+.principle-desc {
+  margin-top: var(--sp-2);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+/* ---------- Areas of interest tags ---------- */
+.tag-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+}
+
+.tag-chip {
+  padding: 0.6rem 1.1rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-strong);
+  background: var(--bg-card);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  transition: border-color 0.18s var(--ease), color 0.18s var(--ease);
+}
+
+.tag-chip:hover {
+  border-color: var(--teal);
+  color: var(--text);
+}
+
+/* ---------- Mini sections (building / youtube / photography) ---------- */
+.mini-section {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: var(--sp-5);
+  padding: var(--sp-6);
+}
+
+.mini-section .mini-title {
+  font-size: var(--fs-lg);
+}
+
+.mini-section .mini-copy {
+  margin-top: var(--sp-2);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  max-width: 56ch;
+}
+
+.mini-section.is-secondary {
+  background: transparent;
+  border-style: dashed;
+}
+
+@media (max-width: 900px) {
+  .mini-section {
+    grid-template-columns: 1fr;
+  }
+  .mini-section .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ---------- Responsive: About page ---------- */
+@media (max-width: 1080px) {
+  .principle-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .intro-grid {
+    grid-template-columns: 1fr;
+  }
+  .intro-photo {
+    max-width: 320px;
+    margin-inline: auto;
+  }
+  .experience-list {
+    grid-template-columns: 1fr;
+  }
+  .timeline-degree {
+    grid-template-columns: 1fr;
+    gap: var(--sp-1);
+  }
+  .degree-year {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 620px) {
+  .principle-grid {
+    grid-template-columns: 1fr;
+  }
+  .page-title {
+    font-size: var(--fs-2xl);
+  }
+}

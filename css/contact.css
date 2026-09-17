@@ -1,0 +1,570 @@
+/* ==========================================================================
+   Contact & Academic Collaboration page — styles specific to contact.html
+   Reuses design tokens, .card, .btn, .section-title, .status-badge etc.
+   from styles.css. Self-contained otherwise.
+   ========================================================================== */
+
+/* ---------- Hero ---------- */
+.contact-hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--sp-8);
+  align-items: center;
+  padding-block: var(--sp-6) var(--sp-7);
+}
+
+.contact-hero .eyebrow {
+  display: block;
+  margin-bottom: var(--sp-3);
+}
+
+.contact-hero-title {
+  font-size: var(--fs-3xl);
+}
+
+.contact-hero-lede {
+  margin-top: var(--sp-4);
+  font-size: var(--fs-md);
+  color: var(--text-muted);
+  max-width: 60ch;
+}
+
+/* Connected-nodes collaboration motif, no imagery */
+.contact-motif {
+  position: relative;
+  aspect-ratio: 4 / 3.4;
+}
+
+.contact-motif svg {
+  width: 100%;
+  height: 100%;
+}
+
+.contact-node-dot {
+  fill: var(--indigo);
+}
+
+.contact-node-line {
+  stroke: var(--border-strong);
+  stroke-width: 1;
+}
+
+/* ---------- Why Connect cards ---------- */
+.why-connect-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-4);
+}
+
+.why-connect-card {
+  padding: var(--sp-5);
+}
+
+.why-connect-title {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.why-connect-desc {
+  margin-top: var(--sp-2);
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+.why-connect-note {
+  margin-top: var(--sp-4);
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  max-width: 64ch;
+}
+
+/* ---------- Collaboration pathway ---------- */
+.pathway-strip {
+  display: flex;
+  align-items: stretch;
+  gap: var(--sp-3);
+  overflow-x: auto;
+  padding-bottom: var(--sp-2);
+}
+
+.pathway-strip-step {
+  flex: 1 1 0;
+  min-width: 130px;
+  padding: var(--sp-4);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-2);
+  border-top: 2px solid var(--border-strong);
+}
+
+.pathway-strip-step:nth-child(odd) { border-top-color: var(--indigo); }
+.pathway-strip-step:nth-child(even) { border-top-color: var(--teal); }
+
+.pathway-strip-step .step-label {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.pathway-strip-step .step-desc {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+.pathway-strip-arrow {
+  display: flex;
+  align-items: center;
+  color: var(--text-faint);
+  font-size: 1rem;
+  flex: 0 0 auto;
+}
+
+.pathway-strip-note {
+  margin-top: var(--sp-4);
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  max-width: 64ch;
+}
+
+@media (max-width: 900px) {
+  .pathway-strip {
+    flex-direction: column;
+  }
+  .pathway-strip-arrow {
+    transform: rotate(90deg);
+    align-self: center;
+  }
+}
+
+/* ---------- Areas for collaboration ---------- */
+.interest-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-4);
+}
+
+.interest-card {
+  padding: var(--sp-5);
+}
+
+.interest-title {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.interest-desc {
+  margin-top: var(--sp-2);
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+.interest-note {
+  margin-top: var(--sp-4);
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  max-width: 64ch;
+}
+
+/* ---------- Academic collaboration cards ---------- */
+.collab-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-4);
+}
+
+.collab-card {
+  padding: var(--sp-5);
+}
+
+.collab-title {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.collab-desc {
+  margin-top: var(--sp-2);
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+.collab-placeholder-note {
+  margin-top: var(--sp-4);
+  padding: var(--sp-4);
+  border-radius: var(--radius-sm);
+  border: 1px dashed var(--border-strong);
+  text-align: center;
+  font-size: var(--fs-sm);
+  color: var(--text-faint);
+}
+
+/* ---------- Research connection panel ---------- */
+.research-connect-panel {
+  padding: var(--sp-7);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background:
+    radial-gradient(520px 280px at 100% 0%, rgba(100, 114, 242, 0.14), transparent 60%),
+    var(--bg-card);
+}
+
+.research-connect-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--indigo);
+  background: var(--indigo-soft);
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--radius-pill);
+  margin-bottom: var(--sp-3);
+}
+
+.research-connect-title {
+  font-size: var(--fs-lg);
+  max-width: 44ch;
+}
+
+.research-connect-meta {
+  margin-top: var(--sp-3);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+.research-connect-copy {
+  margin-top: var(--sp-4);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  max-width: 62ch;
+}
+
+/* ---------- Educational technology project cards ---------- */
+.edtech-project-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-4);
+}
+
+.edtech-project-card {
+  padding: var(--sp-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.edtech-project-name {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.edtech-project-tagline {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--fs-xs);
+  color: var(--teal);
+}
+
+.edtech-project-desc {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  flex: 1;
+}
+
+/* ---------- Guest lectures ---------- */
+.lecture-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-4);
+}
+
+.lecture-card {
+  padding: var(--sp-5);
+  border-style: dashed;
+}
+
+.lecture-type {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--indigo);
+  background: var(--indigo-soft);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+  align-self: flex-start;
+}
+
+.lecture-field {
+  margin-top: var(--sp-2);
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+}
+
+/* ---------- Professional contact card ---------- */
+.contact-info-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-3);
+}
+
+.contact-info-card {
+  padding: var(--sp-4);
+  text-align: center;
+}
+
+.contact-info-icon {
+  font-size: 1.3rem;
+  margin-bottom: var(--sp-2);
+}
+
+.contact-info-label {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--text-faint);
+}
+
+.contact-info-value {
+  margin-top: var(--sp-1);
+  font-size: var(--fs-sm);
+  color: var(--text-faint);
+  font-style: italic;
+}
+
+/* ---------- Contact form ---------- */
+.contact-form-panel {
+  padding: var(--sp-7);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+}
+
+.form-setup-note {
+  margin-bottom: var(--sp-5);
+  padding: var(--sp-4);
+  border-radius: var(--radius-sm);
+  border: 1px dashed var(--border-strong);
+  font-size: var(--fs-sm);
+  color: var(--text-faint);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-4);
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.form-field.is-full {
+  grid-column: 1 / -1;
+}
+
+.form-field label {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  color: var(--text);
+  background: var(--bg-elevated-2);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 0.9rem;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: var(--text-faint);
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  outline: 2px solid var(--teal);
+  outline-offset: 1px;
+}
+
+.form-submit-row {
+  grid-column: 1 / -1;
+  margin-top: var(--sp-2);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+}
+
+.btn-disabled {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 0.85rem 1.4rem;
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  background: var(--bg-elevated-2);
+  color: var(--text-faint);
+  border: 1px solid var(--border-strong);
+  cursor: not-allowed;
+}
+
+.form-submit-note {
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+}
+
+@media (max-width: 900px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .form-field {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ---------- Professional networks ---------- */
+.network-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-4);
+}
+
+.network-card {
+  padding: var(--sp-5);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.network-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-elevated-2);
+  border: 1px solid var(--border-strong);
+  display: grid;
+  place-items: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.network-name {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.network-value {
+  margin-top: var(--sp-1);
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  font-style: italic;
+}
+
+/* ---------- Before you contact tips ---------- */
+.tip-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-4);
+}
+
+.tip-card {
+  padding: var(--sp-5);
+}
+
+.tip-num {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  color: var(--text-faint);
+}
+
+.tip-title {
+  margin-top: var(--sp-2);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.tip-desc {
+  margin-top: var(--sp-2);
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+/* ---------- Related pages ---------- */
+.contact-related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-4);
+}
+
+.contact-related-card {
+  padding: var(--sp-4) var(--sp-5);
+  text-align: center;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.contact-related-card:hover {
+  color: var(--text);
+  border-color: var(--teal);
+}
+
+/* ---------- Responsive: Contact page ---------- */
+@media (max-width: 1080px) {
+  .why-connect-grid,
+  .interest-grid,
+  .collab-grid,
+  .edtech-project-grid,
+  .lecture-grid,
+  .contact-info-grid,
+  .network-grid,
+  .tip-grid,
+  .contact-related-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .contact-hero {
+    grid-template-columns: 1fr;
+  }
+  .contact-motif {
+    max-width: 300px;
+    margin-inline: auto;
+    order: -1;
+  }
+}
+
+@media (max-width: 620px) {
+  .contact-hero-title {
+    font-size: var(--fs-2xl);
+  }
+  .why-connect-grid,
+  .interest-grid,
+  .collab-grid,
+  .edtech-project-grid,
+  .lecture-grid,
+  .contact-info-grid,
+  .network-grid,
+  .tip-grid,
+  .contact-related-grid {
+    grid-template-columns: 1fr;
+  }
+}

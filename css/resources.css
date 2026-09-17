@@ -1,0 +1,633 @@
+/* ==========================================================================
+   Resources & Academic Knowledge Hub page — styles specific to resources.html
+   Reuses design tokens, .card, .btn, .section-title, .status-badge etc.
+   from styles.css. Self-contained otherwise.
+   ========================================================================== */
+
+/* ---------- Hero ---------- */
+.res-hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--sp-8);
+  align-items: center;
+  padding-block: var(--sp-6) var(--sp-7);
+}
+
+.res-hero .eyebrow {
+  display: block;
+  margin-bottom: var(--sp-3);
+}
+
+.res-hero-title {
+  font-size: var(--fs-3xl);
+}
+
+.res-hero-lede {
+  margin-top: var(--sp-4);
+  font-size: var(--fs-md);
+  color: var(--text-muted);
+  max-width: 60ch;
+}
+
+/* Floating resource-card motif: layered glass tiles, no imagery */
+.res-motif {
+  position: relative;
+  aspect-ratio: 4 / 3.4;
+}
+
+.res-motif-tile {
+  position: absolute;
+  width: 54%;
+  aspect-ratio: 5 / 3;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-strong);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-card);
+  padding: var(--sp-3);
+}
+
+.res-motif-tile::before {
+  content: "";
+  display: block;
+  width: 50%;
+  height: 8px;
+  border-radius: var(--radius-pill);
+  background: var(--accent-gradient);
+  margin-bottom: var(--sp-2);
+}
+
+.res-motif-tile::after {
+  content: "";
+  display: block;
+  width: 80%;
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background: var(--border);
+}
+
+.res-motif-tile.is-a { top: 4%; left: 2%; opacity: 0.55; transform: rotate(-6deg); }
+.res-motif-tile.is-b { top: 22%; left: 20%; opacity: 0.8; transform: rotate(3deg); }
+.res-motif-tile.is-c { top: 40%; left: 10%; }
+
+/* ---------- Knowledge journey strip ---------- */
+.journey-strip {
+  display: flex;
+  align-items: stretch;
+  gap: var(--sp-3);
+  overflow-x: auto;
+  padding-bottom: var(--sp-2);
+}
+
+.journey-strip-step {
+  flex: 1 1 0;
+  min-width: 130px;
+  padding: var(--sp-4);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-2);
+  border-top: 2px solid var(--border-strong);
+}
+
+.journey-strip-step:nth-child(odd) { border-top-color: var(--indigo); }
+.journey-strip-step:nth-child(even) { border-top-color: var(--teal); }
+
+.journey-strip-step .step-label {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.journey-strip-step .step-desc {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+.journey-strip-arrow {
+  display: flex;
+  align-items: center;
+  color: var(--text-faint);
+  font-size: 1rem;
+  flex: 0 0 auto;
+}
+
+.journey-strip-note {
+  margin-top: var(--sp-4);
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  max-width: 64ch;
+}
+
+@media (max-width: 900px) {
+  .journey-strip {
+    flex-direction: column;
+  }
+  .journey-strip-arrow {
+    transform: rotate(90deg);
+    align-self: center;
+  }
+}
+
+/* ---------- Resource status badges ---------- */
+.res-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-strong);
+  color: var(--text-muted);
+}
+
+.res-status.is-available {
+  color: var(--teal);
+  border-color: rgba(47, 216, 192, 0.35);
+  background: var(--teal-soft);
+}
+
+.res-status.is-soon {
+  color: var(--blue);
+  border-color: rgba(77, 155, 245, 0.35);
+  background: rgba(77, 155, 245, 0.1);
+}
+
+.res-status.is-verify {
+  color: var(--purple);
+  border-color: rgba(166, 130, 240, 0.35);
+  background: rgba(166, 130, 240, 0.1);
+}
+
+.status-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-4);
+  align-items: center;
+}
+
+.status-legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+}
+
+/* ---------- Category grid ---------- */
+.hub-category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-4);
+}
+
+.hub-category-card {
+  padding: var(--sp-5);
+}
+
+.hub-category-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-sm);
+  background: var(--indigo-soft);
+  color: var(--blue);
+  display: grid;
+  place-items: center;
+  font-size: 1.05rem;
+  margin-bottom: var(--sp-3);
+}
+
+.hub-category-title {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.hub-category-desc {
+  margin-top: var(--sp-2);
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+.hub-category-note {
+  margin-top: var(--sp-4);
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  max-width: 64ch;
+}
+
+/* ---------- Featured resource cards ---------- */
+.featured-resource-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-4);
+}
+
+.featured-resource-card {
+  padding: var(--sp-5);
+  border-style: dashed;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.resource-number {
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  color: var(--text-faint);
+}
+
+.resource-title {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.resource-desc {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  flex: 1;
+}
+
+.resource-type-row {
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+}
+
+.resource-action-inactive {
+  margin-top: var(--sp-2);
+  align-self: flex-start;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--text-faint);
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--radius-pill);
+  border: 1px dashed var(--border-strong);
+  cursor: default;
+}
+
+/* ---------- Topic grid (methodology / writing / research tools) ---------- */
+.topic-chip-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+}
+
+.topic-chip {
+  padding: 0.6rem 1.1rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-strong);
+  background: var(--bg-card);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+.topic-future-note {
+  margin-top: var(--sp-5);
+  padding: var(--sp-4);
+  border-radius: var(--radius-sm);
+  border: 1px dashed var(--border-strong);
+  font-size: var(--fs-sm);
+  color: var(--text-faint);
+  text-align: center;
+}
+
+/* ---------- Simple placeholder card grid (writing / teaching shelf / research resources) ---------- */
+.placeholder-card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-4);
+}
+
+.placeholder-card {
+  padding: var(--sp-5);
+  text-align: center;
+  border-style: dashed;
+}
+
+.placeholder-card .pc-title {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.placeholder-card .pc-value {
+  margin-top: var(--sp-2);
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  font-style: italic;
+}
+
+/* ---------- Digital learning connection cards ---------- */
+.digital-link-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-4);
+}
+
+.digital-link-card {
+  padding: var(--sp-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.digital-link-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-elevated-2);
+  border: 1px solid var(--border-strong);
+  display: grid;
+  place-items: center;
+  font-size: 1rem;
+}
+
+.digital-link-name {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.digital-link-tagline {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--fs-xs);
+  color: var(--teal);
+}
+
+.digital-link-desc {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  flex: 1;
+}
+
+.digital-link-cta {
+  margin-top: var(--sp-2);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--teal);
+  padding-top: var(--sp-2);
+  border-top: 1px solid var(--border);
+}
+
+.digital-link-note {
+  margin-top: var(--sp-4);
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  max-width: 64ch;
+}
+
+/* ---------- Knowledge-to-content flow ---------- */
+.k2c-flow {
+  display: flex;
+  align-items: stretch;
+  gap: var(--sp-3);
+  overflow-x: auto;
+  padding-bottom: var(--sp-2);
+}
+
+.k2c-step {
+  flex: 1 1 0;
+  min-width: 150px;
+  padding: var(--sp-5) var(--sp-4);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-2);
+  border-top: 2px solid var(--border-strong);
+}
+
+.k2c-step:nth-child(odd) { border-top-color: var(--indigo); }
+.k2c-step:nth-child(even) { border-top-color: var(--teal); }
+
+.k2c-step .flow-label {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.k2c-step .flow-desc {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+.k2c-arrow {
+  display: flex;
+  align-items: center;
+  color: var(--text-faint);
+  font-size: 1.1rem;
+  flex: 0 0 auto;
+}
+
+.k2c-note {
+  margin-top: var(--sp-4);
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  max-width: 64ch;
+}
+
+@media (max-width: 900px) {
+  .k2c-flow {
+    flex-direction: column;
+  }
+  .k2c-arrow {
+    transform: rotate(90deg);
+    align-self: center;
+  }
+}
+
+/* ---------- YouTube video library ---------- */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-4);
+}
+
+.video-card {
+  padding: var(--sp-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.video-thumb {
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-sm);
+  border: 1px dashed var(--border-strong);
+  background: var(--bg-elevated-2);
+  display: grid;
+  place-items: center;
+  color: var(--text-faint);
+  font-size: 1.3rem;
+}
+
+.video-category {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--indigo);
+  background: var(--indigo-soft);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+  align-self: flex-start;
+}
+
+.video-title {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.video-link {
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+}
+
+/* ---------- Downloads ---------- */
+.download-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-4);
+}
+
+.download-card {
+  padding: var(--sp-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  border-style: dashed;
+}
+
+.download-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-elevated-2);
+  border: 1px solid var(--border-strong);
+  display: grid;
+  place-items: center;
+  font-size: 0.95rem;
+}
+
+.download-name {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.download-desc {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  flex: 1;
+}
+
+.download-file {
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+}
+
+.download-btn-inactive {
+  margin-top: var(--sp-2);
+  align-self: flex-start;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--text-faint);
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--radius-pill);
+  border: 1px dashed var(--border-strong);
+  cursor: default;
+}
+
+/* ---------- Useful links ---------- */
+.useful-link-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-4);
+}
+
+.useful-link-card {
+  padding: var(--sp-5);
+}
+
+.useful-link-title {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.useful-link-value {
+  margin-top: var(--sp-2);
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  font-style: italic;
+}
+
+/* ---------- Connection / related cards ---------- */
+.related-area-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-4);
+}
+
+.related-area-card {
+  padding: var(--sp-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.related-area-title {
+  font-size: var(--fs-md);
+  color: var(--text);
+}
+
+.related-area-desc {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  flex: 1;
+}
+
+/* ---------- Responsive: Resources page ---------- */
+@media (max-width: 1080px) {
+  .hub-category-grid,
+  .featured-resource-grid,
+  .digital-link-grid,
+  .video-grid,
+  .download-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .placeholder-card-grid,
+  .useful-link-grid,
+  .related-area-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .res-hero {
+    grid-template-columns: 1fr;
+  }
+  .res-motif {
+    max-width: 300px;
+    margin-inline: auto;
+    order: -1;
+  }
+}
+
+@media (max-width: 620px) {
+  .res-hero-title {
+    font-size: var(--fs-2xl);
+  }
+  .hub-category-grid,
+  .featured-resource-grid,
+  .placeholder-card-grid,
+  .digital-link-grid,
+  .video-grid,
+  .download-grid,
+  .useful-link-grid,
+  .related-area-grid {
+    grid-template-columns: 1fr;
+  }
+}

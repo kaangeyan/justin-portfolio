@@ -1,0 +1,566 @@
+/* ==========================================================================
+   Research page — styles specific to research.html
+   Reuses design tokens, .card, .btn, .section-title, .research-feature /
+   .research-feature--emphasis etc. from styles.css.
+   Self-contained otherwise: does not depend on about.css, academic-profile.css
+   or teaching.css.
+   ========================================================================== */
+
+/* ---------- Page header ---------- */
+.rsrch-header {
+  padding-block: var(--sp-6) var(--sp-7);
+  max-width: 72ch;
+}
+
+.rsrch-header .eyebrow {
+  display: block;
+  margin-bottom: var(--sp-3);
+}
+
+.rsrch-title {
+  font-size: var(--fs-3xl);
+}
+
+.rsrch-lede {
+  margin-top: var(--sp-4);
+  font-size: var(--fs-md);
+  color: var(--text-muted);
+  max-width: 64ch;
+}
+
+/* ---------- Research identity ---------- */
+.identity-panel {
+  padding: var(--sp-7);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background:
+    radial-gradient(520px 280px at 90% 0%, rgba(100, 114, 242, 0.14), transparent 60%);
+}
+
+.identity-panel p {
+  margin-top: var(--sp-3);
+  font-size: var(--fs-md);
+  color: var(--text-muted);
+  max-width: 68ch;
+}
+
+/* ---------- Featured PhD research ---------- */
+.phd-feature {
+  padding: var(--sp-8) var(--sp-7);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  border-top: 3px solid transparent;
+  border-image: var(--accent-gradient) 1;
+  background:
+    radial-gradient(560px 320px at 100% -10%, rgba(100, 114, 242, 0.18), transparent 60%),
+    radial-gradient(420px 260px at 0% 110%, rgba(47, 216, 192, 0.1), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow-elevated);
+}
+
+.phd-feature .phd-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--indigo);
+  background: var(--indigo-soft);
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--radius-pill);
+  margin-bottom: var(--sp-3);
+}
+
+.phd-feature .phd-title {
+  font-size: var(--fs-2xl);
+  max-width: 44ch;
+}
+
+.phd-meta {
+  margin-top: var(--sp-6);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-4);
+  padding-top: var(--sp-5);
+  border-top: 1px solid var(--border);
+}
+
+.phd-meta-item .meta-label {
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  text-transform: none;
+}
+
+.phd-meta-item .meta-value {
+  margin-top: var(--sp-1);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.phd-details-note {
+  margin-top: var(--sp-5);
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+}
+
+@media (max-width: 900px) {
+  .phd-feature {
+    padding: var(--sp-6);
+  }
+  .phd-feature .phd-title {
+    font-size: var(--fs-xl);
+  }
+  .phd-meta {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Selected research projects ---------- */
+.rp-project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-4);
+}
+
+.rp-project-card {
+  padding: var(--sp-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.rp-level-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--indigo);
+  background: var(--indigo-soft);
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--radius-pill);
+  align-self: flex-start;
+}
+
+.rp-project-title {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+  margin-top: var(--sp-1);
+}
+
+.rp-institution {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+.rp-verify-badge {
+  display: inline-block;
+  margin-top: var(--sp-1);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--purple);
+  border: 1px solid rgba(166, 130, 240, 0.35);
+  background: rgba(166, 130, 240, 0.1);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-pill);
+  align-self: flex-start;
+}
+
+.rp-status-badge {
+  display: inline-block;
+  margin-top: var(--sp-1);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--teal);
+  border: 1px solid rgba(47, 216, 192, 0.35);
+  background: var(--teal-soft);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-pill);
+  align-self: flex-start;
+}
+
+.rp-project-desc {
+  margin-top: var(--sp-1);
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  flex: 1;
+}
+
+.rp-details-link {
+  margin-top: var(--sp-2);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--text-muted);
+  padding-top: var(--sp-2);
+  border-top: 1px solid var(--border);
+}
+
+/* ---------- Research areas ---------- */
+.area-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+}
+
+.area-chip {
+  padding: 0.6rem 1.1rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-strong);
+  background: var(--bg-card);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+.area-note {
+  margin-top: var(--sp-4);
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  max-width: 64ch;
+}
+
+/* ---------- Research methodology ---------- */
+.rsrch-methodology-panel {
+  padding: var(--sp-7);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background:
+    radial-gradient(480px 260px at 0% 0%, rgba(47, 216, 192, 0.12), transparent 60%),
+    var(--bg-card);
+}
+
+.rsrch-methodology-topics {
+  margin-top: var(--sp-5);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+}
+
+.rsrch-methodology-topic {
+  padding: 0.55rem 1rem;
+  border-radius: var(--radius-sm);
+  background: var(--teal-soft);
+  color: var(--teal);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  border: 1px solid rgba(47, 216, 192, 0.3);
+}
+
+/* ---------- Research → digital learning flow ---------- */
+.rsrch-flow {
+  display: flex;
+  align-items: stretch;
+  gap: var(--sp-3);
+  overflow-x: auto;
+  padding-bottom: var(--sp-2);
+}
+
+.rsrch-flow-step {
+  flex: 1 1 0;
+  min-width: 150px;
+  padding: var(--sp-5) var(--sp-4);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-2);
+  border-top: 2px solid var(--border-strong);
+}
+
+.rsrch-flow-step:nth-child(odd) { border-top-color: var(--indigo); }
+.rsrch-flow-step:nth-child(even) { border-top-color: var(--teal); }
+
+.rsrch-flow-step .flow-label {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.rsrch-flow-arrow {
+  display: flex;
+  align-items: center;
+  color: var(--text-faint);
+  font-size: 1.1rem;
+  flex: 0 0 auto;
+}
+
+.rsrch-flow-note {
+  margin-top: var(--sp-4);
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  max-width: 64ch;
+}
+
+@media (max-width: 900px) {
+  .rsrch-flow {
+    flex-direction: column;
+  }
+  .rsrch-flow-arrow {
+    transform: rotate(90deg);
+    align-self: center;
+  }
+}
+
+/* ---------- Research-inspired digital projects ---------- */
+.digital-project-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-4);
+}
+
+.digital-project-card {
+  padding: var(--sp-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.digital-project-card .dp-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-elevated-2);
+  border: 1px solid var(--border-strong);
+  display: grid;
+  place-items: center;
+  font-size: 1.1rem;
+}
+
+.dp-name {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.dp-desc {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  flex: 1;
+}
+
+.dp-link {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--teal);
+  padding-top: var(--sp-2);
+  border-top: 1px solid var(--border);
+}
+
+.digital-project-note {
+  margin-top: var(--sp-4);
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  max-width: 64ch;
+}
+
+/* ---------- Resources for researchers ---------- */
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-4);
+}
+
+.resource-card {
+  padding: var(--sp-5);
+  text-align: center;
+}
+
+.resource-card .resource-title {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.resource-card .resource-placeholder {
+  margin-top: var(--sp-2);
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+}
+
+/* ---------- Research informs teaching ---------- */
+.rit-panel {
+  padding: var(--sp-6);
+  border-left: 2px solid var(--indigo);
+}
+
+.rit-panel p {
+  font-size: var(--fs-md);
+  color: var(--text-muted);
+  max-width: 68ch;
+}
+
+/* ---------- YouTube mini section ---------- */
+.rsrch-mini-section {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: var(--sp-5);
+  padding: var(--sp-6);
+}
+
+.rsrch-mini-section .mini-title {
+  font-size: var(--fs-lg);
+}
+
+.rsrch-mini-section .mini-chips {
+  margin-top: var(--sp-3);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.rsrch-mini-section .mini-chip {
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-strong);
+}
+
+@media (max-width: 900px) {
+  .rsrch-mini-section {
+    grid-template-columns: 1fr;
+  }
+  .rsrch-mini-section .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ---------- Research timeline ---------- */
+.rsrch-timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  padding-left: var(--sp-6);
+}
+
+.rsrch-timeline::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 10px;
+  bottom: 10px;
+  width: 1px;
+  background: linear-gradient(180deg, var(--teal), var(--indigo) 100%);
+}
+
+.rsrch-timeline-item {
+  position: relative;
+  padding: var(--sp-5);
+}
+
+.rsrch-timeline-item::before {
+  content: "";
+  position: absolute;
+  left: calc(-1 * var(--sp-6) + 3px);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent-gradient);
+  border: 2px solid var(--bg);
+}
+
+.rsrch-timeline-level {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--teal);
+}
+
+.rsrch-timeline-title {
+  margin-top: var(--sp-1);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.rsrch-timeline-year {
+  margin-top: var(--sp-1);
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+}
+
+.rsrch-timeline-note {
+  margin-top: var(--sp-4);
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  font-style: italic;
+}
+
+/* ---------- Research principles ---------- */
+.rsrch-principle-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-4);
+}
+
+.rsrch-principle-card {
+  padding: var(--sp-5);
+}
+
+.rsrch-principle-title {
+  font-size: var(--fs-md);
+  color: var(--text);
+}
+
+.rsrch-principle-desc {
+  margin-top: var(--sp-2);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+/* ---------- Research snapshot ---------- */
+.rsrch-snapshot-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-4);
+}
+
+.rsrch-snapshot-card {
+  padding: var(--sp-5);
+  border-top: 2px solid var(--border-strong);
+}
+
+.rsrch-snapshot-card:nth-child(1) { border-top-color: var(--indigo); }
+.rsrch-snapshot-card:nth-child(2) { border-top-color: var(--blue); }
+.rsrch-snapshot-card:nth-child(3) { border-top-color: var(--teal); }
+
+.rsrch-snapshot-value {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  color: var(--text);
+}
+
+.rsrch-snapshot-label {
+  margin-top: var(--sp-2);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+/* ---------- Responsive: Research page ---------- */
+@media (max-width: 1080px) {
+  .digital-project-grid,
+  .resource-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .rsrch-principle-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .rp-project-grid,
+  .rsrch-snapshot-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .rsrch-title {
+    font-size: var(--fs-2xl);
+  }
+  .digital-project-grid,
+  .resource-grid,
+  .rsrch-principle-grid {
+    grid-template-columns: 1fr;
+  }
+}

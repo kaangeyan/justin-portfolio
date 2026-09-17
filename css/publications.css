@@ -1,0 +1,611 @@
+/* ==========================================================================
+   Publications & Academic Output page — styles specific to publications.html
+   Reuses design tokens, .card, .btn, .section-title, .status-badge etc.
+   from styles.css. Self-contained otherwise: does not depend on about.css,
+   academic-profile.css, teaching.css, research.css or projects.css.
+   ========================================================================== */
+
+/* ---------- Hero ---------- */
+.pub-hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--sp-8);
+  align-items: center;
+  padding-block: var(--sp-6) var(--sp-7);
+}
+
+.pub-hero .eyebrow {
+  display: block;
+  margin-bottom: var(--sp-3);
+}
+
+.pub-hero-title {
+  font-size: var(--fs-3xl);
+}
+
+.pub-hero-lede {
+  margin-top: var(--sp-4);
+  font-size: var(--fs-md);
+  color: var(--text-muted);
+  max-width: 60ch;
+}
+
+/* Abstract academic-grid motif: layered translucent document cards, no imagery */
+.pub-motif {
+  position: relative;
+  aspect-ratio: 4 / 3.2;
+}
+
+.pub-motif-card {
+  position: absolute;
+  width: 68%;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-strong);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-card);
+  padding: var(--sp-4);
+}
+
+.pub-motif-card::before {
+  content: "";
+  display: block;
+  width: 60%;
+  height: 10px;
+  border-radius: var(--radius-pill);
+  background: var(--accent-gradient);
+  margin-bottom: var(--sp-3);
+}
+
+.pub-motif-card::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--border) 0,
+    var(--border) 1px,
+    transparent 1px,
+    transparent 14px
+  );
+  height: 70%;
+}
+
+.pub-motif-card.is-back {
+  top: 6%;
+  right: 2%;
+  opacity: 0.55;
+  transform: rotate(6deg);
+}
+
+.pub-motif-card.is-mid {
+  top: 14%;
+  right: 14%;
+  opacity: 0.8;
+  transform: rotate(-3deg);
+}
+
+.pub-motif-card.is-front {
+  top: 22%;
+  right: 26%;
+}
+
+/* ---------- Academic output categories ---------- */
+.pub-category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-4);
+}
+
+.pub-category-card {
+  padding: var(--sp-5);
+}
+
+.pub-category-card .cat-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: var(--indigo-soft);
+  color: var(--blue);
+  display: grid;
+  place-items: center;
+  font-size: 1.05rem;
+  margin-bottom: var(--sp-3);
+}
+
+.pub-category-card .cat-title {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.pub-category-card .cat-desc {
+  margin-top: var(--sp-2);
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+.pub-category-note {
+  margin-top: var(--sp-4);
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  max-width: 64ch;
+}
+
+/* ---------- Publication placeholder cards ---------- */
+.pub-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.pub-card {
+  padding: var(--sp-6);
+  border-style: dashed;
+}
+
+.pub-card-title {
+  font-size: var(--fs-md);
+  color: var(--text);
+}
+
+.pub-meta-row {
+  margin-top: var(--sp-2);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+}
+
+.pub-abstract {
+  margin-top: var(--sp-3);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  max-width: 68ch;
+}
+
+.pub-actions {
+  margin-top: var(--sp-4);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.pub-action-inactive {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--text-faint);
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--radius-pill);
+  border: 1px dashed var(--border-strong);
+  cursor: default;
+}
+
+.pub-note {
+  margin-top: var(--sp-4);
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  font-style: italic;
+}
+
+/* ---------- Conference & presentation cards ---------- */
+.presentation-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-4);
+}
+
+.presentation-card {
+  padding: var(--sp-5);
+  border-style: dashed;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.presentation-title {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.presentation-meta {
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+}
+
+.presentation-type {
+  align-self: flex-start;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--indigo);
+  background: var(--indigo-soft);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+}
+
+/* ---------- Books & resources ---------- */
+.resource-type-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-4);
+}
+
+.resource-type-card {
+  padding: var(--sp-5);
+}
+
+.resource-type-title {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.resource-type-placeholder {
+  margin-top: var(--sp-2);
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  font-style: italic;
+}
+
+.resource-type-linkout {
+  margin-top: var(--sp-3);
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  padding-top: var(--sp-3);
+  border-top: 1px solid var(--border);
+}
+
+/* ---------- Workshops & training ---------- */
+.workshop-areas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+}
+
+.workshop-area-chip {
+  padding: 0.6rem 1.1rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-strong);
+  background: var(--bg-card);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+.workshop-area-note {
+  margin-top: var(--sp-4);
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  max-width: 64ch;
+}
+
+.workshop-grid {
+  margin-top: var(--sp-5);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-4);
+}
+
+.workshop-card {
+  padding: var(--sp-5);
+  border-style: dashed;
+}
+
+.workshop-card .field-row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  margin-top: var(--sp-1);
+}
+
+/* ---------- Research projects bridge ---------- */
+.pub-research-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-4);
+}
+
+.pub-research-card {
+  padding: var(--sp-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.pub-research-level {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--indigo);
+  background: var(--indigo-soft);
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--radius-pill);
+  align-self: flex-start;
+}
+
+.pub-research-title {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.pub-research-institution {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+.pub-verify-badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--purple);
+  border: 1px solid rgba(166, 130, 240, 0.35);
+  background: rgba(166, 130, 240, 0.1);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-pill);
+  align-self: flex-start;
+}
+
+.pub-verified-badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--teal);
+  border: 1px solid rgba(47, 216, 192, 0.35);
+  background: var(--teal-soft);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-pill);
+  align-self: flex-start;
+}
+
+/* ---------- Digital academic content ---------- */
+.pub-digital-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-4);
+}
+
+.pub-digital-card {
+  padding: var(--sp-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.pub-digital-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-elevated-2);
+  border: 1px solid var(--border-strong);
+  display: grid;
+  place-items: center;
+  font-size: 1rem;
+}
+
+.pub-digital-name {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.pub-digital-tagline {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--fs-xs);
+  color: var(--teal);
+}
+
+.pub-digital-desc {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  flex: 1;
+}
+
+.pub-digital-note {
+  margin-top: var(--sp-4);
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  max-width: 68ch;
+}
+
+/* ---------- Knowledge journey ---------- */
+.knowledge-flow {
+  display: flex;
+  align-items: stretch;
+  gap: var(--sp-3);
+  overflow-x: auto;
+  padding-bottom: var(--sp-2);
+}
+
+.knowledge-flow-step {
+  flex: 1 1 0;
+  min-width: 160px;
+  padding: var(--sp-5) var(--sp-4);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-2);
+  border-top: 2px solid var(--border-strong);
+}
+
+.knowledge-flow-step:nth-child(odd) { border-top-color: var(--indigo); }
+.knowledge-flow-step:nth-child(even) { border-top-color: var(--teal); }
+
+.knowledge-flow-step .flow-label {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.knowledge-flow-step .flow-desc {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+.knowledge-flow-arrow {
+  display: flex;
+  align-items: center;
+  color: var(--text-faint);
+  font-size: 1.1rem;
+  flex: 0 0 auto;
+}
+
+.knowledge-flow-note {
+  margin-top: var(--sp-4);
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  max-width: 64ch;
+}
+
+@media (max-width: 900px) {
+  .knowledge-flow {
+    flex-direction: column;
+  }
+  .knowledge-flow-arrow {
+    transform: rotate(90deg);
+    align-self: center;
+  }
+}
+
+/* ---------- Academic contributions ---------- */
+.contribution-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-4);
+}
+
+.contribution-card {
+  padding: var(--sp-5);
+}
+
+.contribution-title {
+  font-size: var(--fs-md);
+  color: var(--text);
+}
+
+.contribution-desc {
+  margin-top: var(--sp-2);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+/* ---------- Future academic output ---------- */
+.archive-panel {
+  padding: var(--sp-7);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background:
+    radial-gradient(500px 280px at 0% 0%, rgba(100, 114, 242, 0.12), transparent 60%),
+    var(--bg-card);
+}
+
+.archive-panel p {
+  margin-top: var(--sp-3);
+  font-size: var(--fs-md);
+  color: var(--text-muted);
+  max-width: 66ch;
+}
+
+.archive-checklist {
+  margin-top: var(--sp-5);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-3);
+}
+
+.archive-checklist li {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  padding: var(--sp-3) var(--sp-4);
+  border-radius: var(--radius-sm);
+  background: var(--bg-elevated-2);
+  border: 1px solid var(--border);
+}
+
+.archive-checklist .check-icon {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid var(--text-faint);
+  flex-shrink: 0;
+}
+
+/* ---------- Connection cards ---------- */
+.connect-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-4);
+}
+
+.connect-card {
+  padding: var(--sp-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.connect-card .connect-title {
+  font-size: var(--fs-md);
+  color: var(--text);
+}
+
+.connect-card .connect-desc {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  flex: 1;
+}
+
+/* ---------- Responsive: Publications page ---------- */
+@media (max-width: 1080px) {
+  .pub-category-grid,
+  .presentation-grid,
+  .resource-type-grid,
+  .pub-research-grid,
+  .connect-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .pub-digital-grid,
+  .contribution-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .pub-hero {
+    grid-template-columns: 1fr;
+  }
+  .pub-motif {
+    max-width: 320px;
+    margin-inline: auto;
+    order: -1;
+  }
+  .workshop-grid {
+    grid-template-columns: 1fr;
+  }
+  .archive-checklist {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .pub-hero-title {
+    font-size: var(--fs-2xl);
+  }
+  .pub-category-grid,
+  .presentation-grid,
+  .resource-type-grid,
+  .pub-research-grid,
+  .pub-digital-grid,
+  .contribution-grid,
+  .connect-grid {
+    grid-template-columns: 1fr;
+  }
+}

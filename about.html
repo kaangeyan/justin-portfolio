@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About Me | Dr. Justin Sudhakar</title>
+<meta name="description" content="The academic journey of Dr. Justin Sudhakar — educator and researcher, and how teaching and research led to his work in educational technology and digital applications." />
+<meta property="og:title" content="About Me | Dr. Justin Sudhakar" />
+<meta property="og:description" content="An academic journey shaped by teaching, research, technology and a passion for making knowledge more accessible." />
+<meta property="og:type" content="profile" />
+<meta property="og:image" content="[ADD OG IMAGE URL]" />
+<link rel="icon" href="data:," />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="stylesheet" href="css/about.css" />
+</head>
+<body>
+<div class="bg-field" aria-hidden="true"></div>
+
+<div class="shell">
+
+  <!-- ================= Sidebar navigation (desktop) ================= -->
+  <aside class="sidebar" aria-label="Primary">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true">JS</span>
+      <span class="brand-text">
+        <span class="brand-name">Dr. Justin Sudhakar</span>
+        <span class="brand-role">Educator &amp; EdTech Developer</span>
+      </span>
+    </a>
+
+    <nav>
+      <ul class="nav-list">
+        <li><a class="nav-link" href="index.html"><span class="nav-icon">🏠</span>Dashboard</a></li>
+        <li><a class="nav-link" href="about.html" aria-current="page"><span class="nav-icon">👤</span>About Me</a></li>
+        <li><a class="nav-link" href="academic-profile.html"><span class="nav-icon">🎓</span>Academic Profile</a></li>
+        <li><a class="nav-link" href="teaching.html"><span class="nav-icon">📚</span>Teaching &amp; Courses</a></li>
+        <li><a class="nav-link" href="research.html"><span class="nav-icon">🔬</span>Research</a></li>
+        <li><a class="nav-link" href="projects.html"><span class="nav-icon">📱</span>Apps &amp; Projects</a></li>
+        <li><a class="nav-link" href="publications.html"><span class="nav-icon">📄</span>Publications</a></li>
+        <li><a class="nav-link" href="certifications.html"><span class="nav-icon">🏅</span>Certifications</a></li>
+        <li><a class="nav-link" href="resources.html"><span class="nav-icon">📚</span>Resources</a></li>
+        <li><a class="nav-link" href="experience.html"><span class="nav-icon">💼</span>Experience</a></li>
+        <li><a class="nav-link" href="youtube.html"><span class="nav-icon">▶️</span>YouTube &amp; Learning</a></li>
+        <li><a class="nav-link" href="photography.html"><span class="nav-icon">📷</span>Photography</a></li>
+        <li><a class="nav-link" href="contact.html"><span class="nav-icon">✉️</span>Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-footer">
+      Phase 2A preview · other pages coming in later phases
+    </div>
+  </aside>
+
+  <!-- ================= Mobile top bar ================= -->
+  <header class="topbar">
+    <a class="brand" href="index.html" style="padding:0;">
+      <span class="brand-mark" aria-hidden="true">JS</span>
+      <span class="brand-text">
+        <span class="brand-name">Dr. Justin Sudhakar</span>
+      </span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+      <span aria-hidden="true">☰</span>
+    </button>
+  </header>
+
+  <!-- ================= Mobile nav drawer ================= -->
+  <div class="mobile-nav" id="mobileNav">
+    <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+    <div class="mobile-nav-panel" role="dialog" aria-modal="true" aria-label="Site navigation">
+      <div class="mobile-nav-header">
+        <span class="brand-text">
+          <span class="brand-name">Menu</span>
+        </span>
+        <button class="menu-toggle" id="menuClose" aria-label="Close menu">
+          <span aria-hidden="true">✕</span>
+        </button>
+      </div>
+      <nav>
+        <ul class="nav-list">
+          <li><a class="nav-link" href="index.html"><span class="nav-icon">🏠</span>Dashboard</a></li>
+          <li><a class="nav-link" href="about.html" aria-current="page"><span class="nav-icon">👤</span>About Me</a></li>
+          <li><a class="nav-link" href="academic-profile.html"><span class="nav-icon">🎓</span>Academic Profile</a></li>
+          <li><a class="nav-link" href="teaching.html"><span class="nav-icon">📚</span>Teaching &amp; Courses</a></li>
+          <li><a class="nav-link" href="research.html"><span class="nav-icon">🔬</span>Research</a></li>
+          <li><a class="nav-link" href="projects.html"><span class="nav-icon">📱</span>Apps &amp; Projects</a></li>
+          <li><a class="nav-link" href="publications.html"><span class="nav-icon">📄</span>Publications</a></li>
+          <li><a class="nav-link" href="certifications.html"><span class="nav-icon">🏅</span>Certifications</a></li>
+          <li><a class="nav-link" href="resources.html"><span class="nav-icon">📚</span>Resources</a></li>
+          <li><a class="nav-link" href="experience.html"><span class="nav-icon">💼</span>Experience</a></li>
+          <li><a class="nav-link" href="youtube.html"><span class="nav-icon">▶️</span>YouTube &amp; Learning</a></li>
+          <li><a class="nav-link" href="photography.html"><span class="nav-icon">📷</span>Photography</a></li>
+          <li><a class="nav-link" href="contact.html"><span class="nav-icon">✉️</span>Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ================= Main content ================= -->
+  <main class="main" id="main">
+
+    <!-- ===== Page header ===== -->
+    <header class="page-section page-header">
+      <p class="eyebrow">About Me</p>
+      <h1 class="page-title">Educator. Researcher. Digital Learning Creator.</h1>
+      <p class="page-lede">An academic journey shaped by teaching, research, technology and a passion for making knowledge more accessible.</p>
+    </header>
+
+    <!-- ===== Introduction ===== -->
+    <section class="page-section" aria-labelledby="intro-title">
+      <div class="intro-grid">
+        <div class="intro-photo">
+          <div class="portrait-placeholder">
+            <div class="placeholder-icon" aria-hidden="true">🖼️</div>
+            [ADD PROFESSIONAL PHOTO]
+          </div>
+        </div>
+        <div class="intro-copy">
+          <h2 id="intro-title">From Education to Digital Learning</h2>
+          <p>Dr. Justin Sudhakar is an educator and researcher with extensive experience in teaching, academic research and digital learning. His academic journey has involved working with undergraduate, postgraduate and research-level learners.</p>
+          <p>Over time, his interest in educational technology led him to explore ways of transforming academic knowledge, teaching materials and research resources into accessible digital applications.</p>
+          <p>Today, his work brings together education, research, EdTech, digital content creation and examination-related technology.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Professional identity ===== -->
+    <section class="page-section" aria-labelledby="identity-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">My Professional Identity</p>
+          <h2 class="section-title" id="identity-title">Four roles, one focus</h2>
+        </div>
+      </div>
+      <div class="focus-grid">
+        <div class="card focus-card">
+          <div class="focus-icon" aria-hidden="true">🎓</div>
+          <h3 class="focus-title">Educator</h3>
+          <p class="focus-desc">Teaching and learning across undergraduate, postgraduate and research contexts.</p>
+        </div>
+        <div class="card focus-card">
+          <div class="focus-icon" aria-hidden="true">🔬</div>
+          <h3 class="focus-title">Researcher</h3>
+          <p class="focus-desc">Educational research, research methodology and academic inquiry.</p>
+        </div>
+        <div class="card focus-card">
+          <div class="focus-icon" aria-hidden="true">💻</div>
+          <h3 class="focus-title">EdTech Developer</h3>
+          <p class="focus-desc">Creating digital applications that transform educational and research content into accessible learning experiences.</p>
+        </div>
+        <div class="card focus-card">
+          <div class="focus-icon" aria-hidden="true">📝</div>
+          <h3 class="focus-title">Examination Specialist</h3>
+          <p class="focus-desc">Experience in online examination coordination, proctoring and assessment-related operations.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Academic journey ===== -->
+    <section class="page-section" aria-labelledby="journey-timeline-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Qualifications</p>
+          <h2 class="section-title" id="journey-timeline-title">Academic Journey</h2>
+        </div>
+      </div>
+
+      <div class="timeline-academic">
+        <div class="card timeline-degree">
+          <div>
+            <div class="degree-name">Ph.D. in Education</div>
+            <div class="degree-institution">Annamalai University</div>
+          </div>
+          <span class="degree-year">[ADD YEAR]</span>
+        </div>
+        <div class="card timeline-degree">
+          <div>
+            <div class="degree-name">M.Sc. in Psychology</div>
+            <div class="degree-institution">Tamil Nadu Open University</div>
+          </div>
+          <span class="degree-year">[ADD YEAR]</span>
+        </div>
+        <div class="card timeline-degree">
+          <div>
+            <div class="degree-name">Master's Degree in Education</div>
+            <div class="degree-institution">Tamilnadu Teachers Education University</div>
+          </div>
+          <span class="degree-year">[ADD YEAR]</span>
+        </div>
+        <div class="card timeline-degree">
+          <div>
+            <div class="degree-name">Master's Degree in English Literature</div>
+            <div class="degree-institution">Annamalai University</div>
+          </div>
+          <span class="degree-year">[ADD YEAR]</span>
+        </div>
+        <div class="card timeline-degree">
+          <div>
+            <div class="degree-name">Bachelor's Degree in Education</div>
+            <div class="degree-institution">Annamalai University</div>
+          </div>
+          <span class="degree-year">[ADD YEAR]</span>
+        </div>
+        <div class="card timeline-degree">
+          <div>
+            <div class="degree-name">Bachelor's Degree in English Literature</div>
+            <div class="degree-institution">University of Madras</div>
+          </div>
+          <span class="degree-year">[ADD YEAR]</span>
+        </div>
+        <div class="card timeline-degree">
+          <div>
+            <div class="degree-name">Post Graduate Diploma in Adult and Continuing Education</div>
+            <div class="degree-institution">Annamalai University</div>
+          </div>
+          <span class="degree-year">[ADD YEAR]</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Teaching, Research & Academic Experience ===== -->
+    <section class="page-section" aria-labelledby="experience-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Experience</p>
+          <h2 class="section-title" id="experience-title">Teaching, Research &amp; Academic Experience</h2>
+        </div>
+      </div>
+      <div class="card metric-card" style="max-width:360px; margin-bottom: var(--sp-5);">
+        <div class="metric-value">13+</div>
+        <div class="metric-label">Years across teaching, research &amp; online examination/proctoring-related work</div>
+      </div>
+      <div class="experience-list">
+        <div class="card experience-item"><span class="exp-icon" aria-hidden="true">✓</span>Experience teaching undergraduate students</div>
+        <div class="card experience-item"><span class="exp-icon" aria-hidden="true">✓</span>Experience teaching postgraduate students</div>
+        <div class="card experience-item"><span class="exp-icon" aria-hidden="true">✓</span>Experience working with PhD / research-level learners</div>
+        <div class="card experience-item"><span class="exp-icon" aria-hidden="true">✓</span>Experience developing and organizing academic / research learning resources</div>
+        <div class="card experience-item" style="grid-column: 1 / -1;"><span class="exp-icon" aria-hidden="true">✓</span>Experience in educational project management and educational leadership-related academic work</div>
+      </div>
+    </section>
+
+    <!-- ===== When teaching became digital ===== -->
+    <section class="page-section" aria-labelledby="flow-title">
+      <p class="eyebrow">From Classroom to Application</p>
+      <h2 class="section-title" id="flow-title" style="margin-top:var(--sp-2);">When Teaching Became Digital</h2>
+
+      <div class="flow-diagram" style="margin-top:var(--sp-5);">
+        <div class="card flow-step"><span class="flow-label">Teaching</span></div>
+        <span class="flow-arrow" aria-hidden="true">→</span>
+        <div class="card flow-step"><span class="flow-label">Research</span></div>
+        <span class="flow-arrow" aria-hidden="true">→</span>
+        <div class="card flow-step"><span class="flow-label">Academic Content</span></div>
+        <span class="flow-arrow" aria-hidden="true">→</span>
+        <div class="card flow-step"><span class="flow-label">Digital Learning</span></div>
+        <span class="flow-arrow" aria-hidden="true">→</span>
+        <div class="card flow-step"><span class="flow-label">Educational Applications</span></div>
+      </div>
+
+      <p class="flow-note">Dr. Justin Sudhakar began with teaching and academic research, and gradually started converting selected courses, teaching resources and research-oriented content into Android and desktop applications.</p>
+    </section>
+
+    <!-- ===== Digital learning philosophy ===== -->
+    <section class="page-section" aria-labelledby="philosophy-title">
+      <p class="eyebrow">Philosophy</p>
+      <h2 class="section-title" id="philosophy-title" style="margin-top:var(--sp-2);">My Approach to Digital Learning</h2>
+
+      <div class="principle-grid" style="margin-top:var(--sp-5);">
+        <div class="card principle-card">
+          <div class="principle-index" aria-hidden="true">01</div>
+          <h3 class="principle-title">Make Knowledge Accessible</h3>
+          <p class="principle-desc">Educational and research knowledge should be easier to access and explore.</p>
+        </div>
+        <div class="card principle-card">
+          <div class="principle-index" aria-hidden="true">02</div>
+          <h3 class="principle-title">Learn by Exploring</h3>
+          <p class="principle-desc">Digital applications can turn passive reading into interactive learning experiences.</p>
+        </div>
+        <div class="card principle-card">
+          <div class="principle-index" aria-hidden="true">03</div>
+          <h3 class="principle-title">Connect Research with Practice</h3>
+          <p class="principle-desc">Academic knowledge becomes more useful when learners can apply and explore it.</p>
+        </div>
+        <div class="card principle-card">
+          <div class="principle-index" aria-hidden="true">04</div>
+          <h3 class="principle-title">Build for Real Learners</h3>
+          <p class="principle-desc">Technology should solve actual educational problems rather than exist simply because it is technically possible.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Areas of interest ===== -->
+    <section class="page-section" aria-labelledby="interests-title">
+      <p class="eyebrow">Areas of Interest</p>
+      <h2 class="section-title" id="interests-title" style="margin-top:var(--sp-2);">What I focus on</h2>
+      <div class="tag-grid" style="margin-top:var(--sp-5);">
+        <span class="tag-chip">Education</span>
+        <span class="tag-chip">Educational Technology</span>
+        <span class="tag-chip">Research Methodology</span>
+        <span class="tag-chip">Digital Learning</span>
+        <span class="tag-chip">Academic Content</span>
+        <span class="tag-chip">Educational Applications</span>
+        <span class="tag-chip">Assessment</span>
+        <span class="tag-chip">Online Examination</span>
+        <span class="tag-chip">Research Resources</span>
+        <span class="tag-chip">Learning Design</span>
+      </div>
+    </section>
+
+    <!-- ===== What I'm building ===== -->
+    <section class="page-section" aria-labelledby="building-title">
+      <p class="eyebrow">Current Work</p>
+      <h2 class="section-title" id="building-title" style="margin-top:var(--sp-2);">What I'm Building</h2>
+      <p class="section-lede">Alongside teaching and research, the portfolio includes ongoing digital projects — from music education to research tooling.</p>
+
+      <div class="card mini-section" style="margin-top:var(--sp-5);">
+        <div>
+          <div class="mini-title">Ryan Music Studio</div>
+          <p class="mini-copy">A music education application currently being developed. Status: In Development.</p>
+        </div>
+        <a class="btn btn-secondary" href="projects.html">Apps &amp; Projects →</a>
+      </div>
+    </section>
+
+    <!-- ===== Sharing knowledge (YouTube) ===== -->
+    <section class="page-section" aria-labelledby="sharing-title">
+      <p class="eyebrow">Sharing Knowledge</p>
+      <h2 class="section-title" id="sharing-title" style="margin-top:var(--sp-2);">Teaching &amp; Research on YouTube</h2>
+
+      <div class="card mini-section" style="margin-top:var(--sp-5);">
+        <div>
+          <div class="mini-title">Teaching &amp; Research on YouTube</div>
+          <p class="mini-copy">Teaching and research content shared to make academic knowledge more accessible and practical.</p>
+        </div>
+        <a class="btn btn-secondary" href="https://www.youtube.com/channel/UCAciCJotVFrAyKCNyshcMDw?view_as=subscriber" target="_blank" rel="noopener noreferrer">Visit YouTube Channel</a>
+      </div>
+    </section>
+
+    <!-- ===== Beyond academia (Photography) ===== -->
+    <section class="page-section" aria-labelledby="beyond-title">
+      <h2 class="section-title" id="beyond-title" style="font-size:var(--fs-lg);">Beyond Academia</h2>
+      <div class="card mini-section is-secondary" style="margin-top:var(--sp-4);">
+        <div>
+          <p class="mini-copy" style="margin-top:0;">Alongside education, research and technology, photography provides a creative space for visual storytelling.</p>
+        </div>
+        <a class="btn btn-ghost" href="photography.html">Explore Photography →</a>
+      </div>
+    </section>
+
+    <!-- ===== Contact CTA ===== -->
+    <section class="page-section" aria-labelledby="cta-title">
+      <div class="cta-panel">
+        <h2 class="cta-title" id="cta-title">Let's Connect</h2>
+        <p class="cta-copy">Interested in academic collaboration, educational technology, research, teaching resources or digital learning projects?</p>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="contact.html">Contact Me</a>
+          <a class="btn btn-secondary" href="projects.html">Explore My Work</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Footer ===== -->
+    <footer class="page-section site-footer">
+      <div class="footer-brand">
+        <div class="brand-name">Dr. Justin Sudhakar</div>
+        <p class="brand-role">Educator • Researcher • EdTech Developer • Examination Specialist</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigate</div>
+        <nav class="footer-links">
+          <a href="index.html">Dashboard</a>
+          <a href="research.html">Research</a>
+          <a href="projects.html">Apps &amp; Projects</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+      <div>
+        <div class="footer-col-title">Elsewhere</div>
+        <nav class="footer-links">
+          <a href="https://www.youtube.com/channel/UCAciCJotVFrAyKCNyshcMDw?view_as=subscriber" target="_blank" rel="noopener noreferrer">YouTube</a>
+          <a href="https://www.linkedin.com/in/justinkaangeyan" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://github.com/kaangeyan" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="#">Google Play <span class="link-placeholder">[ADD GOOGLE PLAY URL]</span></a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Dr. Justin Sudhakar. All rights reserved.</span>
+      </div>
+    </footer>
+
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

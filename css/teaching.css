@@ -1,0 +1,477 @@
+/* ==========================================================================
+   Teaching & Courses page — styles specific to teaching.html
+   Reuses design tokens, .card, .btn, .section-title etc. from styles.css.
+   Self-contained: does not depend on about.css or academic-profile.css.
+   ========================================================================== */
+
+/* ---------- Page header ---------- */
+.teach-header {
+  padding-block: var(--sp-6) var(--sp-7);
+  max-width: 70ch;
+}
+
+.teach-header .eyebrow {
+  display: block;
+  margin-bottom: var(--sp-3);
+}
+
+.teach-title {
+  font-size: var(--fs-3xl);
+}
+
+.teach-lede {
+  margin-top: var(--sp-4);
+  font-size: var(--fs-md);
+  color: var(--text-muted);
+  max-width: 62ch;
+}
+
+/* ---------- Intro / Teaching at a Glance ---------- */
+.teach-intro-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: var(--sp-8);
+  align-items: start;
+}
+
+.teach-narrative p {
+  font-size: var(--fs-md);
+  color: var(--text-muted);
+  max-width: 62ch;
+}
+
+.teach-narrative p + p {
+  margin-top: var(--sp-4);
+}
+
+.glance-panel {
+  padding: var(--sp-6);
+}
+
+.glance-panel .glance-title {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text-faint);
+  margin-bottom: var(--sp-4);
+}
+
+.glance-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.glance-item {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-3) var(--sp-4);
+  border-radius: var(--radius-sm);
+  background: var(--bg-elevated-2);
+  border: 1px solid var(--border);
+  font-size: var(--fs-sm);
+  color: var(--text);
+}
+
+.glance-item .glance-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-gradient);
+  flex-shrink: 0;
+}
+
+/* ---------- Teaching level cards ---------- */
+.teach-level-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-4);
+}
+
+.teach-level-card {
+  padding: var(--sp-5);
+  border-top: 2px solid var(--border-strong);
+}
+
+.teach-level-card:nth-child(1) { border-top-color: var(--indigo); }
+.teach-level-card:nth-child(2) { border-top-color: var(--blue); }
+.teach-level-card:nth-child(3) { border-top-color: var(--teal); }
+
+.teach-level-title {
+  font-size: var(--fs-md);
+  color: var(--text);
+}
+
+.teach-level-desc {
+  margin-top: var(--sp-2);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+/* ---------- Subjects / academic areas ---------- */
+.subject-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+}
+
+.subject-chip {
+  padding: 0.6rem 1.1rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-strong);
+  background: var(--bg-card);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+.subject-note {
+  margin-top: var(--sp-4);
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  max-width: 62ch;
+}
+
+.more-courses-panel {
+  margin-top: var(--sp-5);
+  padding: var(--sp-5);
+  border-style: dashed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+}
+
+.more-courses-panel .mc-title {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.more-courses-panel .mc-placeholder {
+  font-size: var(--fs-sm);
+  color: var(--text-faint);
+}
+
+/* ---------- Research methodology feature ---------- */
+.methodology-panel {
+  padding: var(--sp-7);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background:
+    radial-gradient(480px 260px at 0% 0%, rgba(47, 216, 192, 0.12), transparent 60%),
+    var(--bg-card);
+}
+
+.methodology-panel .section-lede {
+  margin-top: var(--sp-2);
+}
+
+.methodology-topics {
+  margin-top: var(--sp-5);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+}
+
+.methodology-topic {
+  padding: 0.55rem 1rem;
+  border-radius: var(--radius-sm);
+  background: var(--teal-soft);
+  color: var(--teal);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  border: 1px solid rgba(47, 216, 192, 0.3);
+}
+
+.methodology-topic.is-placeholder {
+  background: transparent;
+  color: var(--text-faint);
+  border-style: dashed;
+  border-color: var(--border-strong);
+  font-weight: 500;
+}
+
+/* ---------- Course → App pathway ---------- */
+.pathway {
+  display: flex;
+  align-items: stretch;
+  gap: var(--sp-3);
+  overflow-x: auto;
+  padding-bottom: var(--sp-2);
+}
+
+.pathway-step {
+  flex: 1 1 0;
+  min-width: 140px;
+  padding: var(--sp-5) var(--sp-4);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-2);
+  position: relative;
+}
+
+.pathway-step .pathway-node {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--indigo-soft);
+  color: var(--blue);
+  display: grid;
+  place-items: center;
+  font-size: 0.95rem;
+}
+
+.pathway-step:nth-child(3) .pathway-node,
+.pathway-step:nth-child(7) .pathway-node { background: var(--teal-soft); color: var(--teal); }
+
+.pathway-step .pathway-label {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.pathway-arrow {
+  display: flex;
+  align-items: center;
+  color: var(--text-faint);
+  font-size: 1.1rem;
+  flex: 0 0 auto;
+}
+
+@media (max-width: 900px) {
+  .pathway {
+    flex-direction: column;
+  }
+  .pathway-arrow {
+    transform: rotate(90deg);
+    align-self: center;
+  }
+}
+
+/* ---------- Apps from learning content ---------- */
+.learning-app-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-4);
+}
+
+.learning-app-card {
+  padding: var(--sp-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.learning-app-card .app-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-elevated-2);
+  border: 1px solid var(--border-strong);
+  display: grid;
+  place-items: center;
+  font-size: 1.1rem;
+}
+
+.learning-app-name {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.learning-app-desc {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  flex: 1;
+}
+
+.learning-app-link {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--teal);
+  padding-top: var(--sp-2);
+  border-top: 1px solid var(--border);
+}
+
+/* ---------- Current teaching/digital projects ---------- */
+.current-project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-4);
+}
+
+.current-project-card {
+  padding: var(--sp-5);
+}
+
+.current-project-card .status-badge {
+  margin-bottom: var(--sp-3);
+}
+
+.current-project-name {
+  font-size: var(--fs-md);
+  color: var(--text);
+}
+
+.current-project-desc {
+  margin-top: var(--sp-2);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+.current-project-tag {
+  margin-top: var(--sp-3);
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+}
+
+/* ---------- Teaching philosophy ---------- */
+.teach-principle-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-4);
+}
+
+.teach-principle-card {
+  padding: var(--sp-5);
+}
+
+.teach-principle-title {
+  font-size: var(--fs-md);
+  color: var(--text);
+}
+
+.teach-principle-desc {
+  margin-top: var(--sp-2);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+/* ---------- Sharing / resources mini sections ---------- */
+.teach-mini-section {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: var(--sp-5);
+  padding: var(--sp-6);
+}
+
+.teach-mini-section .mini-title {
+  font-size: var(--fs-lg);
+}
+
+.teach-mini-section .mini-copy {
+  margin-top: var(--sp-2);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  max-width: 56ch;
+}
+
+.teach-mini-section .mini-chips {
+  margin-top: var(--sp-3);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.teach-mini-section .mini-chip {
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-strong);
+}
+
+@media (max-width: 900px) {
+  .teach-mini-section {
+    grid-template-columns: 1fr;
+  }
+  .teach-mini-section .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ---------- Course library placeholders ---------- */
+.library-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-4);
+}
+
+.library-slot {
+  padding: var(--sp-6);
+  text-align: center;
+  border-style: dashed;
+  color: var(--text-faint);
+  font-size: var(--fs-sm);
+}
+
+.library-slot .library-icon {
+  font-size: 1.4rem;
+  margin-bottom: var(--sp-3);
+  display: block;
+}
+
+/* ---------- Teaching stats summary ---------- */
+.teach-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-4);
+}
+
+.teach-stat-card {
+  padding: var(--sp-5);
+  border-top: 2px solid var(--border-strong);
+}
+
+.teach-stat-card:nth-child(1) { border-top-color: var(--indigo); }
+.teach-stat-card:nth-child(2) { border-top-color: var(--blue); }
+.teach-stat-card:nth-child(3) { border-top-color: var(--teal); }
+
+.teach-stat-value {
+  font-family: var(--font-display);
+  font-size: var(--fs-2xl);
+  color: var(--text);
+}
+
+.teach-stat-label {
+  margin-top: var(--sp-2);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+/* ---------- Responsive: Teaching page ---------- */
+@media (max-width: 1080px) {
+  .learning-app-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .teach-principle-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .teach-intro-grid {
+    grid-template-columns: 1fr;
+  }
+  .teach-level-grid,
+  .current-project-grid,
+  .library-grid,
+  .teach-stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .teach-title {
+    font-size: var(--fs-2xl);
+  }
+  .learning-app-grid,
+  .teach-principle-grid {
+    grid-template-columns: 1fr;
+  }
+}

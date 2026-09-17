@@ -1,0 +1,476 @@
+/* ==========================================================================
+   Academic Profile page — styles specific to academic-profile.html
+   Reuses design tokens, .card, .btn, .section-title, .research-feature etc.
+   from styles.css. Only new, page-specific components live here.
+   This file is intentionally self-contained — it does not depend on
+   about.css, so academic-profile.html only needs styles.css + this file.
+   ========================================================================== */
+
+/* ---------- Page header (slightly more formal spacing) ---------- */
+.profile-header {
+  padding-block: var(--sp-6) var(--sp-7);
+  max-width: 70ch;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: var(--sp-7);
+}
+
+.profile-header .eyebrow {
+  display: block;
+  margin-bottom: var(--sp-3);
+}
+
+.profile-title {
+  font-size: var(--fs-3xl);
+}
+
+.profile-lede {
+  margin-top: var(--sp-4);
+  font-size: var(--fs-md);
+  color: var(--text-muted);
+  max-width: 62ch;
+}
+
+/* ---------- Qualification list ---------- */
+.qual-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.qual-item {
+  padding: var(--sp-5);
+  display: grid;
+  grid-template-columns: 44px 1fr auto;
+  align-items: center;
+  gap: var(--sp-4);
+}
+
+.qual-num {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: var(--indigo-soft);
+  color: var(--blue);
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.qual-name {
+  font-size: var(--fs-md);
+  color: var(--text);
+}
+
+.qual-institution {
+  margin-top: var(--sp-1);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+.qual-year {
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  white-space: nowrap;
+}
+
+/* ---------- Qualification overview ---------- */
+.overview-panel {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--sp-7);
+  align-items: center;
+  padding: var(--sp-6);
+}
+
+.overview-total {
+  text-align: center;
+  padding-inline: var(--sp-6);
+  border-right: 1px solid var(--border);
+}
+
+.overview-total .metric-value {
+  font-size: var(--fs-4xl);
+}
+
+.overview-total .metric-label {
+  margin-top: var(--sp-2);
+}
+
+.overview-breakdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-4);
+}
+
+.overview-stat {
+  text-align: center;
+}
+
+.overview-stat .stat-value {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  color: var(--text);
+}
+
+.overview-stat .stat-label {
+  margin-top: var(--sp-1);
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+@media (max-width: 900px) {
+  .overview-panel {
+    grid-template-columns: 1fr;
+  }
+  .overview-total {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: var(--sp-5);
+  }
+  .overview-breakdown {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ---------- Discipline chips ---------- */
+.discipline-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+}
+
+.discipline-chip {
+  padding: 0.6rem 1.1rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-strong);
+  background: var(--bg-card);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+.discipline-note {
+  margin-top: var(--sp-4);
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+}
+
+/* ---------- Experience level cards ---------- */
+.level-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-4);
+}
+
+.level-card {
+  padding: var(--sp-5);
+  border-top: 2px solid var(--border-strong);
+}
+
+.level-card:nth-child(1) { border-top-color: var(--indigo); }
+.level-card:nth-child(2) { border-top-color: var(--blue); }
+.level-card:nth-child(3) { border-top-color: var(--teal); }
+
+.level-title {
+  font-size: var(--fs-md);
+  color: var(--text);
+}
+
+.level-desc {
+  margin-top: var(--sp-2);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+/* ---------- Responsibilities list ---------- */
+.responsibility-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-3);
+}
+
+.responsibility-item {
+  padding: var(--sp-4) var(--sp-5);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+.responsibility-item .resp-icon {
+  color: var(--teal);
+  flex-shrink: 0;
+}
+
+/* ---------- Curriculum panel ---------- */
+.curriculum-panel {
+  padding: var(--sp-6);
+  border-left: 2px solid var(--purple);
+}
+
+.curriculum-panel p {
+  font-size: var(--fs-md);
+  color: var(--text-muted);
+  max-width: 68ch;
+}
+
+.curriculum-panel .placeholder-note {
+  margin-top: var(--sp-4);
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+}
+
+/* ---------- Selected research projects ---------- */
+.research-project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-4);
+}
+
+.research-project-card {
+  padding: var(--sp-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.research-project-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--indigo);
+  background: var(--indigo-soft);
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--radius-pill);
+  align-self: flex-start;
+}
+
+.research-project-title {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+  margin-top: var(--sp-1);
+}
+
+.verify-badge {
+  display: inline-block;
+  margin-top: var(--sp-2);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--purple);
+  border: 1px solid rgba(166, 130, 240, 0.35);
+  background: rgba(166, 130, 240, 0.1);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-pill);
+  align-self: flex-start;
+}
+
+/* ---------- Academic → Digital flow ---------- */
+.profile-flow {
+  display: flex;
+  align-items: stretch;
+  gap: var(--sp-3);
+  overflow-x: auto;
+  padding-bottom: var(--sp-2);
+}
+
+.profile-flow-step {
+  flex: 1 1 0;
+  min-width: 140px;
+  padding: var(--sp-5) var(--sp-4);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-2);
+  border-top: 2px solid var(--border-strong);
+}
+
+.profile-flow-step:nth-child(odd) { border-top-color: var(--indigo); }
+.profile-flow-step:nth-child(even) { border-top-color: var(--teal); }
+
+.profile-flow-step .flow-label {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.profile-flow-arrow {
+  display: flex;
+  align-items: center;
+  color: var(--text-faint);
+  font-size: 1.1rem;
+  flex: 0 0 auto;
+}
+
+@media (max-width: 900px) {
+  .profile-flow {
+    flex-direction: column;
+  }
+  .profile-flow-arrow {
+    transform: rotate(90deg);
+    align-self: center;
+  }
+}
+
+/* ---------- Examination & assessment list ---------- */
+.exam-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-3);
+}
+
+.exam-item {
+  padding: var(--sp-4) var(--sp-5);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+.exam-item .exam-icon {
+  color: var(--blue);
+  flex-shrink: 0;
+}
+
+.exam-note {
+  margin-top: var(--sp-4);
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  max-width: 62ch;
+}
+
+/* ---------- Certifications ---------- */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-3);
+}
+
+.cert-card {
+  padding: var(--sp-4);
+  text-align: center;
+}
+
+.cert-card.is-verified {
+  border-top: 2px solid var(--teal);
+}
+
+.cert-card.is-placeholder {
+  border-style: dashed;
+  color: var(--text-faint);
+}
+
+.cert-name {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.cert-card.is-placeholder .cert-name {
+  color: var(--text-faint);
+  font-weight: 500;
+}
+
+/* ---------- Profile snapshot ---------- */
+.snapshot-card {
+  padding: var(--sp-7);
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  gap: var(--sp-7);
+  align-items: center;
+  box-shadow: var(--shadow-elevated);
+}
+
+.snapshot-divider {
+  background: var(--border-strong);
+  align-self: stretch;
+}
+
+.snapshot-name {
+  font-size: var(--fs-xl);
+  color: var(--text);
+}
+
+.snapshot-roles {
+  margin-top: var(--sp-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+.snapshot-facts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.snapshot-fact {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-2);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+.snapshot-fact strong {
+  color: var(--text);
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .snapshot-card {
+    grid-template-columns: 1fr;
+  }
+  .snapshot-divider {
+    width: 100%;
+    height: 1px;
+  }
+}
+
+/* ---------- Responsive: Academic Profile page ---------- */
+@media (max-width: 1080px) {
+  .level-grid {
+    grid-template-columns: 1fr;
+  }
+  .research-project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cert-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .qual-item {
+    grid-template-columns: 36px 1fr;
+  }
+  .qual-year {
+    grid-column: 2 / 3;
+  }
+  .responsibility-grid,
+  .exam-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .profile-title {
+    font-size: var(--fs-2xl);
+  }
+  .research-project-grid {
+    grid-template-columns: 1fr;
+  }
+  .cert-grid {
+    grid-template-columns: 1fr;
+  }
+  .overview-breakdown {
+    grid-template-columns: 1fr;
+  }
+}

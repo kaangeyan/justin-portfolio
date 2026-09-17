@@ -1,0 +1,458 @@
+/* ==========================================================================
+   Apps & Projects page — styles specific to projects.html
+   Reuses design tokens, .card, .btn, .section-title, .status-badge etc.
+   from styles.css. Self-contained otherwise: does not depend on about.css,
+   academic-profile.css, teaching.css or research.css.
+   ========================================================================== */
+
+/* ---------- Page header ---------- */
+.proj-header {
+  padding-block: var(--sp-6) var(--sp-7);
+  max-width: 72ch;
+}
+
+.proj-header .eyebrow {
+  display: block;
+  margin-bottom: var(--sp-3);
+}
+
+.proj-title {
+  font-size: var(--fs-3xl);
+}
+
+.proj-lede {
+  margin-top: var(--sp-4);
+  font-size: var(--fs-md);
+  color: var(--text-muted);
+  max-width: 64ch;
+}
+
+/* ---------- Portfolio intro panel ---------- */
+.proj-intro-panel {
+  padding: var(--sp-7);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background:
+    radial-gradient(520px 280px at 100% 0%, rgba(100, 114, 242, 0.14), transparent 60%);
+}
+
+.proj-intro-panel p {
+  margin-top: var(--sp-3);
+  font-size: var(--fs-md);
+  color: var(--text-muted);
+  max-width: 68ch;
+}
+
+/* ---------- Section dividers ---------- */
+.proj-section-divider {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-5);
+}
+
+.proj-section-divider h2 {
+  font-size: var(--fs-xl);
+  white-space: nowrap;
+}
+
+.proj-section-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ---------- Project showcase (large, for featured / published) ---------- */
+.proj-showcase {
+  padding: var(--sp-7);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-7);
+  align-items: center;
+}
+
+.proj-showcase--featured {
+  border-top: 3px solid transparent;
+  border-image: var(--accent-gradient) 1;
+  box-shadow: var(--shadow-elevated);
+  background:
+    radial-gradient(480px 260px at 100% 0%, rgba(100, 114, 242, 0.14), transparent 60%),
+    var(--bg-card);
+}
+
+.proj-showcase--music {
+  border-top: 3px solid var(--purple);
+  background:
+    radial-gradient(480px 260px at 0% 0%, rgba(166, 130, 240, 0.14), transparent 60%),
+    var(--bg-card);
+}
+
+.proj-media {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-md);
+  border: 1px dashed var(--border-strong);
+  background: var(--bg-elevated-2);
+  display: grid;
+  place-items: center;
+  color: var(--text-faint);
+  font-size: var(--fs-sm);
+  text-align: center;
+  padding: var(--sp-5);
+}
+
+.proj-media .media-icon {
+  font-size: 1.8rem;
+  margin-bottom: var(--sp-2);
+  display: block;
+}
+
+.proj-badges {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+  margin-bottom: var(--sp-3);
+}
+
+.proj-secondary-badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  border: 1px dashed var(--border-strong);
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-pill);
+}
+
+.proj-name {
+  font-size: var(--fs-xl);
+  color: var(--text);
+}
+
+.proj-tagline {
+  margin-top: var(--sp-2);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--fs-md);
+  color: var(--teal);
+}
+
+.proj-desc {
+  margin-top: var(--sp-4);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  max-width: 52ch;
+}
+
+.proj-category-chips {
+  margin-top: var(--sp-4);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.proj-category-chip {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-strong);
+}
+
+/* ---------- Project detail field grid (reusable for future content) ---------- */
+.proj-detail-grid {
+  margin-top: var(--sp-5);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-3);
+  padding-top: var(--sp-5);
+  border-top: 1px solid var(--border);
+}
+
+.proj-detail-field .field-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-faint);
+}
+
+.proj-detail-field .field-value {
+  margin-top: var(--sp-1);
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+.proj-detail-field .field-value.is-placeholder {
+  color: var(--text-faint);
+  font-style: italic;
+}
+
+.proj-links {
+  margin-top: var(--sp-5);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+}
+
+/* ---------- In-development project cards (medium showcase) ---------- */
+.proj-dev-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-5);
+}
+
+.proj-dev-card {
+  padding: var(--sp-6);
+  border-top: 2px solid var(--blue);
+}
+
+.proj-dev-card .proj-media {
+  aspect-ratio: 16 / 10;
+  margin-bottom: var(--sp-4);
+}
+
+.proj-dev-note {
+  margin-top: var(--sp-3);
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  padding: var(--sp-3);
+  border-radius: var(--radius-sm);
+  background: var(--bg-elevated-2);
+  border: 1px solid var(--border);
+}
+
+/* ---------- Explore by category ---------- */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-4);
+}
+
+.category-card {
+  padding: var(--sp-5);
+}
+
+.category-card .cat-title {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.category-card .cat-desc {
+  margin-top: var(--sp-2);
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+.category-note {
+  margin-top: var(--sp-4);
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  max-width: 62ch;
+}
+
+/* ---------- From Idea to Application flow ---------- */
+.idea-flow {
+  display: flex;
+  align-items: stretch;
+  gap: var(--sp-3);
+  overflow-x: auto;
+  padding-bottom: var(--sp-2);
+}
+
+.idea-flow-step {
+  flex: 1 1 0;
+  min-width: 140px;
+  padding: var(--sp-5) var(--sp-4);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-2);
+  border-top: 2px solid var(--border-strong);
+}
+
+.idea-flow-step:nth-child(odd) { border-top-color: var(--indigo); }
+.idea-flow-step:nth-child(even) { border-top-color: var(--teal); }
+
+.idea-flow-step .flow-label {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.idea-flow-arrow {
+  display: flex;
+  align-items: center;
+  color: var(--text-faint);
+  font-size: 1.1rem;
+  flex: 0 0 auto;
+}
+
+.idea-flow-note {
+  margin-top: var(--sp-4);
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  max-width: 64ch;
+}
+
+@media (max-width: 900px) {
+  .idea-flow {
+    flex-direction: column;
+  }
+  .idea-flow-arrow {
+    transform: rotate(90deg);
+    align-self: center;
+  }
+}
+
+/* ---------- Development philosophy ---------- */
+.proj-principle-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-4);
+}
+
+.proj-principle-card {
+  padding: var(--sp-5);
+}
+
+.proj-principle-title {
+  font-size: var(--fs-md);
+  color: var(--text);
+}
+
+.proj-principle-desc {
+  margin-top: var(--sp-2);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+/* ---------- Project status summary ---------- */
+.status-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-4);
+}
+
+.status-summary-card {
+  padding: var(--sp-5);
+  border-top: 2px solid var(--border-strong);
+}
+
+.status-summary-card.is-published { border-top-color: var(--teal); }
+.status-summary-card.is-progress { border-top-color: var(--blue); }
+.status-summary-card.is-verify { border-top-color: var(--purple); }
+
+.status-summary-title {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: var(--sp-3);
+}
+
+.status-summary-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.status-summary-list li {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  padding-left: var(--sp-4);
+  position: relative;
+}
+
+.status-summary-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text-faint);
+}
+
+/* ---------- Connection mini sections ---------- */
+.proj-mini-section {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: var(--sp-5);
+  padding: var(--sp-6);
+}
+
+.proj-mini-section .mini-title {
+  font-size: var(--fs-lg);
+}
+
+.proj-mini-section .mini-copy {
+  margin-top: var(--sp-2);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  max-width: 58ch;
+}
+
+@media (max-width: 900px) {
+  .proj-mini-section {
+    grid-template-columns: 1fr;
+  }
+  .proj-mini-section .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ---------- Future expansion ---------- */
+.expansion-panel {
+  padding: var(--sp-6);
+  text-align: center;
+  border-style: dashed;
+}
+
+.expansion-panel p {
+  max-width: 56ch;
+  margin-inline: auto;
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+/* ---------- Responsive: Apps & Projects page ---------- */
+@media (max-width: 1080px) {
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .proj-principle-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .proj-showcase {
+    grid-template-columns: 1fr;
+  }
+  .proj-detail-grid {
+    grid-template-columns: 1fr;
+  }
+  .proj-dev-grid {
+    grid-template-columns: 1fr;
+  }
+  .status-summary-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .proj-title {
+    font-size: var(--fs-2xl);
+  }
+  .category-grid,
+  .proj-principle-grid {
+    grid-template-columns: 1fr;
+  }
+}

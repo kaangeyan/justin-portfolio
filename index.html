@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Academic &amp; EdTech Portfolio | Dr. Justin Sudhakar</title>
+<meta name="description" content="Dr. Justin Sudhakar is an educator and researcher working across teaching, academic research and educational technology, building digital tools that make learning more accessible." />
+<meta property="og:title" content="Academic & EdTech Portfolio | Dr. Justin Sudhakar" />
+<meta property="og:description" content="Dr. Justin Sudhakar is an educator and researcher working across teaching, academic research and educational technology, building digital tools that make learning more accessible." />
+<meta property="og:type" content="profile" />
+<meta property="og:image" content="[ADD OG IMAGE URL]" />
+<link rel="icon" href="data:," />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+<div class="bg-field" aria-hidden="true"></div>
+
+<div class="shell">
+
+  <!-- ================= Sidebar navigation (desktop) ================= -->
+  <aside class="sidebar" aria-label="Primary">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true">JS</span>
+      <span class="brand-text">
+        <span class="brand-name">Dr. Justin Sudhakar</span>
+        <span class="brand-role">Educator &amp; EdTech Developer</span>
+      </span>
+    </a>
+
+    <nav>
+      <ul class="nav-list">
+        <li><a class="nav-link" href="index.html" aria-current="page"><span class="nav-icon">🏠</span>Dashboard</a></li>
+        <li><a class="nav-link" href="about.html"><span class="nav-icon">👤</span>About Me</a></li>
+        <li><a class="nav-link" href="academic-profile.html"><span class="nav-icon">🎓</span>Academic Profile</a></li>
+        <li><a class="nav-link" href="teaching.html"><span class="nav-icon">📚</span>Teaching &amp; Courses</a></li>
+        <li><a class="nav-link" href="research.html"><span class="nav-icon">🔬</span>Research</a></li>
+        <li><a class="nav-link" href="projects.html"><span class="nav-icon">📱</span>Apps &amp; Projects</a></li>
+        <li><a class="nav-link" href="publications.html"><span class="nav-icon">📄</span>Publications</a></li>
+        <li><a class="nav-link" href="certifications.html"><span class="nav-icon">🏅</span>Certifications</a></li>
+        <li><a class="nav-link" href="resources.html"><span class="nav-icon">📚</span>Resources</a></li>
+        <li><a class="nav-link" href="experience.html"><span class="nav-icon">💼</span>Experience</a></li>
+        <li><a class="nav-link" href="youtube.html"><span class="nav-icon">▶️</span>YouTube &amp; Learning</a></li>
+        <li><a class="nav-link" href="photography.html"><span class="nav-icon">📷</span>Photography</a></li>
+        <li><a class="nav-link" href="contact.html"><span class="nav-icon">✉️</span>Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-footer">
+      Phase 1 preview · other pages coming in Phase 2
+    </div>
+  </aside>
+
+  <!-- ================= Mobile top bar ================= -->
+  <header class="topbar">
+    <a class="brand" href="index.html" style="padding:0;">
+      <span class="brand-mark" aria-hidden="true">JS</span>
+      <span class="brand-text">
+        <span class="brand-name">Dr. Justin Sudhakar</span>
+      </span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+      <span aria-hidden="true">☰</span>
+    </button>
+  </header>
+
+  <!-- ================= Mobile nav drawer ================= -->
+  <div class="mobile-nav" id="mobileNav">
+    <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+    <div class="mobile-nav-panel" role="dialog" aria-modal="true" aria-label="Site navigation">
+      <div class="mobile-nav-header">
+        <span class="brand-text">
+          <span class="brand-name">Menu</span>
+        </span>
+        <button class="menu-toggle" id="menuClose" aria-label="Close menu">
+          <span aria-hidden="true">✕</span>
+        </button>
+      </div>
+      <nav>
+        <ul class="nav-list">
+          <li><a class="nav-link" href="index.html" aria-current="page"><span class="nav-icon">🏠</span>Dashboard</a></li>
+          <li><a class="nav-link" href="about.html"><span class="nav-icon">👤</span>About Me</a></li>
+          <li><a class="nav-link" href="academic-profile.html"><span class="nav-icon">🎓</span>Academic Profile</a></li>
+          <li><a class="nav-link" href="teaching.html"><span class="nav-icon">📚</span>Teaching &amp; Courses</a></li>
+          <li><a class="nav-link" href="research.html"><span class="nav-icon">🔬</span>Research</a></li>
+          <li><a class="nav-link" href="projects.html"><span class="nav-icon">📱</span>Apps &amp; Projects</a></li>
+          <li><a class="nav-link" href="publications.html"><span class="nav-icon">📄</span>Publications</a></li>
+          <li><a class="nav-link" href="certifications.html"><span class="nav-icon">🏅</span>Certifications</a></li>
+          <li><a class="nav-link" href="resources.html"><span class="nav-icon">📚</span>Resources</a></li>
+          <li><a class="nav-link" href="experience.html"><span class="nav-icon">💼</span>Experience</a></li>
+          <li><a class="nav-link" href="youtube.html"><span class="nav-icon">▶️</span>YouTube &amp; Learning</a></li>
+          <li><a class="nav-link" href="photography.html"><span class="nav-icon">📷</span>Photography</a></li>
+          <li><a class="nav-link" href="contact.html"><span class="nav-icon">✉️</span>Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ================= Main content ================= -->
+  <main class="main" id="main">
+
+    <!-- ===== Hero ===== -->
+    <section class="hero page-section">
+      <div>
+        <p class="hero-eyebrow">Academic &amp; EdTech Portfolio</p>
+        <h1 class="hero-name">Dr. Justin Sudhakar</h1>
+        <p class="hero-role">Educator • Researcher • EdTech Developer • Examination Specialist</p>
+        <p class="hero-tags">Teaching • Research • Digital Learning • Academic Content Creation</p>
+        <p class="hero-copy">
+          Dr. Justin Sudhakar works across education, academic research, digital learning,
+          educational technology and examination operations — teaching at the university level,
+          conducting research, coordinating online examinations, and building applications that
+          turn academic knowledge into practical, accessible learning tools.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="projects.html">Explore My Work</a>
+          <a class="btn btn-secondary" href="academic-profile.html">Academic Profile</a>
+          <a class="btn btn-ghost" href="contact.html">Contact Me</a>
+        </div>
+      </div>
+      <div class="hero-portrait">
+        <div class="portrait-placeholder">
+          <div class="placeholder-icon" aria-hidden="true">🖼️</div>
+          [ADD PROFESSIONAL PHOTO]
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Professional highlights ===== -->
+    <section class="page-section" aria-labelledby="highlights-title">
+      <h2 class="section-title" id="highlights-title">Professional highlights</h2>
+      <div class="metric-grid" style="margin-top:var(--sp-5);">
+        <div class="card metric-card">
+          <div class="metric-value">13+</div>
+          <div class="metric-label">Academic Experience</div>
+        </div>
+        <div class="card metric-card">
+          <div class="metric-value">7</div>
+          <div class="metric-label">Academic Qualifications</div>
+        </div>
+        <div class="card metric-card">
+          <div class="metric-value">Multiple</div>
+          <div class="metric-label">Educational Apps &amp; Digital Projects</div>
+        </div>
+        <div class="card metric-card">
+          <div class="metric-value">Multiple</div>
+          <div class="metric-label">Research Projects</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== What I do ===== -->
+    <section class="page-section" aria-labelledby="focus-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">What I do</p>
+          <h2 class="section-title" id="focus-title">Four areas, one focus</h2>
+        </div>
+      </div>
+      <div class="focus-grid">
+        <div class="card focus-card">
+          <div class="focus-icon" aria-hidden="true">🎓</div>
+          <h3 class="focus-title">Education</h3>
+          <p class="focus-desc">Teaching and academic learning across undergraduate, postgraduate and research levels.</p>
+        </div>
+        <div class="card focus-card">
+          <div class="focus-icon" aria-hidden="true">🔬</div>
+          <h3 class="focus-title">Research</h3>
+          <p class="focus-desc">Educational research, research methodology and academic inquiry.</p>
+        </div>
+        <div class="card focus-card">
+          <div class="focus-icon" aria-hidden="true">💻</div>
+          <h3 class="focus-title">EdTech</h3>
+          <p class="focus-desc">Designing and developing digital applications for learning, research and education.</p>
+        </div>
+        <div class="card focus-card">
+          <div class="focus-icon" aria-hidden="true">📝</div>
+          <h3 class="focus-title">Assessment</h3>
+          <p class="focus-desc">Experience in online examination coordination, proctoring and assessment operations.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Journey teaser ===== -->
+    <section class="page-section" aria-labelledby="journey-title">
+      <div class="card journey-panel">
+        <div>
+          <p class="eyebrow">My Journey</p>
+          <h2 class="section-title" id="journey-title" style="margin-top:var(--sp-2); font-size:var(--fs-xl);">From Classroom to Digital Learning</h2>
+          <p class="journey-copy">My journey brings together teaching, educational research, academic content development and technology. I began by teaching and researching—and gradually started transforming academic knowledge and learning resources into digital applications.</p>
+        </div>
+        <a class="btn btn-secondary journey-btn" href="about.html">Read My Story →</a>
+      </div>
+    </section>
+
+    <!-- ===== Academic Foundation ===== -->
+    <section class="page-section" aria-labelledby="foundation-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Academic Foundation</p>
+          <h2 class="section-title" id="foundation-title">Academic Foundation</h2>
+          <p class="section-lede">A multidisciplinary academic background across Education, Psychology, English Literature and Adult &amp; Continuing Education.</p>
+        </div>
+        <a class="btn btn-ghost" href="academic-profile.html">View Academic Profile</a>
+      </div>
+      <div class="metric-grid" style="margin-top:var(--sp-5);">
+        <div class="card metric-card">
+          <div class="metric-value" style="font-size:var(--fs-lg);">Doctoral Study</div>
+          <div class="metric-label">Ph.D. in Education</div>
+        </div>
+        <div class="card metric-card">
+          <div class="metric-value" style="font-size:var(--fs-lg);">Master's Study</div>
+          <div class="metric-label">Education • Psychology • English Literature</div>
+        </div>
+        <div class="card metric-card">
+          <div class="metric-value" style="font-size:var(--fs-lg);">Bachelor's Study</div>
+          <div class="metric-label">Education • English Literature</div>
+        </div>
+        <div class="card metric-card">
+          <div class="metric-value" style="font-size:var(--fs-lg);">Postgraduate Study</div>
+          <div class="metric-label">Adult &amp; Continuing Education</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Featured research ===== -->
+    <section class="page-section" aria-labelledby="research-title">
+      <p class="eyebrow">Research • Academic Work • Knowledge Creation</p>
+      <h2 class="section-title" id="research-title" style="margin-top:var(--sp-2);">Research as a Foundation for Learning</h2>
+
+      <div class="research-feature research-feature--emphasis" style="margin-top:var(--sp-5);">
+        <span class="research-kicker" aria-hidden="true">PHD RESEARCH</span>
+        <div>
+          <span class="research-tag">PhD Research</span>
+          <h3 class="research-title">Knowledge and Utilization of E-Resources among Teachers of Higher Education</h3>
+          <p class="research-note">Ph.D. in Education · Annamalai University. Research and academic inquiry provide a foundation for understanding educational questions and developing meaningful learning resources.</p>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:var(--sp-3);">
+          <a class="btn btn-secondary" href="research.html">Explore Research</a>
+          <a class="btn btn-ghost" href="publications.html">Academic Output</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Featured apps & projects ===== -->
+    <section class="page-section" aria-labelledby="projects-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Apps &amp; Projects</p>
+          <h2 class="section-title" id="projects-title">Featured apps &amp; projects</h2>
+        </div>
+        <a class="btn btn-ghost" href="projects.html">Explore All Projects</a>
+      </div>
+
+      <div class="project-grid">
+
+        <article class="card project-card">
+          <div class="project-top">
+            <div class="project-icon" aria-hidden="true">📊</div>
+            <span class="status-badge is-published">Published</span>
+          </div>
+          <div>
+            <h3 class="project-name">Praxis</h3>
+            <p class="project-category">Research management</p>
+          </div>
+          <p class="project-desc">Research progress tracker for Arts and Social Sciences.</p>
+          <a class="project-link" href="https://play.google.com/store/apps/details?id=com.praxis.app" target="_blank" rel="noopener noreferrer">View on Google Play</a>
+        </article>
+
+        <article class="card project-card">
+          <div class="project-top">
+            <div class="project-icon" aria-hidden="true">📘</div>
+            <span class="status-badge is-published">Published</span>
+          </div>
+          <div>
+            <h3 class="project-name">Research Methods in Education</h3>
+            <p class="project-category">Educational application</p>
+          </div>
+          <p class="project-desc">An educational application covering research methodology and related academic topics.</p>
+          <a class="project-link" href="https://play.google.com/store/apps/details?id=com.justinsnotes.educationalresearchmethodology" target="_blank" rel="noopener noreferrer">View on Google Play</a>
+        </article>
+
+        <article class="card project-card">
+          <div class="project-top">
+            <div class="project-icon" aria-hidden="true">📈</div>
+            <span class="status-badge is-verify">Status to Confirm</span>
+          </div>
+          <div>
+            <h3 class="project-name">PolicyProgrammeEval</h3>
+            <p class="project-category">Policy &amp; programme evaluation</p>
+          </div>
+          <p class="project-desc">An educational/research-oriented application related to policy and programme evaluation.</p>
+          <a class="project-link" href="#">Project Details <span class="link-placeholder">[ADD GOOGLE PLAY LINK]</span></a>
+        </article>
+
+        <article class="card project-card">
+          <div class="project-top">
+            <div class="project-icon" aria-hidden="true">🧠</div>
+            <span class="status-badge is-progress">In Development</span>
+          </div>
+          <div>
+            <h3 class="project-name">Bezel</h3>
+            <p class="project-category">Research knowledge mapping</p>
+          </div>
+          <p class="project-desc">A concept / mind-map oriented application for educational research knowledge.</p>
+          <a class="project-link" href="#">Project Details <span class="link-placeholder">[ADD PROJECT LINK]</span></a>
+        </article>
+
+        <article class="card project-card">
+          <div class="project-top">
+            <div class="project-icon" aria-hidden="true">✨</div>
+            <span class="status-badge is-progress">In Development / Ongoing Project</span>
+          </div>
+          <div>
+            <h3 class="project-name">FaithTales</h3>
+            <p class="project-category">Bible-learning application</p>
+          </div>
+          <p class="project-desc">An illustrated Bible-learning application designed around the 66 books of the Bible.</p>
+          <a class="project-link" href="#">Project Details <span class="link-placeholder">[ADD PROJECT LINK]</span></a>
+        </article>
+
+        <article class="card project-card">
+          <div class="project-top">
+            <div class="project-icon" aria-hidden="true">🗂️</div>
+            <span class="status-badge is-progress">In Development</span>
+          </div>
+          <div>
+            <h3 class="project-name">ProctorFlow</h3>
+            <p class="project-category">Examination administration</p>
+          </div>
+          <p class="project-desc">A student / examination management application focused on examination administration and related workflows.</p>
+          <a class="project-link" href="#">Project Details <span class="link-placeholder">[ADD PROJECT LINK]</span></a>
+        </article>
+
+        <article class="card project-card">
+          <div class="project-top">
+            <div class="project-icon" aria-hidden="true">🏫</div>
+            <span class="status-badge is-progress">In Development</span>
+          </div>
+          <div>
+            <h3 class="project-name">LMS Admin</h3>
+            <p class="project-category">Academic administration</p>
+          </div>
+          <p class="project-desc">An academic administration and operational management application.</p>
+          <a class="project-link" href="#">Project Details <span class="link-placeholder">[ADD PROJECT LINK]</span></a>
+        </article>
+
+        <article class="card project-card">
+          <div class="project-top">
+            <div class="project-icon" aria-hidden="true">🎼</div>
+            <span class="status-badge is-progress">In Development</span>
+          </div>
+          <div>
+            <h3 class="project-name">Ryan Music Studio</h3>
+            <p class="project-category">Music education</p>
+          </div>
+          <p class="project-desc">A music education application currently being developed.</p>
+          <a class="project-link" href="#">Project Details <span class="link-placeholder">[ADD PROJECT LINK]</span></a>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===== Teaching & courses ===== -->
+    <section class="page-section" aria-labelledby="teaching-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Teaching &amp; Courses</p>
+          <h2 class="section-title" id="teaching-title">Teaching &amp; Learning</h2>
+          <p class="section-lede">Teaching, academic content and digital learning come together through a focus on clarity, connection, exploration and digital extension.</p>
+        </div>
+        <a class="btn btn-ghost" href="teaching.html">Explore Teaching</a>
+      </div>
+      <div class="teach-grid">
+        <div class="card teach-card"><span class="teach-title">Undergraduate</span></div>
+        <div class="card teach-card"><span class="teach-title">Postgraduate</span></div>
+        <div class="card teach-card"><span class="teach-title">Research / PhD</span></div>
+        <div class="card teach-card"><span class="teach-title">Digital Learning</span></div>
+      </div>
+    </section>
+
+    <!-- ===== Academic Output ===== -->
+    <section class="page-section" aria-labelledby="academic-output-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Academic Output</p>
+          <h2 class="section-title" id="academic-output-title">Academic Output &amp; Knowledge Contributions</h2>
+          <p class="section-lede">Research, presentations, learning resources and other academic contributions will continue to be documented and verified over time.</p>
+        </div>
+        <a class="btn btn-ghost" href="publications.html">Explore Academic Output</a>
+      </div>
+      <div class="focus-grid">
+        <div class="card focus-card">
+          <div class="focus-icon" aria-hidden="true">📄</div>
+          <h3 class="focus-title">Research Publications</h3>
+          <p class="focus-desc">A growing archive, documented as publications are verified.</p>
+        </div>
+        <div class="card focus-card">
+          <div class="focus-icon" aria-hidden="true">🎤</div>
+          <h3 class="focus-title">Conference &amp; Presentations</h3>
+          <p class="focus-desc">Academic talks and knowledge-sharing sessions, added as verified.</p>
+        </div>
+        <div class="card focus-card">
+          <div class="focus-icon" aria-hidden="true">📘</div>
+          <h3 class="focus-title">Academic Resources</h3>
+          <p class="focus-desc">Learning resources and research materials, developed over time.</p>
+        </div>
+        <div class="card focus-card">
+          <div class="focus-icon" aria-hidden="true">🧑‍🏫</div>
+          <h3 class="focus-title">Workshops &amp; Training</h3>
+          <p class="focus-desc">Academic workshops and professional learning activities.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Resources ===== -->
+    <section class="page-section" aria-labelledby="resources-preview-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Resources</p>
+          <h2 class="section-title" id="resources-preview-title">Knowledge Should Be Accessible</h2>
+          <p class="section-lede">A growing hub for research resources, teaching materials, digital learning content and useful academic resources.</p>
+        </div>
+        <a class="btn btn-ghost" href="resources.html">Explore Resources</a>
+      </div>
+      <div class="focus-grid">
+        <div class="card focus-card">
+          <div class="focus-icon" aria-hidden="true">🔬</div>
+          <h3 class="focus-title">Research Methodology</h3>
+          <p class="focus-desc">Resources related to research design and educational research.</p>
+        </div>
+        <div class="card focus-card">
+          <div class="focus-icon" aria-hidden="true">✍️</div>
+          <h3 class="focus-title">Academic Writing</h3>
+          <p class="focus-desc">Resources supporting academic and research writing.</p>
+        </div>
+        <div class="card focus-card">
+          <div class="focus-icon" aria-hidden="true">🎓</div>
+          <h3 class="focus-title">Teaching &amp; Learning</h3>
+          <p class="focus-desc">Materials related to teaching and learning design.</p>
+        </div>
+        <div class="card focus-card">
+          <div class="focus-icon" aria-hidden="true">💻</div>
+          <h3 class="focus-title">Digital Learning</h3>
+          <p class="focus-desc">Digital learning materials and educational experiences.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Professional Experience ===== -->
+    <section class="page-section" aria-labelledby="experience-preview-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Professional Practice</p>
+          <h2 class="section-title" id="experience-preview-title">Professional Practice</h2>
+          <p class="section-lede">Bringing together education, research, examination operations and digital learning through practical professional experience.</p>
+        </div>
+        <a class="btn btn-ghost" href="experience.html">Explore Professional Experience</a>
+      </div>
+      <div class="focus-grid">
+        <div class="card focus-card">
+          <div class="focus-icon" aria-hidden="true">📝</div>
+          <h3 class="focus-title">Examination Operations</h3>
+          <p class="focus-desc">Online examination coordination, scheduling, enrollment and related workflows.</p>
+        </div>
+        <div class="card focus-card">
+          <div class="focus-icon" aria-hidden="true">🧭</div>
+          <h3 class="focus-title">Proctor Coordination</h3>
+          <p class="focus-desc">Proctor training, examination guidelines and operational support.</p>
+        </div>
+        <div class="card focus-card">
+          <div class="focus-icon" aria-hidden="true">🗂️</div>
+          <h3 class="focus-title">Student &amp; Course Administration</h3>
+          <p class="focus-desc">Student and course-related administrative workflows.</p>
+        </div>
+        <div class="card focus-card">
+          <div class="focus-icon" aria-hidden="true">💻</div>
+          <h3 class="focus-title">EdTech Development</h3>
+          <p class="focus-desc">Turning educational needs into practical digital applications.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Certifications ===== -->
+    <section class="page-section" aria-labelledby="cert-preview-title">
+      <p class="eyebrow">Professional Development</p>
+      <h2 class="section-title" id="cert-preview-title" style="margin-top:var(--sp-2); font-size:var(--fs-xl);">Professional Development</h2>
+      <div class="card journey-panel" style="margin-top:var(--sp-5);">
+        <div>
+          <div class="teach-title" style="font-size:var(--fs-md); color:var(--text);">Microsoft SC-900</div>
+          <p class="journey-copy">Security, Compliance, and Identity Fundamentals · Microsoft · <span class="status-badge is-published" style="margin-left:4px;">Verified</span></p>
+        </div>
+        <a class="btn btn-secondary journey-btn" href="certifications.html">View Certifications</a>
+      </div>
+    </section>
+
+    <!-- ===== YouTube & Learning ===== -->
+    <section class="page-section" aria-labelledby="youtube-title">
+      <p class="eyebrow">YouTube &amp; Learning</p>
+      <h2 class="section-title" id="youtube-title" style="margin-top:var(--sp-2);">Teaching &amp; Research on YouTube</h2>
+      <p class="section-lede">A channel focused on teaching and research — content created to make academic knowledge more accessible and practical, not general vlogging.</p>
+
+      <div class="split-panel" style="margin-top:var(--sp-5);">
+        <div class="chip-grid">
+          <div class="card chip-card"><span class="chip-icon" aria-hidden="true">🎥</span>Teaching Videos</div>
+          <div class="card chip-card"><span class="chip-icon" aria-hidden="true">🔬</span>Research Methodology</div>
+          <div class="card chip-card"><span class="chip-icon" aria-hidden="true">📖</span>Academic Tutorials</div>
+          <div class="card chip-card"><span class="chip-icon" aria-hidden="true">🧭</span>Research Guidance</div>
+        </div>
+        <div class="card yt-panel">
+          <div class="placeholder-icon" aria-hidden="true">▶️</div>
+          <p style="margin-top:var(--sp-3);">Teaching &amp; research videos on YouTube.</p>
+          <a class="btn btn-secondary" style="margin-top:var(--sp-4);" href="https://www.youtube.com/channel/UCAciCJotVFrAyKCNyshcMDw?view_as=subscriber" target="_blank" rel="noopener noreferrer">Visit YouTube Channel</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Photography preview ===== -->
+    <section class="page-section" aria-labelledby="photo-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Photography</p>
+          <h2 class="section-title" id="photo-title">Photography</h2>
+          <p class="section-lede">A creative space for photography and visual storytelling.</p>
+        </div>
+        <a class="btn btn-ghost" href="photography.html">Explore Photography</a>
+      </div>
+      <div class="photo-strip">
+        <div class="photo-tile" aria-hidden="true">🖼️</div>
+        <div class="photo-tile" aria-hidden="true">🖼️</div>
+        <div class="photo-tile" aria-hidden="true">🖼️</div>
+        <div class="photo-tile" aria-hidden="true">🖼️</div>
+      </div>
+    </section>
+
+    <!-- ===== Currently Building ===== -->
+    <section class="page-section" aria-labelledby="updates-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Currently Building</p>
+          <h2 class="section-title" id="updates-title" style="margin-top:var(--sp-2);">Currently Building</h2>
+        </div>
+        <a class="btn btn-ghost" href="projects.html">Explore Apps &amp; Projects</a>
+      </div>
+      <div class="timeline" style="margin-top:var(--sp-5);">
+        <div class="card timeline-item">
+          <span class="timeline-tag">In Development</span>
+          <div>
+            <div class="timeline-title">Ryan Music Studio</div>
+            <div class="timeline-desc">Digital learning project focused on music education.</div>
+          </div>
+        </div>
+        <div class="card timeline-item">
+          <span class="timeline-tag">In Development</span>
+          <div>
+            <div class="timeline-title">LMS Admin</div>
+            <div class="timeline-desc">Academic administration and operational management application.</div>
+          </div>
+        </div>
+        <div class="card timeline-item">
+          <span class="timeline-tag">In Development</span>
+          <div>
+            <div class="timeline-title">ProctorFlow</div>
+            <div class="timeline-desc">Student/examination management application focused on exam administration and related workflows.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Quick access ===== -->
+    <section class="page-section" aria-labelledby="quick-title">
+      <h2 class="section-title" id="quick-title">Quick access</h2>
+      <div class="quick-grid" style="margin-top:var(--sp-5);">
+        <a class="card quick-link" href="about.html">About Me</a>
+        <a class="card quick-link" href="academic-profile.html">Academic Profile</a>
+        <a class="card quick-link" href="teaching.html">Teaching</a>
+        <a class="card quick-link" href="research.html">Research</a>
+        <a class="card quick-link" href="projects.html">Apps &amp; Projects</a>
+        <a class="card quick-link" href="publications.html">Publications</a>
+        <a class="card quick-link" href="certifications.html">Certifications</a>
+        <a class="card quick-link" href="resources.html">Resources</a>
+        <a class="card quick-link" href="experience.html">Experience</a>
+        <a class="card quick-link" href="contact.html">Contact</a>
+      </div>
+    </section>
+
+    <!-- ===== Contact CTA ===== -->
+    <section class="page-section" aria-labelledby="cta-title">
+      <div class="cta-panel">
+        <h2 class="cta-title" id="cta-title">Let's connect</h2>
+        <p class="cta-copy">For academic collaboration, educational projects, research discussions, training and EdTech initiatives.</p>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="contact.html">Contact Me</a>
+          <a class="btn btn-secondary" href="academic-profile.html">View Academic Profile</a>
+        </div>
+        <p class="cta-email"><a href="mailto:kaangeyan@gmail.com">kaangeyan@gmail.com</a></p>
+      </div>
+    </section>
+
+    <!-- ===== Footer ===== -->
+    <footer class="page-section site-footer">
+      <div class="footer-brand">
+        <div class="brand-name">Dr. Justin Sudhakar</div>
+        <p class="brand-role">Educator • Researcher • EdTech Developer • Examination Specialist</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigate</div>
+        <nav class="footer-links">
+          <a href="about.html">About Me</a>
+          <a href="research.html">Research</a>
+          <a href="projects.html">Apps &amp; Projects</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+      <div>
+        <div class="footer-col-title">Elsewhere</div>
+        <nav class="footer-links">
+          <a href="https://www.youtube.com/channel/UCAciCJotVFrAyKCNyshcMDw?view_as=subscriber" target="_blank" rel="noopener noreferrer">YouTube</a>
+          <a href="https://www.linkedin.com/in/justinkaangeyan" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://github.com/kaangeyan" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="#">Google Play <span class="link-placeholder">[ADD GOOGLE PLAY URL]</span></a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Dr. Justin Sudhakar. All rights reserved.</span>
+      </div>
+    </footer>
+
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
