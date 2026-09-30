@@ -395,25 +395,178 @@
   }
 }
 
-/* ---------- Course library placeholders ---------- */
-.library-grid {
+/* ---------- Courses Handled: hero ---------- */
+.courses-handled-hero {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  aspect-ratio: 3 / 2;
+  max-width: 720px;
+}
+
+.courses-handled-hero img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Courses Handled: summary cards ---------- */
+.course-summary-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: var(--sp-4);
 }
 
-.library-slot {
-  padding: var(--sp-6);
-  text-align: center;
-  border-style: dashed;
-  color: var(--text-faint);
-  font-size: var(--fs-sm);
+.course-summary-card {
+  padding: var(--sp-5);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
 }
 
-.library-slot .library-icon {
-  font-size: 1.4rem;
-  margin-bottom: var(--sp-3);
+.course-summary-icon {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: var(--radius-sm);
+  background: var(--bg-elevated-2);
+  border: 1px solid var(--border-strong);
+  display: grid;
+  place-items: center;
+  font-size: 1.1rem;
+}
+
+.course-summary-title {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.course-summary-desc {
+  margin-top: 0.25rem;
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+/* ---------- Courses Handled: level groups ---------- */
+.course-group-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+}
+
+.course-group-title {
+  font-size: var(--fs-lg);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.course-group-count {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--text-faint);
+}
+
+.course-group-desc {
+  margin-top: var(--sp-2);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  max-width: 70ch;
+}
+
+/* ---------- Courses Handled: course cards ---------- */
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-4);
+}
+
+.course-card {
+  padding: var(--sp-4);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+}
+
+.course-card-image {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+}
+
+.course-card-image img {
   display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.course-card-body {
+  min-width: 0;
+}
+
+.course-card-title {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.course-level-badge {
+  display: inline-block;
+  margin-top: var(--sp-2);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  padding: 0.15rem 0.6rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid;
+}
+
+.course-level-badge.is-ug {
+  color: var(--indigo);
+  background: var(--indigo-soft);
+  border-color: rgba(107, 92, 231, 0.3);
+}
+
+.course-level-badge.is-pg {
+  color: var(--blue);
+  background: rgba(59, 130, 246, 0.12);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+.course-level-badge.is-phd {
+  color: var(--teal);
+  background: var(--teal-soft);
+  border-color: rgba(47, 216, 192, 0.3);
+}
+
+@media (max-width: 1080px) {
+  .course-summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .course-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 620px) {
+  .course-summary-grid {
+    grid-template-columns: 1fr;
+  }
+  .course-grid {
+    grid-template-columns: 1fr;
+  }
+  .courses-handled-hero {
+    max-width: 100%;
+  }
 }
 
 /* ---------- Teaching stats summary ---------- */

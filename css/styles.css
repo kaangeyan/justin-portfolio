@@ -1055,6 +1055,9 @@ section + section,
 }
 
 @media (max-width: 900px) {
+  .shell {
+    flex-direction: column;
+  }
   .sidebar {
     display: none;
   }
