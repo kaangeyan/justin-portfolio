@@ -464,6 +464,19 @@
   font-size: 1.3rem;
 }
 
+/* Real thumbnail inside the 16:9 frame */
+.video-thumb.has-image {
+  border-style: solid;
+  overflow: hidden;
+}
+
+.video-thumb.has-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .video-category {
   font-size: 0.68rem;
   font-weight: 600;
