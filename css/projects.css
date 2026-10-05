@@ -53,12 +53,13 @@
 
 .proj-section-divider h2 {
   font-size: var(--fs-xl);
-  white-space: nowrap;
+  min-width: 0;
 }
 
 .proj-section-divider::after {
   content: "";
   flex: 1;
+  min-width: var(--sp-6);
   height: 1px;
   background: var(--border);
 }
@@ -197,6 +198,140 @@
   gap: var(--sp-3);
 }
 
+/* ---------- Text-led showcases (no media yet) ---------- */
+.proj-showcase--content {
+  align-items: start;
+}
+
+.proj-showcase + .proj-showcase {
+  margin-top: var(--sp-5);
+}
+
+.proj-subtitle {
+  margin-top: var(--sp-1);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.proj-name--sm {
+  font-size: var(--fs-lg);
+}
+
+.proj-desc--tight {
+  margin-top: var(--sp-2);
+}
+
+/* Verified feature lists and tags */
+.proj-feature-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--sp-5);
+}
+
+/* Stacked showcase: intro on top, feature columns side by side below */
+.proj-showcase--stacked {
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--sp-6);
+}
+
+.proj-showcase--stacked .proj-feature-columns {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding-top: var(--sp-5);
+  border-top: 1px solid var(--border);
+}
+
+.proj-feature-title {
+  margin-top: var(--sp-5);
+  font-family: var(--font-body, inherit);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.proj-feature-group > .proj-feature-title:first-child,
+.proj-feature-columns .proj-feature-title {
+  margin-top: 0;
+}
+
+.proj-feature-list {
+  margin-top: var(--sp-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.proj-feature-list li {
+  position: relative;
+  padding-left: var(--sp-4);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+.proj-feature-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--teal);
+}
+
+.proj-feature-list strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.proj-tags {
+  margin-top: var(--sp-3);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.proj-tag {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--radius-pill);
+  background: var(--bg-elevated-2);
+  border: 1px solid var(--border);
+}
+
+/* Card grids for published apps and learning resources */
+.proj-app-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--sp-5);
+}
+
+.proj-pair-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--sp-5);
+}
+
+.proj-app-card {
+  padding: var(--sp-6);
+  display: flex;
+  flex-direction: column;
+  border-top: 2px solid var(--teal);
+}
+
+.proj-pair-grid .proj-app-card {
+  border-top-color: var(--indigo);
+}
+
+/* Keep each card's Google Play button aligned to the bottom */
+.proj-app-card .proj-links {
+  margin-top: auto;
+  padding-top: var(--sp-5);
+}
+
 /* ---------- In-development project cards (medium showcase) ---------- */
 .proj-dev-grid {
   display: grid;
@@ -214,6 +349,15 @@
   margin-bottom: var(--sp-4);
 }
 
+.proj-dev-card--compact {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  border-top-color: var(--purple);
+}
+
 .proj-dev-note {
   margin-top: var(--sp-3);
   font-size: var(--fs-xs);
@@ -227,7 +371,7 @@
 /* ---------- Explore by category ---------- */
 .category-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--sp-4);
 }
 
@@ -247,6 +391,29 @@
   color: var(--text-muted);
 }
 
+.cat-projects {
+  margin-top: var(--sp-3);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.cat-projects a {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--teal);
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(47, 216, 192, 0.3);
+  text-decoration: none;
+}
+
+.cat-projects a:hover,
+.cat-projects a:focus-visible {
+  background: var(--teal-soft);
+}
+
 .category-note {
   margin-top: var(--sp-4);
   font-size: var(--fs-xs);
@@ -258,15 +425,15 @@
 .idea-flow {
   display: flex;
   align-items: stretch;
-  gap: var(--sp-3);
-  overflow-x: auto;
+  gap: var(--sp-2);
   padding-bottom: var(--sp-2);
 }
 
+/* Steps share the row equally and may shrink, so all six fit their container */
 .idea-flow-step {
   flex: 1 1 0;
-  min-width: 140px;
-  padding: var(--sp-5) var(--sp-4);
+  min-width: 0;
+  padding: var(--sp-5) var(--sp-2);
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -282,6 +449,7 @@
   font-size: var(--fs-sm);
   font-weight: 600;
   color: var(--text);
+  overflow-wrap: break-word;
 }
 
 .idea-flow-arrow {
@@ -299,7 +467,8 @@
   max-width: 64ch;
 }
 
-@media (max-width: 900px) {
+/* Below this width six steps no longer fit side by side, so the flow goes vertical */
+@media (max-width: 1200px) {
   .idea-flow {
     flex-direction: column;
   }
@@ -423,6 +592,12 @@
 }
 
 /* ---------- Responsive: Apps & Projects page ---------- */
+@media (max-width: 1200px) {
+  .proj-app-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 @media (max-width: 1080px) {
   .category-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -439,7 +614,8 @@
   .proj-detail-grid {
     grid-template-columns: 1fr;
   }
-  .proj-dev-grid {
+  .proj-dev-grid,
+  .proj-pair-grid {
     grid-template-columns: 1fr;
   }
   .status-summary-grid {
@@ -454,5 +630,15 @@
   .category-grid,
   .proj-principle-grid {
     grid-template-columns: 1fr;
+  }
+  .proj-showcase--stacked .proj-feature-columns {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .proj-showcase,
+  .proj-app-card {
+    padding: var(--sp-5);
+  }
+  .proj-section-divider h2 {
+    font-size: var(--fs-lg);
   }
 }
