@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Photography | Dr. Justin Sudhakar</title>
+  <meta name="description" content="Explore birds, wildlife, butterflies, nature, landscapes, flowers, plants, and people through the photography of Dr. Justin Sudhakar." />
+  <meta property="og:title" content="Photography | Dr. Justin Sudhakar" />
+  <meta property="og:description" content="A visual collection of nature, wildlife, and everyday moments captured through photography." />
+  <meta property="og:type" content="profile" />
+  <meta property="og:image" content="[ADD OG IMAGE URL]" />
+  <link rel="icon" href="data:," />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .photo-hero {
+      padding: clamp(28px, 5vw, 60px);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius-lg, 24px);
+      background: linear-gradient(135deg, rgba(50,70,120,.35), rgba(20,150,150,.12));
+    }
+    .photo-hero h1 {
+      max-width: 850px;
+      margin: 12px 0;
+      font-family: "Fraunces", serif;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1.12;
+    }
+    .photo-hero p { max-width: 720px; color: var(--text-muted, #aab4c8); line-height: 1.8; }
+    .photo-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 24px 0;
+    }
+    .photo-filter {
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 999px;
+      padding: 10px 16px;
+      color: inherit;
+      background: rgba(255,255,255,.04);
+      font: inherit;
+      cursor: pointer;
+    }
+    .photo-filter[aria-pressed="true"] {
+      background: rgba(89,110,220,.25);
+      border-color: rgba(120,140,255,.6);
+    }
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+    .photo-card {
+      overflow: hidden;
+      padding: 0;
+      text-align: left;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.035);
+      cursor: pointer;
+      color: inherit;
+    }
+    .photo-card img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      transition: transform .35s ease;
+    }
+    .photo-card:hover img { transform: scale(1.035); }
+    .photo-card[hidden] { display: none !important; }
+    .photo-filter:focus-visible { outline: 2px solid rgba(140,160,255,.9); outline-offset: 3px; }
+    .photo-card-info { display: block; padding: 15px 16px 17px; }
+    .photo-card-title { display: block; font-weight: 600; overflow-wrap: anywhere; }
+    .photo-card-category { display: block; margin-top: 5px; color: var(--text-muted, #aab4c8); font-size: .86rem; }
+    .photo-lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      padding: 24px;
+      align-items: center;
+      justify-content: center;
+      background: rgba(3,7,18,.94);
+    }
+    .photo-lightbox.is-open { display: flex; }
+    .photo-lightbox img {
+      max-width: min(100%, 1200px);
+      max-height: 82vh;
+      max-height: 82dvh;
+      object-fit: contain;
+      border-radius: 12px;
+      touch-action: pan-y pinch-zoom;
+    }
+    .photo-lightbox-close,
+    .photo-lightbox-nav {
+      position: absolute;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 50%;
+      color: white;
+      background: rgba(255,255,255,.08);
+      font-size: 24px;
+      line-height: 1;
+      cursor: pointer;
+    }
+    .photo-lightbox-close { top: 18px; right: 22px; }
+    .photo-lightbox-nav { top: 50%; transform: translateY(-50%); font-size: 28px; }
+    .photo-lightbox-prev { left: 18px; }
+    .photo-lightbox-next { right: 18px; }
+    .photo-lightbox-close:hover,
+    .photo-lightbox-nav:hover { background: rgba(255,255,255,.18); }
+    .photo-lightbox-close:focus-visible,
+    .photo-lightbox-nav:focus-visible { outline: 2px solid rgba(140,160,255,.9); outline-offset: 3px; }
+    .photo-lightbox-nav[hidden] { display: none; }
+    .photo-lightbox-caption {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      right: 16px;
+      text-align: center;
+      color: white;
+    }
+    .photo-lightbox-counter { display: block; margin-top: 4px; color: rgba(255,255,255,.7); font-size: .86rem; }
+    @media (max-width: 900px) {
+      .photo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 560px) {
+      .photo-grid { grid-template-columns: 1fr; }
+      .photo-hero { padding: 26px 20px; }
+      .photo-filter { padding: 9px 14px; font-size: .92rem; }
+      .photo-lightbox { padding: 64px 12px 72px; }
+      .photo-lightbox-close { top: 12px; right: 12px; }
+      .photo-lightbox-nav { top: auto; bottom: 14px; transform: none; }
+      .photo-lightbox-prev { left: 12px; }
+      .photo-lightbox-next { right: 12px; }
+      .photo-lightbox-caption { left: 68px; right: 68px; bottom: 14px; font-size: .9rem; }
+    }
+    body.photo-lightbox-open { overflow: hidden; }
+  </style>
+</head>
+<body>
+<div class="bg-field" aria-hidden="true"></div>
+<div class="shell">
+  <!-- Desktop sidebar -->
+  <aside class="sidebar" aria-label="Primary">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true">JS</span>
+      <span class="brand-text">
+        <span class="brand-name">Dr. Justin Sudhakar</span>
+        <span class="brand-role">Educator &amp; EdTech Developer</span>
+      </span>
+    </a>
+    <nav>
+      <ul class="nav-list">
+        <li><a class="nav-link" href="index.html"><span class="nav-icon">🏠</span>Dashboard</a></li>
+        <li><a class="nav-link" href="about.html"><span class="nav-icon">👤</span>About Me</a></li>
+        <li><a class="nav-link" href="academic-profile.html"><span class="nav-icon">🎓</span>Academic Profile</a></li>
+        <li><a class="nav-link" href="teaching.html"><span class="nav-icon">📚</span>Teaching &amp; Courses</a></li>
+        <li><a class="nav-link" href="research.html"><span class="nav-icon">🔬</span>Research</a></li>
+        <li><a class="nav-link" href="projects.html"><span class="nav-icon">📱</span>Apps &amp; Projects</a></li>
+        <li><a class="nav-link" href="publications.html"><span class="nav-icon">📄</span>Publications</a></li>
+        <li><a class="nav-link" href="certifications.html"><span class="nav-icon">🏅</span>Certifications</a></li>
+        <li><a class="nav-link" href="resources.html"><span class="nav-icon">📚</span>Resources</a></li>
+        <li><a class="nav-link" href="experience.html"><span class="nav-icon">💼</span>Experience</a></li>
+        <li><a class="nav-link" href="youtube.html"><span class="nav-icon">▶️</span>YouTube &amp; Learning</a></li>
+        <li><a class="nav-link" href="photography.html" aria-current="page"><span class="nav-icon">📷</span>Photography</a></li>
+        <li><a class="nav-link" href="contact.html"><span class="nav-icon">✉️</span>Contact</a></li>
+      </ul>
+    </nav>
+    <div class="sidebar-footer">Academic &amp; EdTech Portfolio</div>
+  </aside>
+  <!-- Mobile top bar -->
+  <header class="topbar">
+    <a class="brand" href="index.html" style="padding:0;">
+      <span class="brand-mark" aria-hidden="true">JS</span>
+      <span class="brand-text"><span class="brand-name">Dr. Justin Sudhakar</span></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+      <span aria-hidden="true">☰</span>
+    </button>
+  </header>
+  <!-- Mobile navigation -->
+  <div class="mobile-nav" id="mobileNav">
+    <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+    <div class="mobile-nav-panel" role="dialog" aria-modal="true" aria-label="Site navigation">
+      <div class="mobile-nav-header">
+        <span class="brand-text"><span class="brand-name">Menu</span></span>
+        <button class="menu-toggle" id="menuClose" aria-label="Close menu"><span aria-hidden="true">✕</span></button>
+      </div>
+      <nav>
+        <ul class="nav-list">
+          <li><a class="nav-link" href="index.html"><span class="nav-icon">🏠</span>Dashboard</a></li>
+          <li><a class="nav-link" href="about.html"><span class="nav-icon">👤</span>About Me</a></li>
+          <li><a class="nav-link" href="academic-profile.html"><span class="nav-icon">🎓</span>Academic Profile</a></li>
+          <li><a class="nav-link" href="teaching.html"><span class="nav-icon">📚</span>Teaching &amp; Courses</a></li>
+          <li><a class="nav-link" href="research.html"><span class="nav-icon">🔬</span>Research</a></li>
+          <li><a class="nav-link" href="projects.html"><span class="nav-icon">📱</span>Apps &amp; Projects</a></li>
+          <li><a class="nav-link" href="publications.html"><span class="nav-icon">📄</span>Publications</a></li>
+          <li><a class="nav-link" href="certifications.html"><span class="nav-icon">🏅</span>Certifications</a></li>
+          <li><a class="nav-link" href="resources.html"><span class="nav-icon">📚</span>Resources</a></li>
+          <li><a class="nav-link" href="experience.html"><span class="nav-icon">💼</span>Experience</a></li>
+          <li><a class="nav-link" href="youtube.html"><span class="nav-icon">▶️</span>YouTube &amp; Learning</a></li>
+          <li><a class="nav-link" href="photography.html" aria-current="page"><span class="nav-icon">📷</span>Photography</a></li>
+          <li><a class="nav-link" href="contact.html"><span class="nav-icon">✉️</span>Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <main class="main" id="main">
+    <section class="page-section photo-hero" aria-labelledby="photo-hero-title">
+      <p class="eyebrow">Photography &amp; Visual Stories</p>
+      <h1 id="photo-hero-title">Nature, Life &amp; Moments Through My Lens.</h1>
+      <p>A personal collection of photographs capturing the beauty of the natural world, wildlife, and the details of everyday life. Each image offers a moment to pause, observe, and appreciate.</p>
+    </section>
+    <section class="page-section" aria-labelledby="gallery-title">
+      <h2 class="section-title" id="gallery-title">Photography Gallery</h2>
+      <p class="section-lede">A selection of photographs from my collection.</p>
+      <div class="photo-filters" role="group" aria-label="Filter photographs by category" aria-controls="photoGrid">
+        <button class="photo-filter" type="button" aria-pressed="true" data-filter="all">All</button>
+        <button class="photo-filter" type="button" aria-pressed="false" data-filter="birds">Birds &amp; Wildlife</button>
+        <button class="photo-filter" type="button" aria-pressed="false" data-filter="butterflies">Butterflies &amp; Insects</button>
+        <button class="photo-filter" type="button" aria-pressed="false" data-filter="nature">Nature &amp; Landscapes</button>
+        <button class="photo-filter" type="button" aria-pressed="false" data-filter="flowers">Flowers &amp; Plants</button>
+        <button class="photo-filter" type="button" aria-pressed="false" data-filter="people">People and culture</button>
+      </div>
+      <div class="photo-grid" id="photoGrid">
+        <button class="card photo-card" type="button" data-category="birds" data-image="Images/Photography-web/large/DSC_3498_result.jpg" data-caption="DSC_3498_result.jpg">
+          <img src="Images/Photography-web/thumbs/DSC_3498_result.jpg" alt="Photograph DSC 3498" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">DSC_3498_result</span><span class="photo-card-category">Birds &amp; Wildlife</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="birds" data-image="Images/Photography-web/large/DSC_2536_result.jpg" data-caption="DSC_2536_result.jpg">
+          <img src="Images/Photography-web/thumbs/DSC_2536_result.jpg" alt="Photograph DSC 2536" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">DSC_2536_result</span><span class="photo-card-category">Birds &amp; Wildlife</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="butterflies" data-image="Images/Photography-web/large/DSC_1547_result.jpg" data-caption="DSC_1547_result.jpg">
+          <img src="Images/Photography-web/thumbs/DSC_1547_result.jpg" alt="Photograph DSC 1547" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">DSC_1547_result</span><span class="photo-card-category">Butterflies &amp; Insects</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="flowers" data-image="Images/Photography-web/large/DSC_0484_result.jpg" data-caption="DSC_0484_result.jpg">
+          <img src="Images/Photography-web/thumbs/DSC_0484_result.jpg" alt="Photograph DSC 0484" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">DSC_0484_result</span><span class="photo-card-category">Flowers &amp; Plants</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="butterflies" data-image="Images/Photography-web/large/Common%20Pierrot_result.jpg" data-caption="Common Pierrot">
+          <img src="Images/Photography-web/thumbs/Common%20Pierrot_result.jpg" alt="Common Pierrot butterfly" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">Common Pierrot</span><span class="photo-card-category">Butterflies &amp; Insects</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="birds" data-image="Images/Photography-web/large/Birds%20%26%20Wildlife/African%20Hooded%20Vulture%2011_result.jpg" data-caption="African Hooded Vulture 11">
+          <img src="Images/Photography-web/thumbs/Birds%20%26%20Wildlife/African%20Hooded%20Vulture%2011_result.jpg" alt="African Hooded Vulture 11" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">African Hooded Vulture 11</span><span class="photo-card-category">Birds &amp; Wildlife</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="birds" data-image="Images/Photography-web/large/Birds%20%26%20Wildlife/African%20Jacana_result.jpg" data-caption="African Jacana">
+          <img src="Images/Photography-web/thumbs/Birds%20%26%20Wildlife/African%20Jacana_result.jpg" alt="African Jacana" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">African Jacana</span><span class="photo-card-category">Birds &amp; Wildlife</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="birds" data-image="Images/Photography-web/large/Birds%20%26%20Wildlife/Bee%20Eater_result.jpg" data-caption="Bee Eater">
+          <img src="Images/Photography-web/thumbs/Birds%20%26%20Wildlife/Bee%20Eater_result.jpg" alt="Bee Eater" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">Bee Eater</span><span class="photo-card-category">Birds &amp; Wildlife</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="birds" data-image="Images/Photography-web/large/Birds%20%26%20Wildlife/_DSC0247_result.jpg" data-caption="_DSC0247_result.jpg">
+          <img src="Images/Photography-web/thumbs/Birds%20%26%20Wildlife/_DSC0247_result.jpg" alt="Photograph DSC0247" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">_DSC0247_result</span><span class="photo-card-category">Birds &amp; Wildlife</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="birds" data-image="Images/Photography-web/large/Birds%20%26%20Wildlife/_DSC5293_result.jpg" data-caption="_DSC5293_result.jpg">
+          <img src="Images/Photography-web/thumbs/Birds%20%26%20Wildlife/_DSC5293_result.jpg" alt="Photograph DSC5293" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">_DSC5293_result</span><span class="photo-card-category">Birds &amp; Wildlife</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="birds" data-image="Images/Photography-web/large/Birds%20%26%20Wildlife/_DSC5926a_result.jpg" data-caption="_DSC5926a_result.jpg">
+          <img src="Images/Photography-web/thumbs/Birds%20%26%20Wildlife/_DSC5926a_result.jpg" alt="Photograph DSC5926a" width="800" height="560" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">_DSC5926a_result</span><span class="photo-card-category">Birds &amp; Wildlife</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="birds" data-image="Images/Photography-web/large/Birds%20%26%20Wildlife/_DSC6487_result.jpg" data-caption="_DSC6487_result.jpg">
+          <img src="Images/Photography-web/thumbs/Birds%20%26%20Wildlife/_DSC6487_result.jpg" alt="Photograph DSC6487" width="800" height="513" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">_DSC6487_result</span><span class="photo-card-category">Birds &amp; Wildlife</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="birds" data-image="Images/Photography-web/large/Birds%20%26%20Wildlife/_DSC6546_result.jpg" data-caption="_DSC6546_result.jpg">
+          <img src="Images/Photography-web/thumbs/Birds%20%26%20Wildlife/_DSC6546_result.jpg" alt="Photograph DSC6546" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">_DSC6546_result</span><span class="photo-card-category">Birds &amp; Wildlife</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="birds" data-image="Images/Photography-web/large/Birds%20%26%20Wildlife/DSC_0144_result.jpg" data-caption="DSC_0144_result.jpg">
+          <img src="Images/Photography-web/thumbs/Birds%20%26%20Wildlife/DSC_0144_result.jpg" alt="Photograph DSC 0144" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">DSC_0144_result</span><span class="photo-card-category">Birds &amp; Wildlife</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="birds" data-image="Images/Photography-web/large/Birds%20%26%20Wildlife/DSC_3163_result.jpg" data-caption="DSC_3163_result.jpg">
+          <img src="Images/Photography-web/thumbs/Birds%20%26%20Wildlife/DSC_3163_result.jpg" alt="Photograph DSC 3163" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">DSC_3163_result</span><span class="photo-card-category">Birds &amp; Wildlife</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="birds" data-image="Images/Photography-web/large/Birds%20%26%20Wildlife/Egyptian%20Goose_result.jpg" data-caption="Egyptian Goose">
+          <img src="Images/Photography-web/thumbs/Birds%20%26%20Wildlife/Egyptian%20Goose_result.jpg" alt="Egyptian Goose" width="800" height="497" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">Egyptian Goose</span><span class="photo-card-category">Birds &amp; Wildlife</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="birds" data-image="Images/Photography-web/large/Birds%20%26%20Wildlife/Indian%20Darter_1_result.jpg" data-caption="Indian Darter 1">
+          <img src="Images/Photography-web/thumbs/Birds%20%26%20Wildlife/Indian%20Darter_1_result.jpg" alt="Indian Darter 1" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">Indian Darter 1</span><span class="photo-card-category">Birds &amp; Wildlife</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="birds" data-image="Images/Photography-web/large/Birds%20%26%20Wildlife/Laughing%20Dove_result.jpg" data-caption="Laughing Dove">
+          <img src="Images/Photography-web/thumbs/Birds%20%26%20Wildlife/Laughing%20Dove_result.jpg" alt="Laughing Dove" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">Laughing Dove</span><span class="photo-card-category">Birds &amp; Wildlife</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="birds" data-image="Images/Photography-web/large/Birds%20%26%20Wildlife/Oriental%20Magpie%20Robin_result.jpg" data-caption="Oriental Magpie Robin">
+          <img src="Images/Photography-web/thumbs/Birds%20%26%20Wildlife/Oriental%20Magpie%20Robin_result.jpg" alt="Oriental Magpie Robin" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">Oriental Magpie Robin</span><span class="photo-card-category">Birds &amp; Wildlife</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="birds" data-image="Images/Photography-web/large/Birds%20%26%20Wildlife/Red-Billed%20Firefinch_result.jpg" data-caption="Red-Billed Firefinch">
+          <img src="Images/Photography-web/thumbs/Birds%20%26%20Wildlife/Red-Billed%20Firefinch_result.jpg" alt="Red-Billed Firefinch" width="800" height="571" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">Red-Billed Firefinch</span><span class="photo-card-category">Birds &amp; Wildlife</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="birds" data-image="Images/Photography-web/large/Birds%20%26%20Wildlife/Ruppell%27s%20Robin%20Chat_result.jpg" data-caption="Ruppell&#x27;s Robin Chat">
+          <img src="Images/Photography-web/thumbs/Birds%20%26%20Wildlife/Ruppell%27s%20Robin%20Chat_result.jpg" alt="Ruppell&#x27;s Robin Chat" width="800" height="549" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">Ruppell&#x27;s Robin Chat</span><span class="photo-card-category">Birds &amp; Wildlife</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="birds" data-image="Images/Photography-web/large/Birds%20%26%20Wildlife/Sacred%20Ibis%202_result.jpg" data-caption="Sacred Ibis 2">
+          <img src="Images/Photography-web/thumbs/Birds%20%26%20Wildlife/Sacred%20Ibis%202_result.jpg" alt="Sacred Ibis 2" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">Sacred Ibis 2</span><span class="photo-card-category">Birds &amp; Wildlife</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="birds" data-image="Images/Photography-web/large/Birds%20%26%20Wildlife/Sacred%20Ibis_result.jpg" data-caption="Sacred Ibis">
+          <img src="Images/Photography-web/thumbs/Birds%20%26%20Wildlife/Sacred%20Ibis_result.jpg" alt="Sacred Ibis" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">Sacred Ibis</span><span class="photo-card-category">Birds &amp; Wildlife</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="birds" data-image="Images/Photography-web/large/Birds%20%26%20Wildlife/Somali%20Bulbul_result.jpg" data-caption="Somali Bulbul">
+          <img src="Images/Photography-web/thumbs/Birds%20%26%20Wildlife/Somali%20Bulbul_result.jpg" alt="Somali Bulbul" width="800" height="547" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">Somali Bulbul</span><span class="photo-card-category">Birds &amp; Wildlife</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="birds" data-image="Images/Photography-web/large/Birds%20%26%20Wildlife/Spur%20Winged%20Lapwing_result.jpg" data-caption="Spur Winged Lapwing">
+          <img src="Images/Photography-web/thumbs/Birds%20%26%20Wildlife/Spur%20Winged%20Lapwing_result.jpg" alt="Spur Winged Lapwing" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">Spur Winged Lapwing</span><span class="photo-card-category">Birds &amp; Wildlife</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="birds" data-image="Images/Photography-web/large/Birds%20%26%20Wildlife/Streaky%20Seed-Eater_result.jpg" data-caption="Streaky Seed-Eater">
+          <img src="Images/Photography-web/thumbs/Birds%20%26%20Wildlife/Streaky%20Seed-Eater_result.jpg" alt="Streaky Seed-Eater" width="800" height="528" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">Streaky Seed-Eater</span><span class="photo-card-category">Birds &amp; Wildlife</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="birds" data-image="Images/Photography-web/large/Birds%20%26%20Wildlife/Vandalur%20Deer_result.jpg" data-caption="Vandalur Deer">
+          <img src="Images/Photography-web/thumbs/Birds%20%26%20Wildlife/Vandalur%20Deer_result.jpg" alt="Vandalur Deer" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">Vandalur Deer</span><span class="photo-card-category">Birds &amp; Wildlife</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="birds" data-image="Images/Photography-web/large/Birds%20%26%20Wildlife/Wattled%20Ibis_result.jpg" data-caption="Wattled Ibis">
+          <img src="Images/Photography-web/thumbs/Birds%20%26%20Wildlife/Wattled%20Ibis_result.jpg" alt="Wattled Ibis" width="800" height="470" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">Wattled Ibis</span><span class="photo-card-category">Birds &amp; Wildlife</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="birds" data-image="Images/Photography-web/large/Birds%20%26%20Wildlife/White%20Headed%20Buffalo%20Weaver_result.jpg" data-caption="White Headed Buffalo Weaver">
+          <img src="Images/Photography-web/thumbs/Birds%20%26%20Wildlife/White%20Headed%20Buffalo%20Weaver_result.jpg" alt="White Headed Buffalo Weaver" width="800" height="513" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">White Headed Buffalo Weaver</span><span class="photo-card-category">Birds &amp; Wildlife</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="butterflies" data-image="Images/Photography-web/large/Butterflies%20%26%20Insects/Colotis%20danae_result.jpg" data-caption="Colotis danae">
+          <img src="Images/Photography-web/thumbs/Butterflies%20%26%20Insects/Colotis%20danae_result.jpg" alt="Colotis danae" width="800" height="537" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">Colotis danae</span><span class="photo-card-category">Butterflies &amp; Insects</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="butterflies" data-image="Images/Photography-web/large/Butterflies%20%26%20Insects/Common%20Gul%20Pieridae_result.jpg" data-caption="Common Gul Pieridae">
+          <img src="Images/Photography-web/thumbs/Butterflies%20%26%20Insects/Common%20Gul%20Pieridae_result.jpg" alt="Common Gul Pieridae" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">Common Gul Pieridae</span><span class="photo-card-category">Butterflies &amp; Insects</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="butterflies" data-image="Images/Photography-web/large/Butterflies%20%26%20Insects/DSC4075_result.jpg" data-caption="DSC4075_result.jpg">
+          <img src="Images/Photography-web/thumbs/Butterflies%20%26%20Insects/DSC4075_result.jpg" alt="Photograph DSC4075" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">DSC4075_result</span><span class="photo-card-category">Butterflies &amp; Insects</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="butterflies" data-image="Images/Photography-web/large/Butterflies%20%26%20Insects/DSC_1649_result.jpg" data-caption="DSC_1649_result.jpg">
+          <img src="Images/Photography-web/thumbs/Butterflies%20%26%20Insects/DSC_1649_result.jpg" alt="Photograph DSC 1649" width="800" height="525" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">DSC_1649_result</span><span class="photo-card-category">Butterflies &amp; Insects</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="butterflies" data-image="Images/Photography-web/large/Butterflies%20%26%20Insects/DSC_1704_result.jpg" data-caption="DSC_1704_result.jpg">
+          <img src="Images/Photography-web/thumbs/Butterflies%20%26%20Insects/DSC_1704_result.jpg" alt="Photograph DSC 1704" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">DSC_1704_result</span><span class="photo-card-category">Butterflies &amp; Insects</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="butterflies" data-image="Images/Photography-web/large/Butterflies%20%26%20Insects/DSC_2532_result.jpg" data-caption="DSC_2532_result.jpg">
+          <img src="Images/Photography-web/thumbs/Butterflies%20%26%20Insects/DSC_2532_result.jpg" alt="Photograph DSC 2532" width="800" height="573" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">DSC_2532_result</span><span class="photo-card-category">Butterflies &amp; Insects</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="butterflies" data-image="Images/Photography-web/large/Butterflies%20%26%20Insects/DSC_3826_result.jpg" data-caption="DSC_3826_result.jpg">
+          <img src="Images/Photography-web/thumbs/Butterflies%20%26%20Insects/DSC_3826_result.jpg" alt="Photograph DSC 3826" width="800" height="581" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">DSC_3826_result</span><span class="photo-card-category">Butterflies &amp; Insects</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="butterflies" data-image="Images/Photography-web/large/Butterflies%20%26%20Insects/DSC_3945_result.jpg" data-caption="DSC_3945_result.jpg">
+          <img src="Images/Photography-web/thumbs/Butterflies%20%26%20Insects/DSC_3945_result.jpg" alt="Photograph DSC 3945" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">DSC_3945_result</span><span class="photo-card-category">Butterflies &amp; Insects</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="butterflies" data-image="Images/Photography-web/large/Butterflies%20%26%20Insects/Indian%20Lilly%20Moth%20Caterpillar_result.jpg" data-caption="Indian Lilly Moth Caterpillar">
+          <img src="Images/Photography-web/thumbs/Butterflies%20%26%20Insects/Indian%20Lilly%20Moth%20Caterpillar_result.jpg" alt="Indian Lilly Moth Caterpillar" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">Indian Lilly Moth Caterpillar</span><span class="photo-card-category">Butterflies &amp; Insects</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="butterflies" data-image="Images/Photography-web/large/Butterflies%20%26%20Insects/Monarch%20Butterfly_result.jpg" data-caption="Monarch Butterfly">
+          <img src="Images/Photography-web/thumbs/Butterflies%20%26%20Insects/Monarch%20Butterfly_result.jpg" alt="Monarch Butterfly" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">Monarch Butterfly</span><span class="photo-card-category">Butterflies &amp; Insects</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="butterflies" data-image="Images/Photography-web/large/Butterflies%20%26%20Insects/Tiger%20Beetle%201_result.jpg" data-caption="Tiger Beetle 1">
+          <img src="Images/Photography-web/thumbs/Butterflies%20%26%20Insects/Tiger%20Beetle%201_result.jpg" alt="Tiger Beetle 1" width="800" height="551" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">Tiger Beetle 1</span><span class="photo-card-category">Butterflies &amp; Insects</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="butterflies" data-image="Images/Photography-web/large/Butterflies%20%26%20Insects/Tiger%20Beetle%202_result.jpg" data-caption="Tiger Beetle 2">
+          <img src="Images/Photography-web/thumbs/Butterflies%20%26%20Insects/Tiger%20Beetle%202_result.jpg" alt="Tiger Beetle 2" width="800" height="547" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">Tiger Beetle 2</span><span class="photo-card-category">Butterflies &amp; Insects</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="nature" data-image="Images/Photography-web/large/Nature%20%26%20Landscapes/20170309_183108_result.jpg" data-caption="20170309_183108_result.jpg">
+          <img src="Images/Photography-web/thumbs/Nature%20%26%20Landscapes/20170309_183108_result.jpg" alt="Photograph 20170309 183108" width="800" height="600" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">20170309_183108_result</span><span class="photo-card-category">Nature &amp; Landscapes</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="nature" data-image="Images/Photography-web/large/Nature%20%26%20Landscapes/Blue%20Nile_result.jpg" data-caption="Blue Nile">
+          <img src="Images/Photography-web/thumbs/Nature%20%26%20Landscapes/Blue%20Nile_result.jpg" alt="Blue Nile" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">Blue Nile</span><span class="photo-card-category">Nature &amp; Landscapes</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="nature" data-image="Images/Photography-web/large/Nature%20%26%20Landscapes/Butterfly%20Park%20Chennai_result.jpg" data-caption="Butterfly Park Chennai">
+          <img src="Images/Photography-web/thumbs/Nature%20%26%20Landscapes/Butterfly%20Park%20Chennai_result.jpg" alt="Butterfly Park Chennai" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">Butterfly Park Chennai</span><span class="photo-card-category">Nature &amp; Landscapes</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="nature" data-image="Images/Photography-web/large/Nature%20%26%20Landscapes/_DSC0569_result.jpg" data-caption="_DSC0569_result.jpg">
+          <img src="Images/Photography-web/thumbs/Nature%20%26%20Landscapes/_DSC0569_result.jpg" alt="Photograph DSC0569" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">_DSC0569_result</span><span class="photo-card-category">Nature &amp; Landscapes</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="nature" data-image="Images/Photography-web/large/Nature%20%26%20Landscapes/_DSC0675_result.jpg" data-caption="_DSC0675_result.jpg">
+          <img src="Images/Photography-web/thumbs/Nature%20%26%20Landscapes/_DSC0675_result.jpg" alt="Photograph DSC0675" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">_DSC0675_result</span><span class="photo-card-category">Nature &amp; Landscapes</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="nature" data-image="Images/Photography-web/large/Nature%20%26%20Landscapes/_DSC0818_result.jpg" data-caption="_DSC0818_result.jpg">
+          <img src="Images/Photography-web/thumbs/Nature%20%26%20Landscapes/_DSC0818_result.jpg" alt="Photograph DSC0818" width="800" height="575" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">_DSC0818_result</span><span class="photo-card-category">Nature &amp; Landscapes</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="nature" data-image="Images/Photography-web/large/Nature%20%26%20Landscapes/_DSC4759_result.jpg" data-caption="_DSC4759_result.jpg">
+          <img src="Images/Photography-web/thumbs/Nature%20%26%20Landscapes/_DSC4759_result.jpg" alt="Photograph DSC4759" width="800" height="541" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">_DSC4759_result</span><span class="photo-card-category">Nature &amp; Landscapes</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="nature" data-image="Images/Photography-web/large/Nature%20%26%20Landscapes/_DSC4866_result.jpg" data-caption="_DSC4866_result.jpg">
+          <img src="Images/Photography-web/thumbs/Nature%20%26%20Landscapes/_DSC4866_result.jpg" alt="Photograph DSC4866" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">_DSC4866_result</span><span class="photo-card-category">Nature &amp; Landscapes</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="nature" data-image="Images/Photography-web/large/Nature%20%26%20Landscapes/_DSC5590_result.jpg" data-caption="_DSC5590_result.jpg">
+          <img src="Images/Photography-web/thumbs/Nature%20%26%20Landscapes/_DSC5590_result.jpg" alt="Photograph DSC5590" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">_DSC5590_result</span><span class="photo-card-category">Nature &amp; Landscapes</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="nature" data-image="Images/Photography-web/large/Nature%20%26%20Landscapes/_DSC5628_result.jpg" data-caption="_DSC5628_result.jpg">
+          <img src="Images/Photography-web/thumbs/Nature%20%26%20Landscapes/_DSC5628_result.jpg" alt="Photograph DSC5628" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">_DSC5628_result</span><span class="photo-card-category">Nature &amp; Landscapes</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="nature" data-image="Images/Photography-web/large/Nature%20%26%20Landscapes/_DSC5791_result.jpg" data-caption="_DSC5791_result.jpg">
+          <img src="Images/Photography-web/thumbs/Nature%20%26%20Landscapes/_DSC5791_result.jpg" alt="Photograph DSC5791" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">_DSC5791_result</span><span class="photo-card-category">Nature &amp; Landscapes</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="nature" data-image="Images/Photography-web/large/Nature%20%26%20Landscapes/_DSC5837_result.jpg" data-caption="_DSC5837_result.jpg">
+          <img src="Images/Photography-web/thumbs/Nature%20%26%20Landscapes/_DSC5837_result.jpg" alt="Photograph DSC5837" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">_DSC5837_result</span><span class="photo-card-category">Nature &amp; Landscapes</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="nature" data-image="Images/Photography-web/large/Nature%20%26%20Landscapes/_DSC5879_result.jpg" data-caption="_DSC5879_result.jpg">
+          <img src="Images/Photography-web/thumbs/Nature%20%26%20Landscapes/_DSC5879_result.jpg" alt="Photograph DSC5879" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">_DSC5879_result</span><span class="photo-card-category">Nature &amp; Landscapes</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="nature" data-image="Images/Photography-web/large/Nature%20%26%20Landscapes/DSC_1823_result.jpg" data-caption="DSC_1823_result.jpg">
+          <img src="Images/Photography-web/thumbs/Nature%20%26%20Landscapes/DSC_1823_result.jpg" alt="Photograph DSC 1823" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">DSC_1823_result</span><span class="photo-card-category">Nature &amp; Landscapes</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="nature" data-image="Images/Photography-web/large/Nature%20%26%20Landscapes/DSC_2258_result.jpg" data-caption="DSC_2258_result.jpg">
+          <img src="Images/Photography-web/thumbs/Nature%20%26%20Landscapes/DSC_2258_result.jpg" alt="Photograph DSC 2258" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">DSC_2258_result</span><span class="photo-card-category">Nature &amp; Landscapes</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="nature" data-image="Images/Photography-web/large/Nature%20%26%20Landscapes/DSC_3352_result.jpg" data-caption="DSC_3352_result.jpg">
+          <img src="Images/Photography-web/thumbs/Nature%20%26%20Landscapes/DSC_3352_result.jpg" alt="Photograph DSC 3352" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">DSC_3352_result</span><span class="photo-card-category">Nature &amp; Landscapes</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="nature" data-image="Images/Photography-web/large/Nature%20%26%20Landscapes/DSC_8809%5B1%5D_result.jpg" data-caption="DSC_8809[1]_result.jpg">
+          <img src="Images/Photography-web/thumbs/Nature%20%26%20Landscapes/DSC_8809%5B1%5D_result.jpg" alt="Photograph DSC 8809[1]" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">DSC_8809[1]_result</span><span class="photo-card-category">Nature &amp; Landscapes</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="nature" data-image="Images/Photography-web/large/Nature%20%26%20Landscapes/Full%20Moon_result.jpg" data-caption="Full Moon">
+          <img src="Images/Photography-web/thumbs/Nature%20%26%20Landscapes/Full%20Moon_result.jpg" alt="Full Moon" width="800" height="542" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">Full Moon</span><span class="photo-card-category">Nature &amp; Landscapes</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="nature" data-image="Images/Photography-web/large/Nature%20%26%20Landscapes/Half%20Moon_result.jpg" data-caption="Half Moon">
+          <img src="Images/Photography-web/thumbs/Nature%20%26%20Landscapes/Half%20Moon_result.jpg" alt="Half Moon" width="800" height="541" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">Half Moon</span><span class="photo-card-category">Nature &amp; Landscapes</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="nature" data-image="Images/Photography-web/large/Nature%20%26%20Landscapes/IMAG0323_result.jpg" data-caption="IMAG0323_result.jpg">
+          <img src="Images/Photography-web/thumbs/Nature%20%26%20Landscapes/IMAG0323_result.jpg" alt="Photograph IMAG0323" width="800" height="593" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">IMAG0323_result</span><span class="photo-card-category">Nature &amp; Landscapes</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="nature" data-image="Images/Photography-web/large/Nature%20%26%20Landscapes/Mahe%20Beach_result.jpg" data-caption="Mahe Beach">
+          <img src="Images/Photography-web/thumbs/Nature%20%26%20Landscapes/Mahe%20Beach_result.jpg" alt="Mahe Beach" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">Mahe Beach</span><span class="photo-card-category">Nature &amp; Landscapes</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="nature" data-image="Images/Photography-web/large/Nature%20%26%20Landscapes/Wood%20Sorrel_result.jpg" data-caption="Wood Sorrel">
+          <img src="Images/Photography-web/thumbs/Nature%20%26%20Landscapes/Wood%20Sorrel_result.jpg" alt="Wood Sorrel" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">Wood Sorrel</span><span class="photo-card-category">Nature &amp; Landscapes</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="flowers" data-image="Images/Photography-web/large/Flowers%20%26%20Plants/_DSC0013_result.jpg" data-caption="_DSC0013_result.jpg">
+          <img src="Images/Photography-web/thumbs/Flowers%20%26%20Plants/_DSC0013_result.jpg" alt="Photograph DSC0013" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">_DSC0013_result</span><span class="photo-card-category">Flowers &amp; Plants</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="flowers" data-image="Images/Photography-web/large/Flowers%20%26%20Plants/DSC_0485_result.jpg" data-caption="DSC_0485_result.jpg">
+          <img src="Images/Photography-web/thumbs/Flowers%20%26%20Plants/DSC_0485_result.jpg" alt="Photograph DSC 0485" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">DSC_0485_result</span><span class="photo-card-category">Flowers &amp; Plants</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="flowers" data-image="Images/Photography-web/large/Flowers%20%26%20Plants/DSC_0495_result.jpg" data-caption="DSC_0495_result.jpg">
+          <img src="Images/Photography-web/thumbs/Flowers%20%26%20Plants/DSC_0495_result.jpg" alt="Photograph DSC 0495" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">DSC_0495_result</span><span class="photo-card-category">Flowers &amp; Plants</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="flowers" data-image="Images/Photography-web/large/Flowers%20%26%20Plants/DSC_0507_result.jpg" data-caption="DSC_0507_result.jpg">
+          <img src="Images/Photography-web/thumbs/Flowers%20%26%20Plants/DSC_0507_result.jpg" alt="Photograph DSC 0507" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">DSC_0507_result</span><span class="photo-card-category">Flowers &amp; Plants</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="flowers" data-image="Images/Photography-web/large/Flowers%20%26%20Plants/DSC_0508_result.jpg" data-caption="DSC_0508_result.jpg">
+          <img src="Images/Photography-web/thumbs/Flowers%20%26%20Plants/DSC_0508_result.jpg" alt="Photograph DSC 0508" width="800" height="523" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">DSC_0508_result</span><span class="photo-card-category">Flowers &amp; Plants</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="people" data-image="Images/Photography-web/large/People%20and%20culture/DSC_1683_result.jpg" data-caption="DSC_1683_result.jpg">
+          <img src="Images/Photography-web/thumbs/People%20and%20culture/DSC_1683_result.jpg" alt="Photograph DSC 1683" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">DSC_1683_result</span><span class="photo-card-category">People and culture</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="people" data-image="Images/Photography-web/large/People%20and%20culture/DSC_1684_result.jpg" data-caption="DSC_1684_result.jpg">
+          <img src="Images/Photography-web/thumbs/People%20and%20culture/DSC_1684_result.jpg" alt="Photograph DSC 1684" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">DSC_1684_result</span><span class="photo-card-category">People and culture</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="people" data-image="Images/Photography-web/large/People%20and%20culture/DSC_1699_result.jpg" data-caption="DSC_1699_result.jpg">
+          <img src="Images/Photography-web/thumbs/People%20and%20culture/DSC_1699_result.jpg" alt="Photograph DSC 1699" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">DSC_1699_result</span><span class="photo-card-category">People and culture</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="people" data-image="Images/Photography-web/large/People%20and%20culture/DSC_1772_result.jpg" data-caption="DSC_1772_result.jpg">
+          <img src="Images/Photography-web/thumbs/People%20and%20culture/DSC_1772_result.jpg" alt="Photograph DSC 1772" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">DSC_1772_result</span><span class="photo-card-category">People and culture</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="people" data-image="Images/Photography-web/large/People%20and%20culture/DSC_1944_result.jpg" data-caption="DSC_1944_result.jpg">
+          <img src="Images/Photography-web/thumbs/People%20and%20culture/DSC_1944_result.jpg" alt="Photograph DSC 1944" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">DSC_1944_result</span><span class="photo-card-category">People and culture</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="people" data-image="Images/Photography-web/large/People%20and%20culture/DSC_1970_result.jpg" data-caption="DSC_1970_result.jpg">
+          <img src="Images/Photography-web/thumbs/People%20and%20culture/DSC_1970_result.jpg" alt="Photograph DSC 1970" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">DSC_1970_result</span><span class="photo-card-category">People and culture</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="people" data-image="Images/Photography-web/large/People%20and%20culture/DSC_2935_result.jpg" data-caption="DSC_2935_result.jpg">
+          <img src="Images/Photography-web/thumbs/People%20and%20culture/DSC_2935_result.jpg" alt="Photograph DSC 2935" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">DSC_2935_result</span><span class="photo-card-category">People and culture</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="people" data-image="Images/Photography-web/large/People%20and%20culture/DSC_3014_result.jpg" data-caption="DSC_3014_result.jpg">
+          <img src="Images/Photography-web/thumbs/People%20and%20culture/DSC_3014_result.jpg" alt="Photograph DSC 3014" width="800" height="532" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">DSC_3014_result</span><span class="photo-card-category">People and culture</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="people" data-image="Images/Photography-web/large/People%20and%20culture/DSC_3060_result.jpg" data-caption="DSC_3060_result.jpg">
+          <img src="Images/Photography-web/thumbs/People%20and%20culture/DSC_3060_result.jpg" alt="Photograph DSC 3060" width="800" height="597" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">DSC_3060_result</span><span class="photo-card-category">People and culture</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="people" data-image="Images/Photography-web/large/People%20and%20culture/DSC_3066_result.jpg" data-caption="DSC_3066_result.jpg">
+          <img src="Images/Photography-web/thumbs/People%20and%20culture/DSC_3066_result.jpg" alt="Photograph DSC 3066" width="800" height="534" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">DSC_3066_result</span><span class="photo-card-category">People and culture</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="people" data-image="Images/Photography-web/large/People%20and%20culture/DSC_3069_result.jpg" data-caption="DSC_3069_result.jpg">
+          <img src="Images/Photography-web/thumbs/People%20and%20culture/DSC_3069_result.jpg" alt="Photograph DSC 3069" width="616" height="800" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">DSC_3069_result</span><span class="photo-card-category">People and culture</span></span>
+        </button>
+        <button class="card photo-card" type="button" data-category="people" data-image="Images/Photography-web/large/People%20and%20culture/Tesh%20Cafe_result.jpg" data-caption="Tesh Cafe">
+          <img src="Images/Photography-web/thumbs/People%20and%20culture/Tesh%20Cafe_result.jpg" alt="Tesh Cafe" width="800" height="600" loading="lazy" decoding="async" />
+          <span class="photo-card-info"><span class="photo-card-title">Tesh Cafe</span><span class="photo-card-category">People and culture</span></span>
+        </button>
+      </div>
+      <p id="photoNoResults" class="section-lede" role="status" hidden>No photographs have been assigned to this category yet.</p>
+    </section>
+    <section class="page-section" aria-labelledby="photo-note-title">
+      <div class="cta-panel">
+        <h2 class="cta-title" id="photo-note-title">A Collection in Progress</h2>
+        <p class="cta-copy">Photography is a way of observing the world more closely. This gallery will grow with selected images from my collection.</p>
+        <div class="cta-actions">
+          <a class="btn btn-secondary" href="index.html">Back to Dashboard →</a>
+          <a class="btn btn-primary" href="contact.html">Get in Touch →</a>
+        </div>
+      </div>
+    </section>
+    <footer class="page-section site-footer">
+      <div class="footer-brand">
+        <div class="brand-name">Dr. Justin Sudhakar</div>
+        <p class="brand-role">Educator • Researcher • EdTech Developer • Examination Specialist</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigate</div>
+        <nav class="footer-links">
+          <a href="index.html">Dashboard</a>
+          <a href="academic-profile.html">Academic Profile</a>
+          <a href="research.html">Research</a>
+          <a href="projects.html">Apps &amp; Projects</a>
+          <a href="photography.html" aria-current="page">Photography</a>
+        </nav>
+      </div>
+      <div>
+        <div class="footer-col-title">Elsewhere</div>
+        <nav class="footer-links">
+          <a href="https://www.youtube.com/channel/UCAciCJotVFrAyKCNyshcMDw?view_as=subscriber" target="_blank" rel="noopener noreferrer">YouTube</a>
+          <a href="https://www.linkedin.com/in/justinkaangeyan" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://github.com/kaangeyan" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </nav>
+      </div>
+      <div class="footer-bottom"><span>© 2026 Dr. Justin Sudhakar. All rights reserved.</span></div>
+    </footer>
+  </main>
+</div>
+<div class="photo-lightbox" id="photoLightbox" role="dialog" aria-modal="true" aria-label="Expanded photograph" aria-hidden="true">
+  <button class="photo-lightbox-close" id="photoLightboxClose" type="button" aria-label="Close image"><span aria-hidden="true">×</span></button>
+  <button class="photo-lightbox-nav photo-lightbox-prev" id="photoLightboxPrev" type="button" aria-label="Previous photograph"><span aria-hidden="true">‹</span></button>
+  <img id="photoLightboxImage" alt="" />
+  <button class="photo-lightbox-nav photo-lightbox-next" id="photoLightboxNext" type="button" aria-label="Next photograph"><span aria-hidden="true">›</span></button>
+  <div class="photo-lightbox-caption" aria-live="polite">
+    <span id="photoLightboxCaption"></span>
+    <span class="photo-lightbox-counter" id="photoLightboxCounter"></span>
+  </div>
+</div>
+<script src="js/main.js"></script>
+<script>
+  (() => {
+    const lightbox = document.getElementById("photoLightbox");
+    const lightboxImage = document.getElementById("photoLightboxImage");
+    const caption = document.getElementById("photoLightboxCaption");
+    const counter = document.getElementById("photoLightboxCounter");
+    const closeButton = document.getElementById("photoLightboxClose");
+    const prevButton = document.getElementById("photoLightboxPrev");
+    const nextButton = document.getElementById("photoLightboxNext");
+    const filterButtons = document.querySelectorAll(".photo-filter");
+    const photoCards = Array.from(document.querySelectorAll(".photo-card"));
+    const noResults = document.getElementById("photoNoResults");
+    let activeCards = [];
+    let currentIndex = -1;
+    let returnFocusTo = null;
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const selectedFilter = button.dataset.filter;
+        let visibleCount = 0;
+        filterButtons.forEach((filterButton) => {
+          filterButton.setAttribute("aria-pressed", String(filterButton === button));
+        });
+        photoCards.forEach((card) => {
+          const matches = selectedFilter === "all" || card.dataset.category === selectedFilter;
+          card.hidden = !matches;
+          if (matches) visibleCount += 1;
+        });
+        noResults.hidden = visibleCount > 0;
+      });
+    });
+
+    function isOpen() {
+      return lightbox.classList.contains("is-open");
+    }
+
+    function showPhoto(index) {
+      const total = activeCards.length;
+      currentIndex = (index + total) % total;
+      const card = activeCards[currentIndex];
+      lightboxImage.src = card.dataset.image;
+      lightboxImage.alt = card.querySelector("img").alt;
+      caption.textContent = card.dataset.caption || "";
+      counter.textContent = total > 1 ? `${currentIndex + 1} of ${total}` : "";
+      prevButton.hidden = total < 2;
+      nextButton.hidden = total < 2;
+    }
+
+    function openLightbox(card) {
+      // Navigate only within the photographs visible under the current filter.
+      activeCards = photoCards.filter((photoCard) => !photoCard.hidden);
+      returnFocusTo = card;
+      showPhoto(activeCards.indexOf(card));
+      lightbox.classList.add("is-open");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.classList.add("photo-lightbox-open");
+      closeButton.focus();
+    }
+
+    function closeLightbox() {
+      if (!isOpen()) return;
+      lightbox.classList.remove("is-open");
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("photo-lightbox-open");
+      lightboxImage.removeAttribute("src");
+      currentIndex = -1;
+      if (returnFocusTo) returnFocusTo.focus();
+    }
+
+    photoCards.forEach((card) => {
+      card.addEventListener("click", () => openLightbox(card));
+    });
+    closeButton.addEventListener("click", closeLightbox);
+    prevButton.addEventListener("click", () => showPhoto(currentIndex - 1));
+    nextButton.addEventListener("click", () => showPhoto(currentIndex + 1));
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) closeLightbox();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (!isOpen()) return;
+      if (event.key === "Escape") {
+        closeLightbox();
+      } else if (event.key === "ArrowLeft" && activeCards.length > 1) {
+        event.preventDefault();
+        showPhoto(currentIndex - 1);
+      } else if (event.key === "ArrowRight" && activeCards.length > 1) {
+        event.preventDefault();
+        showPhoto(currentIndex + 1);
+      } else if (event.key === "Tab") {
+        // Keep keyboard focus inside the open lightbox.
+        const focusable = [closeButton, prevButton, nextButton].filter((el) => !el.hidden);
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        } else if (!focusable.includes(document.activeElement)) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
+    });
+
+    // Swipe left/right on touch screens.
+    let touchStartX = null;
+    let touchStartY = null;
+    lightbox.addEventListener("touchstart", (event) => {
+      if (event.touches.length !== 1) { touchStartX = null; return; }
+      touchStartX = event.touches[0].clientX;
+      touchStartY = event.touches[0].clientY;
+    }, { passive: true });
+    lightbox.addEventListener("touchend", (event) => {
+      if (touchStartX === null || activeCards.length < 2) return;
+      const dx = event.changedTouches[0].clientX - touchStartX;
+      const dy = event.changedTouches[0].clientY - touchStartY;
+      touchStartX = null;
+      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+        showPhoto(currentIndex + (dx < 0 ? 1 : -1));
+      }
+    });
+  })();
+</script>
+</body>
+</html>
