@@ -275,7 +275,7 @@
   }
 }
 
-/* ---------- Project connection cards (ProctorFlow / LMS Admin) ---------- */
+/* ---------- Project connection card (LMS Admin) ---------- */
 .exp-project-card {
   padding: var(--sp-6);
   display: grid;
