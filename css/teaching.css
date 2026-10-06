@@ -414,7 +414,10 @@
 /* ---------- Courses Handled: summary cards ---------- */
 .course-summary-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  /* Up to 4 columns, but never narrower than a summary card's content needs
+     (~187px: 42px icon + padding + text); drops to fewer columns instead of
+     overflowing. */
+  grid-template-columns: repeat(auto-fill, minmax(max(12.5rem, (100% - 3 * var(--sp-4)) / 4), 1fr));
   gap: var(--sp-4);
 }
 
@@ -482,7 +485,10 @@
 /* ---------- Courses Handled: course cards ---------- */
 .course-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  /* Up to 4 columns, but never narrower than a card's content needs (~230px:
+     64px image + padding + the unbreakable level badge); drops to 3 columns
+     when 4 won't fit instead of overflowing the page. */
+  grid-template-columns: repeat(auto-fill, minmax(max(15rem, (100% - 3 * var(--sp-4)) / 4), 1fr));
   gap: var(--sp-4);
 }
 
