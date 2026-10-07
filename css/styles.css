@@ -567,6 +567,38 @@ section + section,
   color: var(--text-muted);
 }
 
+/* Verified academic credentials, shown under the highlight metrics */
+.cred-strip {
+  margin-top: var(--sp-4);
+  padding: var(--sp-4) var(--sp-5);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--sp-4);
+}
+
+.cred-strip li {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+  min-width: 0;
+}
+
+.cred-strip strong {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.cred-strip span {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  overflow-wrap: anywhere;
+}
+
+.cred-strip a {
+  color: var(--teal);
+}
+
 /* ---------- What I do ---------- */
 .focus-grid {
   display: grid;
@@ -894,14 +926,19 @@ section + section,
 }
 
 .photo-tile {
-  aspect-ratio: 4 / 3;
+  display: block;
+  aspect-ratio: 3 / 2;
   border-radius: var(--radius-sm);
-  border: 1px dashed var(--border-strong);
+  border: 1px solid var(--border);
   background: var(--bg-card);
-  display: grid;
-  place-items: center;
-  color: var(--text-faint);
-  font-size: 1.3rem;
+  overflow: hidden;
+}
+
+.photo-tile img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* ---------- Timeline ---------- */
@@ -1052,6 +1089,7 @@ section + section,
 /* ---------- Responsive ---------- */
 @media (max-width: 1080px) {
   .metric-grid,
+  .cred-strip,
   .focus-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1112,6 +1150,7 @@ section + section,
 
 @media (max-width: 620px) {
   .metric-grid,
+  .cred-strip,
   .focus-grid,
   .project-grid,
   .chip-grid {
