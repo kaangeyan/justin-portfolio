@@ -123,8 +123,8 @@
 .proj-logo {
   display: block;
   flex-shrink: 0;
-  width: 56px;
-  height: 56px;
+  width: 80px;
+  height: 80px;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border-strong);
   background: var(--bg-elevated-2);
@@ -350,6 +350,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--sp-5);
+  align-items: start;
 }
 
 .proj-dev-card {
@@ -652,8 +653,8 @@
     padding: var(--sp-5);
   }
   .proj-logo {
-    width: 48px;
-    height: 48px;
+    width: 64px;
+    height: 64px;
   }
   .proj-section-divider h2 {
     font-size: var(--fs-lg);
