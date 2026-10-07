@@ -518,6 +518,63 @@
   flex: 1;
 }
 
+/* ---------- Workshop photo highlight ---------- */
+.workshop-highlight {
+  padding: var(--sp-6);
+}
+
+.workshop-meta {
+  margin-bottom: var(--sp-5);
+}
+
+.workshop-title {
+  font-size: var(--fs-lg);
+  color: var(--text);
+}
+
+.workshop-place {
+  margin-top: var(--sp-1);
+  color: var(--text-muted);
+}
+
+.workshop-date {
+  margin-top: var(--sp-1);
+  font-size: var(--fs-sm);
+  color: var(--teal);
+}
+
+.workshop-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--sp-4);
+}
+
+.workshop-photo {
+  margin: 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated-2);
+  aspect-ratio: 16 / 10;
+}
+
+/* Featured photo spans the row and keeps its full frame so the slide stays readable */
+.workshop-photo.is-featured {
+  grid-column: 1 / -1;
+  aspect-ratio: auto;
+}
+
+.workshop-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.workshop-photo.is-featured img {
+  height: auto;
+}
+
 /* ---------- Responsive: Certifications page ---------- */
 @media (max-width: 1080px) {
   .learning-area-grid,
@@ -559,7 +616,11 @@
   .dev-card-grid,
   .practice-grid,
   .link-card-grid,
-  .related-grid {
+  .related-grid,
+  .workshop-gallery {
     grid-template-columns: 1fr;
+  }
+  .workshop-highlight {
+    padding: var(--sp-5);
   }
 }

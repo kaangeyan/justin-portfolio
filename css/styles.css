@@ -639,14 +639,26 @@ section + section,
 }
 
 .project-icon {
-  width: 46px;
-  height: 46px;
+  width: 64px;
+  height: 64px;
   border-radius: var(--radius-sm);
   background: var(--bg-elevated-2);
   border: 1px solid var(--border-strong);
   display: grid;
   place-items: center;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+
+/* Verified app logo, in the same tile as .project-icon */
+.project-logo {
+  display: block;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-elevated-2);
+  border: 1px solid var(--border-strong);
+  object-fit: contain;
   flex-shrink: 0;
 }
 
