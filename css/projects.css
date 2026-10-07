@@ -119,6 +119,19 @@
   margin-bottom: var(--sp-3);
 }
 
+/* Verified app icon shown above a project's badges/title */
+.proj-logo {
+  display: block;
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-strong);
+  background: var(--bg-elevated-2);
+  object-fit: contain;
+  margin-bottom: var(--sp-3);
+}
+
 .proj-secondary-badge {
   font-size: 0.7rem;
   font-weight: 600;
@@ -637,6 +650,10 @@
   .proj-showcase,
   .proj-app-card {
     padding: var(--sp-5);
+  }
+  .proj-logo {
+    width: 48px;
+    height: 48px;
   }
   .proj-section-divider h2 {
     font-size: var(--fs-lg);
