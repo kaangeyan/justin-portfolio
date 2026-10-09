@@ -344,6 +344,19 @@
   font-size: 1rem;
 }
 
+/* Verified app logo, in the same tile style as the home page logos */
+.digital-link-logo {
+  display: block;
+  align-self: flex-start;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-elevated-2);
+  border: 1px solid var(--border-strong);
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
 .digital-link-name {
   font-size: var(--fs-sm);
   font-weight: 600;
